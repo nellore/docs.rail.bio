@@ -10,7 +10,7 @@ These are gzip-compressed cross-sample outputs. They appear in the `cross_sample
   * `[insertion|deletion]s.tsv.gz`: a labeled matrix whose (i, j)th element is the number of reads in sample j covering [insertion|deletion] i. [Insertion|deletion]s are in the first column. An insertion takes the form `<chromosome>;<inserted base sequence>;<1-based position of the last base before the insertion>;<1-based position of the last base before the insertion>`. A deletion takes the form `<chromosome>;<deleted base sequence>;<1-based position of the first deleted base>;<1-based position of the first base after the deletion>`.
   * `normalization.tsv.gz`: each row takes the form `<sample name>`(tab)<`--normalize-percentile` normalization factor for coverage vector composed of primary alignments>(tab)<`--normalize-percentile` normalization factor for coverage vector composed of unique alignments>. The default percentile is `0.75`, corresponding to [upper-quartile normalization](http://www.biomedcentral.com/1471-2105/11/94).
 
-### `idx`: the isofrag index
+### `idx`: isofrag index
 
 This refers to the file `isofrags.tar.gz` that appears in the `cross_sample_results` subdirectory of the output directory. In general, it should be left gzipped; it can be used to align a new sample to the transcript fragments obtained from an old Rail-RNA run. Say you've aligned 500 samples from the same tissue type with Rail, and you think the list of introns you found is pretty comprehensive. Now say you just obtained another 10 samples from the same tissue type, and you want to align them. You can skip looking for novel junctions in those 10 samples by passing Rail-RNA's `go` or `align` job flow the path to this file as an argument of the `--isofrag-idx` command-line parameter.
 

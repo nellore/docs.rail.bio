@@ -22,7 +22,7 @@ usage: rail-rna <job flow> <mode> <[args]>
                      elastic: run Rail-RNA on Amazon Elastic MapReduce.
                        Requires that the user sign up for Amazon Web Services
 
-∀ Rail-RNA v0.1.8b by Abhi Nellore (anellore@jhu.edu; nellore.github.io)
+∀ Rail-RNA v0.1.8c by Abhi Nellore (anellore@jhu.edu; nellore.github.io)
 
 Rail-RNA is a scalable MapReduce pipeline that can analyze many RNA-seq
 datasets at once. To view help for a given combination of <job flow> and
