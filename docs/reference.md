@@ -65,7 +65,7 @@ Note that `index/genome.4.ebwt` is missing above. It's exactly the same as the B
 ```
 .
 
-### General args
+### General options
 
 These are parameters that apply generally to Rail-RNA job flows.
 
@@ -199,7 +199,7 @@ By default, Rail-RNA gzips preprocessed input data, which is *not* considered in
 
 Sometimes, a worker attempting a task will fail for miscellaneous reasons. For example, the node on which the worker is operating may transiently run out of space. Hadoop clusters are resilient to failures like this because they automatically reattempt tasks. Rail-RNA can reattempt tasks in `local` and `parallel` modes, too, when it's not using Hadoop. `--max-task-attempts` applies in all modes: a task is reattempted up to `<int>` times by different workers in the cluster, if possible, before failing a job flow. On Elastic MapReduce, which uses Hadoop, `<int>` specifies the config parameters `mapreduce.map.maxattempts` and `mapreduce.reduce.maxattempts`.
 
-### Algorithm args
+### Algorithm options
 
 These are parameters that tweak Rail-RNA's algorithms.
 
@@ -292,7 +292,7 @@ Default: none; i.e., 1
 
 When Rail-RNA analyzes more than one RNA-seq sample, it accumulates a master list of introns across samples. This master list is used to construct transcript fragments to which reads are realigned. However, when hundreds of samples are analyzed, the master list typically blows up: true positive intron calls tend to be shared by many samples, while false positive intron calls tend to be unique to small numbers of samples. As the number of samples analyzed increases, so does the master list of introns, and false positive calls make up a larger and larger fraction of the master list. False positive calls may be due to low-quality reads or repetitive/small exonic segments on either side of an intron that make it difficult to resolve the intron's proper start and end positions in the genome.
 
-The `--intron-criteria` parameter `<dec,int>` filters out introns that are not either present in at least a fraction `<dec>` of samples or detected in at least `<int>` reads of one sample. This way, only introns that are detected from a small number of reads in any one from a small number of samples are eliminated, and the quality of realigned reads is improved without significantly compromising sensitivity. (See [our paper](http://biorxiv.org/content/early/2015/05/07/019067) for an elaboration of this phenomenon.) For example, specifying `--intron-criteria 0.02,7` or `--intron-criteria 0.02 7` filters out introns that are found in fewer that 2% of samples and are detected in fewer in 7 reads in any one sample before realignment.
+The `--intron-criteria` parameter `<dec,int>` filters out introns that are not either present in at least a fraction `<dec>` of samples or detected in at least `<int>` reads of one sample. This way, only introns that are detected from a small number of reads in any one sample or from a small number of samples are eliminated, and the quality of realigned reads is improved without significantly compromising sensitivity. (See [our paper](http://biorxiv.org/content/early/2015/05/07/019067) for an elaboration of this phenomenon.) For example, specifying `--intron-criteria 0.02,7` or `--intron-criteria 0.02 7` filters out introns that are found in fewer that 2% of samples and are detected in fewer in 7 reads in any one sample before realignment.
 
 Default: 0.05,5
 
@@ -328,7 +328,43 @@ As described in [Deliverables](deliverables.md#bw-coverage-vectors), in the `cro
 
 Default: 40
 
-### Elastic MapReduce args
+### Output options
+
+#### `-o/--output <dir>`
+
+Rail-RNA will write its output to the directory `<dir>`. In `local` mode, `<dir>` can be on either the local filesystem or on S3. In `parallel` mode, `<dir>` can be on S3 or at some path accessible to all nodes in your IPython cluster. In `elastic` mode, `<dir>` must be on S3.
+
+Default: `./rail-rna_out` in `local` and `parallel` modes; a required parameter in `elastic` mode
+
+#### `-d/--deliverables <choice,...>`
+
+This command-line option permits suppressing some outputs of the full Rail-RNA pipeline. Check out [Deliverables](deliverables.md) to learn more.
+
+#### `--drop-deletions`
+
+By default, Rail-RNA counts bases deleted from the reference in a read alignment as covered by the read when computing the coverage vectors stored in bigWigs. Turning this option adjusts Rail-RNA's behavior so such deleted bases do not contribute to the coverage vectors.
+
+Boolean parameter; has no argument.
+
+#### `--do-not-output-bam-by-chr`
+
+By default, Rail-RNA outputs alignment BAMs by chromosome/sample to increase parallelism in a terminal output step. You can output BAMs by sample alone with this option.
+
+Boolean parameter; has no argument.
+
+#### `--do-not-output-ave-bw-by-chr`
+
+Obtaining a bigWig storing average (mean or median) coverage across many samples can involve much more computation than obtaining a bigWig storing coverage for a single sample. Moreover, an average coverage bigWigs can take up considerably more space than a single-sample bigWig. To mitigate the resulting load balance issues, Rail-RNA outputs average coverage bigWigs chromosome by chromosome, by default. You can output each average coverage bigWig for the entire genome instead with this option.
+
+Boolean parameter; has no argument.
+
+#### `--indel-criteria <dec,int>`
+
+Accumulating indels across hundreds of samples bloats the `insertions.tsv.gz` and `deletions.tsv.gz` files with many false positives for which there is little evidence. The `--indel-criteria` parameter `<dec,int>` does not write indels to these cross-sample output files unless they are either present in at least a fraction `<dec>` of samples or detected in at least `<int>` reads of one sample. `--indel-criteria`'s usage is similar to that of `--intron-criteria`.
+
+Default: `0.05,5`
+
+### Elastic MapReduce options
 
 These are arguments that pertain to working with Amazon Web Services in Rail-RNA's `elastic` mode.
 
