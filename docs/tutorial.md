@@ -44,7 +44,7 @@ Rail-RNA has three modes---
 
 1. `prep`, which if necessary downloads input FASTQ/FASTA files from a remote server and casts it in a form amenable for further analysis. This job flow must always be run before the `align` job flow.
 
-2. `align`, which aligns preprocessed data and writes outputs described in the Deliverables section below. Use the `--deliverables` option described in the Reference section below to control which of Rail-RNA's terminal outputs should be written.
+2. `align`, which aligns preprocessed data and writes outputs explained in [Deliverables](deliverables.md). Use the `--deliverables` option described there to control which of Rail-RNA's terminal outputs should be written.
 
 3. `go`, which runs the `prep` and `align` job flows in succession.
 
@@ -99,7 +99,7 @@ You'll find four directories:
 alignments    cross_sample_results
 coverage_bigwigs  introns_and_indels
 ```
-See the Outputs section below for information on how to interpret what's in these directories.
+See [Deliverables](deliverables.md) for information on how to interpret what's in these directories.
 
 Commonly used options in `local` mode are
 * `-p/--num-processes`, which controls the number of processes Rail-RNA runs simultaneously. By default, Rail uses as many processing cores as your computer has less one so it doesn't monopolize resources. You may want to run on all cylinders by setting this equal to the number of available processing cores.
@@ -311,7 +311,8 @@ aws s3 cp s3://this-is-the-bucket-name-you-make-up/human_example/ ./ --recursive
 To divide the human example up into preprocess and align job flows, try the following commands.
 ```
 rail-rna prep elastic -m https://raw.githubusercontent.com/nellore/rail/master/ex/hg19_example.manifest -o s3://this-is-the-bucket-name-you-make-up/human_example --core-instance-type c3.2xlarge --master-instance-type c3.2xlarge -c 1
+
 rail-rna align elastic -m https://raw.githubusercontent.com/nellore/rail/master/ex/hg19_example.manifest -a hg19 -o s3://this-is-the-bucket-name-you-make-up/human_example --core-instance-type c3.2xlarge --master-instance-type c3.2xlarge -c 1
 ```
 
-You should now know enough figure out how to use Rail-RNA to align your RNA-seq data! Refer to the Outputs and Reference sections below for further details on, respectively, changing output formats and command-line parameters.
+You should now know enough figure out how to use Rail-RNA to align your RNA-seq data! Refer to the [Deliverables](deliverables.md) and [Reference](reference.md) for further details on, respectively, changing output formats and command-line parameters.

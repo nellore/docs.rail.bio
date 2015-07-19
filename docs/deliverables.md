@@ -5,9 +5,21 @@ There are several classes of outputs. Each is described in a different section b
 ### `tsv`: cross-sample matrices
 
 These are gzip-compressed cross-sample outputs. They appear in the `cross_sample_results` subdirectory of the output directory.
+
   * `counts.tsv.gz`: A labeled matrix whose (i, j)th element takes the form "x<sub>ij</sub>,y<sub>ij</sub>", where x<sub>ij</sub> is the number of primary alignments in sample i to group j, and y<sub>ij</sub> is the number of uniquely aligning reads in group j. Here, a group is a chromosome, the set of unmapped reads U, the set of mapped reads M, or the set of all reads A; and "uniquely aligning read" means that there is exactly one alignment of the read with the highest alignment score. For group U, x<sub>ij</sub> = y<sub>ij</sub>. For group M, x<sub>ij</sub> is the sum of all the x<sub>ij</sub>s in the chromosome columns. For group A, x<sub>ij</sub> is the total number of reads, while y<sub>ij</sub> is the sum of the y<sub>ij</sub>s in groups U and M.
-  * `junctions.tsv.gz`: a labeled matrix whose (i, j)th element is the number of reads in sample j covering intron i. Introns are in the first column. Each one takes the form `<chromosome>;<strand (+/-)>;<1-based start position (inclusive)>;<1-based end position (exclusive)>`. Sample names are in the first row.
-  * `[insertion|deletion]s.tsv.gz`: a labeled matrix whose (i, j)th element is the number of reads in sample j covering [insertion|deletion] i. [Insertion|deletion]s are in the first column. An insertion takes the form `<chromosome>;<inserted base sequence>;<1-based position of the last base before the insertion>;<1-based position of the last base before the insertion>`. A deletion takes the form `<chromosome>;<deleted base sequence>;<1-based position of the first deleted base>;<1-based position of the first base after the deletion>`.
+  * `junctions.tsv.gz`: a labeled matrix whose (i, j)th element is the number of reads in sample j covering intron i. Introns are in the first column. Each one takes the form
+
+        <chromosome>;<strand (+/-)>;<1-based start position (inclusive)>;<1-based end position (exclusive)>.
+
+    Sample names are in the first row.
+  * `[insertion|deletion]s.tsv.gz`: a labeled matrix whose (i, j)th element is the number of reads in sample j covering [insertion|deletion] i. [Insertion|deletion]s are in the first column. An insertion takes the form
+
+        <chromosome>;<inserted base sequence>;<1-based position of the last base before the insertion>;<1-based position of the last base before the insertion>
+
+    A deletion takes the form
+  
+        <chromosome>;<deleted base sequence>;<1-based position of the first deleted base>;<1-based position of the first base after the deletion>
+
   * `normalization.tsv.gz`: each row takes the form `<sample name>`(tab)<`--normalize-percentile` normalization factor for coverage vector composed of primary alignments>(tab)<`--normalize-percentile` normalization factor for coverage vector composed of unique alignments>. The default percentile is `0.75`, corresponding to [upper-quartile normalization](http://www.biomedcentral.com/1471-2105/11/94).
 
 ### `idx`: isofrag index
