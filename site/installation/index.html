@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Installation - Rail-RNA v0.1</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">Rail-RNA v0.1</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="..">Home</a>
+                </li>
+            
+            
+            
+                <li class="active">
+                    <a href="./">Installation</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../tutorial/">Tutorial</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../deliverables/">Deliverables</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../reference/">Reference</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="..">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../tutorial/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#installing-rail-rna">Installing Rail-RNA</a></li>
+        
+            <li><a href="#options">Options</a></li>
+        
+    
+        <li class="main "><a href="#setting-up-amazon-elastic-mapreduce">Setting up Amazon Elastic MapReduce</a></li>
+        
+            <li><a href="#a-note-on-security">A note on security</a></li>
+        
+            <li><a href="#configuring-the-aws-cli">Configuring the AWS CLI</a></li>
+        
+            <li><a href="#creating-default-roles">Creating default roles</a></li>
+        
+    
+        <li class="main "><a href="#how-the-installer-works">How the installer works</a></li>
+        
+    
+        <li class="main "><a href="#rolling-your-own-installer">Rolling your own installer</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="installing-rail-rna">Installing Rail-RNA</h2>
+<p>Make sure you have a recent (&gt;= 2009) Mac OS or Linux box with at least 8 GB of RAM, and download the latest version of Rail-RNA <a href="https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.1.8c">here</a>. If for some reason you need an older version V, you can visit https://github.com/nellore/rail/tree/master/releases, click on the file <code>install-rail-rna-V</code>, and click the <code>Raw</code> button to download it.</p>
+<p>The file you download will be in the format <code>install-rail-rna-V</code>, where V is the version you downloaded. In a Unix shell (which you open by running the <code>Terminal</code> app), navigate to the directory in which you downloaded the installer. This typically means entering <code>cd ~/Downloads</code>. Now enter <code>chmod +x install-rail-rna-V</code> to make the installer executable.</p>
+<h3 id="options">Options</h3>
+<p>Installation options may now be viewed by entering <code>./install-rail-rna-V</code>. They include</p>
+<ul>
+<li>
+<p><code>-i/--install-dir &lt;dir&gt;</code>: This is the directory in which Rail-RNA should be installed. The default is "/usr/local/raildotbio" if you install for all users, and "~/raildotbio" if you install for just the current user.</p>
+</li>
+<li>
+<p><code>-n/--no-dependencies</code>: This installs Rail-RNA without any of its dependencies. Rail-RNA wraps <a href="http://bowtie-bio.sourceforge.net/">Bowtie 1</a>, <a href="http://bowtie-bio.sourceforge.net/bowtie2/">Bowtie 2</a>, <a href="https://samtools.github.io/">SAMTools</a>, <a href="http://hgdownload.cse.ucsc.edu/admin/exe/">bedGraphToBigWig</a>, the <a href="http://aws.amazon.com/cli/">AWS CLI</a> (in <code>elastic</code> mode, to use Rail-RNA on Amazon Elastic MapReduce), and <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython Parallel</a> (in <code>parallel</code> mode, for using Rail-RNA on more than one machine in various distributed computing environments). You can avoid installing them, and Rail-RNA will then look for the appropriate dependencies, but this is not recommended.</p>
+</li>
+<li>
+<p><code>-p/--prep-dependencies</code>: This installs Rail-RNA with only dependencies required for its preprocess job flow. The option isn't that useful: Rail-RNA invokes it in a bootstrap script in <code>elastic</code> mode for job flows that preprocess input data. This avoids its having to install unnecessary dependencies on cloud computing clusters. The option is overrided by <code>--no-dependencies</code>.</p>
+</li>
+<li>
+<p><code>-y/--yes</code>: Ordinarily, the user is asked several questions during installation. Invoking this option answers "yes" to all such questions, which means Rail-RNA is installed for all users, the default installation directory <code>/usr/local/raildotbio</code> is overwritten if it already exists, which means you upgrade, and the AWS CLI and IPython Parallel are installed if you don't have them already.</p>
+</li>
+<li>
+<p><code>-s/--symlink-dependencies</code> You may have already installed versions of Rail's dependencies besides the AWS CLI and IPython Parallel, like SAMTools. By default, Rail-RNA does not change your system's default executables for these dependencies, and you can go on using this software the way you always did. However, if you are installing on a new system for all users and would like to expose Rail-RNA's dependencies, invoke this option to place symlinks to dependencies in /usr/local/bin.</p>
+</li>
+<li>
+<p><code>--curl &lt;exe&gt;</code>: The installer downloads with <a href="http://curl.haxx.se/docs/manpage.html">cURL</a>, which tends to come with Linux distributions and Mac OS. It's rarely necessary to specify the path to cURL directly, but that's what this option is for.</p>
+</li>
+</ul>
+<p>You can install Rail-RNA for all users or just for the current user. If you have root access and would like to install for all users, enter</p>
+<pre><code>sudo ./install-rail-rna-V
+</code></pre>
+
+<p>, enter your password, and proceed. To install for just you, enter</p>
+<pre><code>./install-rail-rna-V
+</code></pre>
+
+<p>Follow the prompts. Rail-RNA has several dependencies: <a href="http://bowtie-bio.sourceforge.net/">Bowtie 1</a>, <a href="http://bowtie-bio.sourceforge.net/bowtie2/">Bowtie 2</a>, <a href="https://samtools.github.io/">SAMTools</a>, and <a href="http://hgdownload.cse.ucsc.edu/admin/exe/">bedGraphToBigWig</a> are the critical ones, and they are installed especially for Rail in <code>~/raildotbio</code> (single-user install) or <code>/usr/local/raildotbio</code> (all-user install) by default. (<code>-d</code> may be used to specify a different destination directory, as described above). You may have some of the critical dependencies already, but the installer will copy specific versions to the destination directory anyway to ensure reproducibility of results across installations of a given version of Rail-RNA. Don't worry: nothing happens to your original configuration, and the default versions of the dependencies you already have remain default---that is, unless you invoke the <code>-s</code> parameter described above. Optional dependencies are the <a href="http://aws.amazon.com/cli/">AWS CLI</a>, which you'll need to Rail-RNA on Amazon Elastic MapReduce, and <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython Parallel</a>, which you'll need to run Rail-RNA over a conventional computer cluster. The installer will check to see if the optional dependencies are already present. If they're not, it will ask you if you want to install them.</p>
+<p>The output of a full installation for all users looks like this.</p>
+<pre><code>dhcp-pool-133:Downloads testuser$ sudo ./install_rail-rna-0.1.8b 
+∀ Rail-RNA v0.1.8b Installer
+Rail-RNA can be installed for all users or just the current user.
+    * Install for all users? [y/n]: y
+Installed Rail-RNA.
+IPython is not installed but required for Rail-RNA to work in its
+&quot;parallel&quot; mode.
+    * Install IPython now? [y/n]: y
+AWS CLI is not installed but required for Rail-RNA to work in its
+&quot;elastic&quot; mode, on Amazon Elastic MapReduce.
+    * Install AWS CLI now? [y/n]: y
+Installation log may be found at
+/usr/local/raildotbio/rail-rna_installer.log. Configure the
+AWS CLI by running &quot;aws configure&quot;. Afterwards, run
+&quot;aws emr create-default-roles&quot; to use default IAM roles on Amazon
+Elastic MapReduce. To learn more about IAM roles, visit
+http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html .
+Start using Rail by entering &quot;rail-rna&quot;.
+</code></pre>
+
+<p>If you plan to use Rail-RNA in its <code>elastic</code> mode, on Amazon Elastic MapReduce, you must additionally perform the steps in the following section.</p>
+<h2 id="setting-up-amazon-elastic-mapreduce">Setting up Amazon Elastic MapReduce</h2>
+<p>First off, you need an account with Amazon Web Services (AWS). Sign up <a href="http://aws.amazon.com/">here</a>. If you're new to AWS, we highly recommend following <a href="https://github.com/griffithlab/rnaseq_tutorial/wiki/Intro-to-AWS-Cloud-Computing">this</a> tutorial by the <a href="http://genome.wustl.edu/people/groups/detail/griffith-lab/">Griffith Lab</a> at <a href="http://wustl.edu/">Wash U</a> to get a feel for its use. But if you just want to set up an account, you need only read sections 4-6 contained there.</p>
+<p>If you've just installed the AWS CLI along with Rail-RNA, you must configure it. Obtain your AWS Access Key ID and Secret Access Key by following the instructions <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html">here</a>.</p>
+<h3 id="a-note-on-security">A note on security</h3>
+<p><em>Don't put your credentials in a place where anyone else can find them, especially online. Hackers will <a href="http://readwrite.com/2014/04/15/amazon-web-services-hack-bitcoin-miners-github">steal them</a> and mine cryptocurrency on your dollar.</em> If you accidentally put your credentials in a GitHub repo, <a href="https://help.github.com/articles/remove-sensitive-data/">scrub it</a> and <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">get new AWS keys</a> immediately.</p>
+<h3 id="configuring-the-aws-cli">Configuring the AWS CLI</h3>
+<p>Now enter</p>
+<pre><code>aws configure
+</code></pre>
+
+<p>at the shell prompt. You will be prompted to enter your Access Key ID, your Secret Access Key, and your default region. <code>us-east-1</code> is the standard region for US customers, and it spans data centers on the East and West Coasts. However, if you or your input data live elsewhere, you may want to default to one of the other regions listed <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">here</a>. For example, we find that Rail is fastest at downloading and preprocessing data hosted by the <a href="http://www.ebi.ac.uk/ena">European Nucleotide Archive</a> in the <code>eu-west-1</code> region, which is in Ireland.</p>
+<h3 id="creating-default-roles">Creating default roles</h3>
+<p>You must also set up <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">IAM</a> roles for use with Elastic MapReduce. A discussion of IAM roles for Elastic MapReduce is available <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-iam-roles.html">here</a>. IAM is the way AWS securely gives users and services permission to access resources. The default set of permissions tends to work fine; if they don't for you, then you probably know enough about IAM to set up roles for Elastic MapReduce yourself. The typical way to get setting up roles over with is by entering</p>
+<pre><code>aws emr create-default-roles
+</code></pre>
+
+<p>, but it's possible you're managing a lab whose members are IAM users attached to your AWS account, and you've already given them permissions. In this case, you will need to make sure your lab members have the <code>iam:GetInstanceProfile</code>, <code>iam:GetRole</code>, and <code>iam:PassRole</code> permissions. We also recommend you give them the <code>iam:ListRoles</code> permission; otherwise, they won't be able clone clusters on Elastic MapReduce. This is sometimes useful if their job flows fail because their bid prices on the <a href="http://aws.amazon.com/ec2/purchasing-options/spot-instances/">spot market</a> were too low, and they want to restart job flows easily. With the appropriate permissions, lab members can install Rail-RNA and configure the AWS CLI as described above. This includes their running <code>aws emr create-default-roles</code>, which will retrieve the default roles you created for them. Learn more about working with IAM users <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">here</a>. This step, and if you find yourself having trouble, ask for help in our <a href="https://gitter.im/nellore/rail">Gitter</a>.</p>
+<h2 id="how-the-installer-works">How the installer works</h2>
+<p>The Rail-RNA installer is nothing but a ZIP archive. When it is executed by Python while it's still compressed, the installer is run. If you unpack the archive first and then execute the directory containing <code>__main__.py</code>, Rail-RNA is run, and it will complain if it can't find dependencies. If you're a Python developer who needs to write a custom installer because your software is difficult to package with something like <code>pip</code>, you might want to try this approach. A helpful starting point is <a href="https://blogs.gnome.org/jamesh/2012/05/21/python-zip-files/">this page</a>.</p>
+<h2 id="rolling-your-own-installer">Rolling your own installer</h2>
+<p>We've made it easy for you to release your own custom version of Rail-RNA.</p>
+<ol>
+<li>
+<p>Clone the source at a shell prompt with</p>
+<pre><code>git clone https://www.github.com/nellore/rail.git
+</code></pre>
+<p>. We assume you cloned to <code>/home/testuser/rail</code> below</p>
+</li>
+<li>
+<p>Edit <code>src/version.py</code>, which looks like this:
+        #!/usr/bin/env python
+        """
+        version.py
+        Part of Rail-RNA</p>
+<pre><code>Stores version number of Rail-RNA as a string.
+"""
+
+version_number = 'devel'
+</code></pre>
+<p>Change "devel" to some version number that diverges from the Rail-RNA versioning scheme. Perhaps you'll use a prefix "C" for "custom," as in "C0.1.0". We call your custom version C below.</p>
+</li>
+<li>
+<p>Edit source files in <code>src/</code> however you want. You'll probably want to focus on the files in <code>src/rna/steps</code>, which contains a script per step of the Rail-RNA pipeline. To test your changes, rather than starting a command with <code>rail-rna</code>, use
+        python /home/testuser/rail/src
+.</p>
+</li>
+<li>
+<p>Once you're done hacking Rail, run
+        sh /home/testuser/rail/make_it_rail.sh
+A new installer <code>install-rail-rna-C</code> will appear in the <code>releases/</code> directory. Run it to install your modified version locally.</p>
+</li>
+</ol></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>

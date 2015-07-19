@@ -79,21 +79,24 @@ aws emr create-default-roles
 ```
 , but it's possible you're managing a lab whose members are IAM users attached to your AWS account, and you've already given them permissions. In this case, you will need to make sure your lab members have the `iam:GetInstanceProfile`, `iam:GetRole`, and `iam:PassRole` permissions. We also recommend you give them the `iam:ListRoles` permission; otherwise, they won't be able clone clusters on Elastic MapReduce. This is sometimes useful if their job flows fail because their bid prices on the [spot market](http://aws.amazon.com/ec2/purchasing-options/spot-instances/) were too low, and they want to restart job flows easily. With the appropriate permissions, lab members can install Rail-RNA and configure the AWS CLI as described above. This includes their running `aws emr create-default-roles`, which will retrieve the default roles you created for them. Learn more about working with IAM users [here](http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html). This step, and if you find yourself having trouble, ask for help in our [Gitter](https://gitter.im/nellore/rail).
 
-## How the installer works
+## For hackers
+
+### How the installer works
 
 The Rail-RNA installer is nothing but a ZIP archive. When it is executed by Python while it's still compressed, the installer is run. If you unpack the archive first and then execute the directory containing `__main__.py`, Rail-RNA is run, and it will complain if it can't find dependencies. If you're a Python developer who needs to write a custom installer because your software is difficult to package with something like `pip`, you might want to try this approach. A helpful starting point is [this page](https://blogs.gnome.org/jamesh/2012/05/21/python-zip-files/).
 
-## Rolling your own installer
+### Rolling your own installer
 
 We've made it easy for you to release your own custom version of Rail-RNA.
 
 1. Clone the source at a shell prompt with
 
         git clone https://www.github.com/nellore/rail.git
-. We assume you cloned to `/home/testuser/rail` below
+. We assume you've cloned to `/home/testuser/rail` below.
 
 2. Edit `src/version.py`, which looks like this:
-        #!/usr/bin/env python
+
+        !/usr/bin/env python
         """
         version.py
         Part of Rail-RNA
@@ -109,5 +112,6 @@ Change "devel" to some version number that diverges from the Rail-RNA versioning
 .
 
 4. Once you're done hacking Rail, run
+
         sh /home/testuser/rail/make_it_rail.sh
 A new installer `install-rail-rna-C` will appear in the `releases/` directory. Run it to install your modified version locally.
