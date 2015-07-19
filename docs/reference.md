@@ -340,111 +340,111 @@ Check `Lifecycle` under a given bucket's properties in the [S3 console](https://
 
 Default: 4
 
-### `--name <str>`
+#### `--name <str>`
 
 It can be useful to assign a distinctive name `<str>` to an Elastic MapReduce job flow if you're working with many in the [console](https://console.aws.amazon.com/elasticmapreduce).
 
 Default: `Rail-RNA Job Flow`
 
-### `--log-uri <s3_dir>`
+#### `--log-uri <s3_dir>`
 
 This is the directory on S3 to which Elastic MapReduce will ultimately copy Hadoop logs.
 
 Default: argument of `-o/--output` with the string ".logs" tacked on
 
-### `--ami-version <str>`
+#### `--ami-version <str>`
 
 This is the version of the Amazon Machine Image to load onto each node of the Elastic MapReduce cluster. Changing `<str>` is not recommended
 
 Default: `3.8.0`
 
-### `--visible-to-all-users`
+#### `--visible-to-all-users`
 
 This makes the Elastic MapReduce cluster accessible to all IAM users associated with the main Amazon Web Services account.
 
 Boolean parameter; has no argument.
 
-### `--action-on-failure <choice>`
+#### `--action-on-failure <choice>`
 
 This is the action Elastic MapReduce should take if the job flow it's running fails on a given step. `<choice>` is one of {`TERMINATE_JOB_FLOW`, `CANCEL_AND_WAIT`, `CONTINUE`, `TERMINATE_CLUSTER`}.
 
 Default: `TERMINATE_JOB_FLOW`
 
-### `--master-instance-count <int>`
+#### `--master-instance-count <int>`
 
 This is the number of master instances to include in your Elastic MapReduce cluster. It's only useful to include more than one in case a master instance dies; in general, `<int>` shouldn't be changed.
 
 Default: 1
 
-### `--task-instance-count <int>`
+#### `--task-instance-count <int>`
 
 Task instances are nodes in an Elastic MapReduce cluster that do not store data. Your job flow will continue even if they're lost, which can happen if nodes go down or--more likely--they're [spot instances](http://aws.amazon.com/ec2/purchasing-options/spot-instances/) whose maximum bid price no longer exceeds the market prices. You should consider using task instances only if you'll be bidding for them on the spot market at the rate `--task-instance-bid-price`.
 
 Default: 0
 
-### `--master-instance-bid-price <dec>`
+#### `--master-instance-bid-price <dec>`
 
 If you'd like to use the [spot market](http://aws.amazon.com/ec2/purchasing-options/spot-instances/) to potentially save money on your job flow, you can set the bid price (in dollars/hour) for the master instance group here. Invoke this command-line parameter only if master instances should be spot.
 
 Default: none; use on-demand master instances
 
-### `--core-instance-bid-price <dec>`
+#### `--core-instance-bid-price <dec>`
 
 If you'd like to use the [spot market](http://aws.amazon.com/ec2/purchasing-options/spot-instances/) to potentially save money on your job flow, you can set the bid price (in dollars/hour) for the core instance group here. Invoke this command-line parameter only if core instances should be spot.
 
 Default: none; use on-demand core instances
 
-### `--task-instance-bid-price <dec>`
+#### `--task-instance-bid-price <dec>`
 
 If you'd like to use the [spot market](http://aws.amazon.com/ec2/purchasing-options/spot-instances/) to potentially save money on your job flow, you can set the bid price (in dollars/hour) for the task instance group here (if you have any task instances). Invoke this command-line parameter only if you are using task instances. Indeed, there is typically no point to task instances unless they're spot instances: you may as well use on-demand core instances and be afforded extra space.
 
-### --master-instance-type <choice>
+#### `--master-instance-type <choice>`
 
 This is the [instance type](http://aws.amazon.com/ec2/instance-types/) of the master instance group of your Elastic MapReduce cluster.
 
 Default: `c3.2xlarge`
 
-### --core-instance-type <choice>
+#### `--core-instance-type <choice>`
 
 This is the [instance type](http://aws.amazon.com/ec2/instance-types/) of the core instance group of your Elastic MapReduce cluster.
 
 Default: argument of `--master-instance-type`
 
-### --task-instance-type <choice>
+#### `--task-instance-type <choice>`
 
 This is the [instance type](http://aws.amazon.com/ec2/instance-types/) of the core instance group of your Elastic MapReduce cluster.
 
 Default: argument of `--master-instance-type` if there are any task instances
 
-### `--ec2-key-name <str>`
+#### `--ec2-key-name <str>`
 
 You can specify an Elastic Compute Cloud (EC2) key pair name `<str>` for SSHing to the master instance of your Elastic MapReduce cluster while your job flow is running.
 
 Default: unspecified, which means you can't SSH to the master instance of your cluster
 
-### `--keep-alive`
+#### `--keep-alive`
 
 This option keeps an Elastic Mapreduce cluster alive when all its assigned steps are complete. Use `--keep-alive` in conjunction with `--termination-protected` and `--ec2-key-name` to be able to SSH to an Elastic MapReduce cluster and diagnose problems. However, you should make sure to terminate the cluster manually when you're finished.
 
 Boolean parameter; has no argument.
 
-### `--termination-protected`
+#### `--termination-protected`
 
 This option protects an Elastic MapReduce cluster from termination in case of step failure. Use `--termination-protected` in conjunction with `--keep-alive` and `--ec2-key-name` to be able to SSH an Elastic MapReduce cluster and diagnose problems. However, you should make sure to terminate the cluster manually when you're finished.
 
-### `--region <choice>`
+#### `--region <choice>`
 
 This specifies the region in which your job flow will be run. Valid regions are given [here](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-region.html).
 
 Default: the region from your `--profile`, but if that's unavailable, `us-east-1` (US Standard)
 
-### `--service-role <str>`
+#### `--service-role <str>`
 
 You should have set up your IAM service role by entering `aws emr create-default-roles` after installing the AWS CLI. If for some reason related to permissioning you need to use a different IAM service role, specify its name as `<str>`.
 
 Default: taken from `--profile` if available; otherwise, attempts `EMR_DefaultRole`
 
-### `--instance-profile <str>`
+#### `--instance-profile <str>`
 
 You should have set up your IAM EC2 instance profile by entering `aws emr create-default-roles` after installing the AWS CLI. If for some reason related to permissioning you need to use a different IAM EC2 instance profile, specify its name as `<str>`.
 
