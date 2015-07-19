@@ -56,3 +56,7 @@ If you want fast and furious with few processing cores, try [HISAT](https://ccb.
 * You can always email [Abhi Nellore](mailto:anellore@gmail.com) with support questions. Put `[Rail-RNA support]` somewhere in the subject line, and include the version of Rail-RNA you used in your support request. To find this, enter `rail-rna --version`.
 
 * Use the logs and error messages to figure out what went wrong yourself. Rail's source has verbose variable names, and it should be documented well enough. Since it's just some Python, you don't have to worry about compilation, either. Add try-except blocks and rerun part of your pipeline to find lines of input a script may be stumbling on. We may ask you to do things like this in the Gitter to troubleshoot, if you're willing.
+
+## Disclaimer
+
+Renting Amazon Web Services resources costs money, regardless of whether your run ultimately succeeds or fails. In some cases, Rail-RNA or its documentation may be partially to blame for a failed run. While we are happy to review bug reports, we do not accept responsibility for financial damage caused by these errors. Rail-RNA is provided "as is" with no warranty.

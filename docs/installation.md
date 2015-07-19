@@ -82,3 +82,32 @@ aws emr create-default-roles
 ## How the installer works
 
 The Rail-RNA installer is nothing but a ZIP archive. When it is executed by Python while it's still compressed, the installer is run. If you unpack the archive first and then execute the directory containing `__main__.py`, Rail-RNA is run, and it will complain if it can't find dependencies. If you're a Python developer who needs to write a custom installer because your software is difficult to package with something like `pip`, you might want to try this approach. A helpful starting point is [this page](https://blogs.gnome.org/jamesh/2012/05/21/python-zip-files/).
+
+## Rolling your own installer
+
+We've made it easy for you to release your own custom version of Rail-RNA.
+
+1. Clone the source at a shell prompt with
+
+        git clone https://www.github.com/nellore/rail.git
+. We assume you cloned to `/home/testuser/rail` below
+
+2. Edit `src/version.py`, which looks like this:
+        #!/usr/bin/env python
+        """
+        version.py
+        Part of Rail-RNA
+
+        Stores version number of Rail-RNA as a string.
+        """
+
+        version_number = 'devel'
+Change "devel" to some version number that diverges from the Rail-RNA versioning scheme. Perhaps you'll use a prefix "C" for "custom," as in "C0.1.0". We call your custom version C below.
+
+3. Edit source files in `src/` however you want. You'll probably want to focus on the files in `src/rna/steps`, which contains a script per step of the Rail-RNA pipeline. To test your changes, rather than starting a command with `rail-rna`, use
+        python /home/testuser/rail/src
+.
+
+4. Once you're done hacking Rail, run
+        sh /home/testuser/rail/make_it_rail.sh
+A new installer `install-rail-rna-C` will appear in the `releases/` directory. Run it to install your modified version locally.

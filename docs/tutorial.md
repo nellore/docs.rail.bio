@@ -48,6 +48,15 @@ Rail-RNA has three modes---
 
 3. `go`, which runs the `prep` and `align` job flows in succession.
 
+To run some combination of mode and job flow, start your command with
+```
+rail-rna <mode> <job flow>
+```
+. Get help by entering
+```
+rail-rna <mode> <job flow> -h
+```
+
 The reason for separating the `prep` and `align` job flows is that you may prefer to run these flows on different numbers of processing cores: if downloads are throttled by the remote server, and only a small number of threads can download input files concurrently, then you can limit the size of the computer cluster in `elastic` mode (with the `-c/--core-instance-count` parameter described in Reference) or the number of concurrently running threads in `local` mode (with the `-p/--num-processes` parameter described in Reference).
 
 Align some RNA-seq samples with us in `local`, `parallel`, and `elastic` modes below. We assume your login name is `testuser`, and your home directory is `/home/testuser`.
@@ -211,9 +220,9 @@ What happens is pretty unimpressive: Rail runs like it does in local mode. But I
 
 ### `elastic` mode: a human example
 
-**Warning: running this example will cost money**, but probably no more than US$5.
+**Warning: running this example will cost money**, but probably no more than US$5. Read our [disclaimer](index.md#disclaimer) before using `elastic` mode.
 
-You should have performed the steps under the section Setting up Rail-RNA for use with Amazon Elastic MapReduce above to complete this example.
+You should have performed [these](installation.md#setting-up-amazon-elastic-mapreduce) steps to set up the AWS CLI and Elastic MapReduce before attempting the example.
 
 Visit https://raw.githubusercontent.com/nellore/rail/master/ex/hg19_example.manifest in your browser. Listed are two single-end human samples with just 20,000 reads each. They were generated with expression profiles of two [GEUVADIS](http://www.geuvadis.org) lymphoblastoid cell line samples in a way we describe in our [paper](http://biorxiv.org/content/early/2015/05/07/019067), but because there are so few reads, you probably couldn't tell which GEUVADIS samples we used if you didn't have the sample labels in the manifest file.
 
