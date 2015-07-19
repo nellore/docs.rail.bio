@@ -1,12 +1,10 @@
 ## Quick start
 
-[Installation](installation.md) tells you how to install Rail-RNA. You can then figure out how to use it by trial and error or try the [Tutorial](tutorial.md).
-
-[Deliverables](deliverables.md) describes the various outputs of Rail-RNA and how to suppress ones you don't need to save time and money. [Reference](reference.md) comprehensively covers command-line parameters across all of Rail's modes and job flows.
+[Installation](installation.md) tells you how to install Rail-RNA. You can then figure out how to use it by trial and error or try the [Tutorial](tutorial.md). [Deliverables](deliverables.md) describes the various outputs of Rail-RNA and how to suppress ones you don't need to save time and money. [Reference](reference.md) comprehensively covers command-line parameters across all of Rail's modes and job flows.
 
 ## What is Rail-RNA?
 
-Rail-RNA is a spliced alignment program: it performs intron-aware alignment of RNA sequencing (RNA-seq) data to a genome assembly. You may have heard it's designed to run in the cloud with [Amazon Web Services]'(http://aws.amazon.com/) [Elastic MapReduce](http://aws.amazon.com/elasticmapreduce/), and you may wonder why it exists since there are already many other spliced alignment programs, so we start with an
+Rail-RNA is a spliced alignment program: it performs intron-aware alignment of RNA sequencing (RNA-seq) data to a genome assembly. You may have heard it's designed to run in the cloud with [Amazon Web Services](http://aws.amazon.com/) [Elastic MapReduce](http://aws.amazon.com/elasticmapreduce/), and you may wonder why it exists since there are already many other spliced alignment programs, so we start with an
 
 ## Advertisement
 
