@@ -1,6 +1,6 @@
 ## Installing Rail-RNA
 
-Make sure you have a recent (>= 2009) Mac OS or Linux box with at least 8 GB of RAM, and download the latest version of Rail-RNA [here](https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.1.8c). If for some reason you need an older version V, you can visit https://github.com/nellore/rail/tree/master/releases, click on the file `install-rail-rna-V`, and click the `Raw` button to download it.
+Make sure you have a recent (>= 2009) Mac OS or Linux box with at least 8 GB of RAM, and download the latest version of Rail-RNA [here](https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.1.9a). If for some reason you need an older version V, you can visit https://github.com/nellore/rail/tree/master/releases, click on the file `install-rail-rna-V`, and click the `Raw` button to download it.
 
 The file you download will be in the format `install-rail-rna-V`, where V is the version you downloaded. In a Unix shell (which you open by running the `Terminal` app), navigate to the directory in which you downloaded the installer. This typically means entering `cd ~/Downloads`. Now enter `chmod +x install-rail-rna-V` to make the installer executable.
 
