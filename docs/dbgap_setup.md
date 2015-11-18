@@ -32,11 +32,11 @@ We assume that the administrator and the new user have both installed the AWS [C
 * Create a user (administrator & user)
     * For this process, it is best for the account administrator must sit physically with the new user in order to minimize passing of credentials.
     * From the new user's laptop, the administrator logs into the [AWS Console] and and selects "Identity and Access Management"
-    * The adminisrtator clicks "Create new users" and enters the new users username.  Check the "create an access key" checkbox.  Click "Create account"
+    * The administrator clicks "Create new users" and enters the new user's username.  Check the "create an access key" checkbox.  Click "Create account"
     * Download and configure the user's AWS credentials.
         * The administrator or the user downloads the AWS credentials (including the AWS Access Key ID and AWS Secret Access Key) to the user's computer.  The user must immediately make the file containing the credentials readable only by the user.  The user must never share these credentials, intentionally or inadvertently, with anyone else.
         * The user can then register these credentials with the AWS CLI by entering `aws configure --profile dbgap`.  The user then enters the AWS Access Key ID, AWS Secret Access Key, and a default region (typically us-east-1).  A default output format need not be specified.
-        * At this point, the new user can issue AWS API calls via the AWS command-line tools.  The credentials have been registered with the CLI and the original credentials file downloaded from the AWS Console may not be deleted.
+        * At this point, the new user can issue AWS API calls via the AWS command-line tools.  The credentials have been registered with the CLI and the original credentials file downloaded from the AWS Console may now be deleted.
     * Set user's password
         * Administrator: return to the [AWS Console] and select "Identity and Access Management"
         * Select "Users" on the left sidebar
@@ -48,7 +48,7 @@ We assume that the administrator and the new user have both installed the AWS [C
         * The user should navigate to the login page URL, log in, and change the password.
         * At this point, the new user can log into the AWS console.
 
-* Create the secure dbGaP CloudFormation stack with the template from the Rail-RNA repository
+* Create the secure dbGaP CloudFormation stack with the template from the Rail-RNA repository (administrator)
     * The user will find the appropriate CloudFormation template at `$RAILDOTBIO/cloudformation/dbgap.template` and can send it to the administrator, but it is recommended that the administrator grab the latest version of the template [here](https://raw.githubusercontent.com/nellore/rail/master/src/cloudformation/dbgap.template).
     * Click CloudFormation in the AWS console, making sure the region in the upper-right corner of the screen is the same as the user's default region (typically us-east-1, or N. Virginia).
     * Click "Create Stack".
