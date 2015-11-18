@@ -48,13 +48,46 @@ We assume that the administrator and the new user have both installed the AWS [C
         * The user should navigate to the login page URL, log in, and change the password.
         * At this point, the new user can log into the AWS console.
 
-* Delegate Elastic MapReduce and CloudFormation authorites to user (administrator)
-    * Delegate iam:GetRole, iam:PassRole, and cloudformation:DescribeStacks to the new user.
-        * `aws cloudformation (TODO)`
-    * Create the secure dbGaP CloudFormation stack with the template from the Rail-RNA repository
+* Create the secure dbGaP CloudFormation stack with the template from the Rail-RNA repository
+    * The user will find the appropriate CloudFormation template at `$RAILDOTBIO/cloudformation/dbgap.template` and can send it to the administrator, but it is recommended that the administrator grab the latest version of the template [here](https://raw.githubusercontent.com/nellore/rail/master/src/cloudformation/dbgap.template).
+    * Click CloudFormation in the AWS console, making sure the region in the upper-right corner of the screen is the same as the user's default region (typically us-east-1, or N. Virginia).
+    * Click "Create Stack".
+    * Under choose a template, opt to upload `dbgap.template` to Amazon S3, and click "Next".
+    * Under "Stack name", write "dbgap".
+    * Under "Parameters", let the user select the name of a secure bucket into which they will write all of Rail-RNA's output. The bucket name should not have been taken by any other S3 user.
+    * Click "Next" and "Next" again, then click "Create" and wait for the stack creation to complete. (The status message "CREATE_COMPLETE" will appear next to dbgap on the list of stacks.)
+
+* Delegate Elastic MapReduce and CloudFormation authorites to user. The policies attached to the user must include iam:GetRole, iam:PassRole, and cloudformation:DescribeStacks. (administrator)
+    * Click IAM in the AWS Console.
+    * Click Policies, click Create Policy, then select Create Your Own Policy.
+    * Under Policy Name, enter "UseExistingEMRRoles"
+    * Under Policy Document, paste the following.
+        ```
+        {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetInstanceProfile",
+                "iam:GetRole",
+                "iam:PassRole"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+    * Click Create Policy
+    * Click Users, and select the right user.
+    * Click the Permissions tab.
+    * Click Attach Policy, and select the AWSCloudFormationReadOnlyAccess, AmazonElasticMapReduceFullAccess, and UseExistingEMRRoles policies. Then click Attach Policy. Different policies including only some of the permissions from these may be included, but note that the user must be able to:
+       (a) launch Elastic MapReduce clusters into the VPC from the secure dbGaP CloudFormation stack created by the administrator above, and
+       (b) read and write to the secure S3 bucket created by the administrator on behalf of the user.
 
 * Create the default EMR roles (administrator & user)
-    * User `aws emr create-roles dbgap`
+    * Follow [these instructions](http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-iam-roles-creatingroles.html) to create default roles for Elastic MapReduce.
+    * The user should run `aws emr create-default-roles --profile dbgap` to retrieve the default Elastic MapReduce roles created by the administrator.
 
 As for any new AWS account, you should consider how you would like to configure billing.  [Consolidated billing](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html) can be convenient if you are managing multiple AWS accounts simultaneously.
 
