@@ -1,6 +1,6 @@
 ## Choosing deliverables
 
-There are several classes of outputs. Each is described in a different section below. You can toggle which outputs are written with the `-d/--deliverables` command-line parameter for `go` and `align` job flows. By default `--deliverables` is set to `tsv idx bam bw bed`, which is all the outputs described below. But for example, you might decide that you don't need the alignment BAMs. In this case, you can invoke `--deliverables tsv idx bw bed`. This will make Rail-RNA take less time to run and will also save you space---which is especially useful on S3, where storage is rented.
+There are several classes of outputs. Each is described in a different section below. You can toggle which outputs are written with the `-d/--deliverables` command-line parameter for `go` and `align` job flows. By default `--deliverables` is set to `tsv idx bw bed`, which is all the outputs described below besides the alignment BAMs. (Do you really need them? Suppressing the output saves a lot of space--which is especially useful on S3, where storage is rented.) If you do need BAM output, invoke `--deliverables tsv idx bw bed bam`.
 
 ### `tsv`: cross-sample tables
 

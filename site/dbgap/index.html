@@ -281,10 +281,11 @@ Different policies including only some of the permissions from these may be incl
 <pre><code>dbgap:&lt;SRA run accession number&gt;(tab)0(tab)&lt;sample label&gt;
 </code></pre>
 
-<p>where a run accession number from SRA begins with <code>SRR</code>, <code>ERR</code>, or <code>DRR</code>. Every Rail-RNA command analyzing dbGaP data should include the command-line parameters <code>--secure-stack-name dbgap --profile dbgap</code> and should write to the secure bucket created by the administrator. An example command follows.</p>
+<p>where a run accession number from SRA begins with <code>SRR</code>, <code>ERR</code>, or <code>DRR</code>. Every Rail-RNA command analyzing dbGaP data should include the command-line parameters <code>--secure-stack-name dbgap --profile dbgap --dbgap-key [the key file with the NGC extension you download]</code> and should write to the secure bucket created by the administrator. An example command follows.</p>
 <pre><code>rail-rna go elastic -m dbgap.manifest -a hg38 -o s3://this-is-a-bucket-name-the-user-makes-up/dbgapout -c 1 --secure-stack-name dbgap --profile dbgap
 </code></pre>
 
+<p>Rail-RNA does not currently support analyzing TCGA data.</p>
 <h3 id="helpful-notes-for-administrators">Helpful notes for administrators</h3>
 <p>As for any new AWS account, you should consider how you would like to configure billing.  <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html">Consolidated billing</a> can be convenient if you are managing multiple AWS accounts simultaneously.</p>
 <p>Further, you should consider raising your EC2 instance limits.  This is particularly important if you plan to analyze large datasets (more than 100 RNA-seq samples at a time).  To raise your limits, visit <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">this page</a>.</p></div>
