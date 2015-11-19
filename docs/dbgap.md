@@ -132,10 +132,11 @@ The user may now submit Rail-RNA jobs that analyze dbGaP-protected data from the
 ```
 dbgap:<SRA run accession number>(tab)0(tab)<sample label>
 ```
-where a run accession number from SRA begins with `SRR`, `ERR`, or `DRR`. Every Rail-RNA command analyzing dbGaP data should include the command-line parameters `--secure-stack-name dbgap --profile dbgap` and should write to the secure bucket created by the administrator. An example command follows.
+where a run accession number from SRA begins with `SRR`, `ERR`, or `DRR`. Every Rail-RNA command analyzing dbGaP data should include the command-line parameters `--secure-stack-name dbgap --profile dbgap --dbgap-key [the key file with the NGC extension you download]` and should write to the secure bucket created by the administrator. An example command follows.
 ```
 rail-rna go elastic -m dbgap.manifest -a hg38 -o s3://this-is-a-bucket-name-the-user-makes-up/dbgapout -c 1 --secure-stack-name dbgap --profile dbgap
 ```
+Rail-RNA does not currently support analyzing TCGA data.
 
 ### Helpful notes for administrators
 
