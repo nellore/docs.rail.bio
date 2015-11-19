@@ -22,7 +22,7 @@ usage: rail-rna <job flow> <mode> <[args]>
                      elastic: run Rail-RNA on Amazon Elastic MapReduce.
                        Requires that the user sign up for Amazon Web Services
 
-∀ Rail-RNA v0.1.9a by Abhi Nellore (anellore@jhu.edu; nellore.github.io)
+∀ Rail-RNA v0.2 by Abhi Nellore (anellore@jhu.edu; nellore.github.io)
 
 Rail-RNA is a scalable MapReduce pipeline that can analyze many RNA-seq
 datasets at once. To view help for a given combination of <job flow> and
@@ -150,7 +150,7 @@ rail-rna go local -x /home/testuser/Downloads/Drosophila_melanogaster/UCSC/dm3/S
 ```
 ---and you'll ultimately obtain output like this:
 ```
-∀ Rail-RNA v0.1.9a
+∀ Rail-RNA v0.2
 Started job flow on Saturday, Jul 18, 2015 at 07:36:29 PM EDT.
 
 ~.oOo.>
@@ -256,7 +256,7 @@ Loading...
 Checked all files listed in manifest file.
 Copied Rail-RNA and bootstraps to S3.
 
-∀ Rail-RNA v0.1.9a
+∀ Rail-RNA v0.2
 Started job flow submission script on Saturday, Jul 18, 2015 at 08:50:34 PM EDT.
 
 ~.oOo.>
@@ -324,4 +324,4 @@ rail-rna prep elastic -m https://raw.githubusercontent.com/nellore/rail/master/e
 rail-rna align elastic -m https://raw.githubusercontent.com/nellore/rail/master/ex/hg19_example.manifest -a hg19 -o s3://this-is-the-bucket-name-you-make-up/human_example --core-instance-type c3.2xlarge --master-instance-type c3.2xlarge -c 1
 ```
 
-You should now know enough figure out how to use Rail-RNA to align your RNA-seq data! Refer to the [Deliverables](deliverables.md) and [Reference](reference.md) for further details on, respectively, changing output formats and command-line parameters.
+You should now know enough figure out how to use Rail-RNA to align your RNA-seq data! Refer to the [Deliverables](deliverables.md) and [Reference](reference.md) for further details on, respectively, changing output formats and command-line parameters. To set up Elastic MapReduce for analyzing dbGaP-protected RNA-seq data with Rail-RNA, refer to [dbGaP on EMR](dbgap.md). Note that the instructions there may require that you contact your AWS administrator.

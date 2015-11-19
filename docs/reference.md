@@ -23,6 +23,14 @@ This is the path to a Rail-RNA manifest file. Its format is described in [Tutori
 ```
 <FASTQ/FASTA URL 1>(tab)<URL 1 MD5 checksum or 0>(tab)<FASTQ/FASTA URL 2>(tab)<URL 2 MD5 checksum or 0>(tab)<sample label>
 ```
+. For non-dbGaP-protected SRA samples, a line looks like this---
+```
+sra:<SRA run accession number>(tab)0(tab)<sample label>
+```
+--while for dbGaP-protected SRA samples, a line looks like this---
+```
+dbgap:<SRA run accession number>(tab)0(tab)<sample label>
+```
 .
 
 #### `-x/--bowtie-idx/ <idx,idx | idx>` (`local` and `parallel` modes only)

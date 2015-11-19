@@ -33,6 +33,8 @@ Rail-RNA is a spliced alignment program: it performs intron-aware alignment of R
 
     You can suppress any output type depending on your analysis goals, substantially reducing output size across many samples as well as the time Rail-RNA takes to run from end to end; see [Deliverables](deliverables.md). Indeed, since many RNA-seq analysis goals (e.g., differential expression) are achievable with just coverage information, it may not be necessary for you to ever work with a set of unwieldy BAM files.
 
+* As of v0.2, Rail-RNA can analyze dbGaP-protected RNA-seq data in the cloud in a manner compliant with [NIH guidelines](http://www.ncbi.nlm.nih.gov/projects/gap/pdf/dbgap_2b_security_procedures.pdf). Setting an Amazon Web Services account up for analyzing protected data with Rail-RNA should less than an hour using the protocol described in [dbGaP on EMR](dbgap.md).
+
 * Rail-RNA is designed to scale well with respect to computer cluster size and input data volume. It uses the [MapReduce](http://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf) programming model to achieve this: it divides the alignment problem up into a sequence of alternating parallelizable aggregation and computation steps, where each is performed by a different Python script operating on a different input stream. (We use [PyPy](http://pypy.org/) to improve performance.) For a single sample on single machine, it's about as fast as TopHat 2 on 8 processing cores, but it's about twice as fast as TopHat 2 on 32 cores. Rail-RNA also
 
     1. eliminates redundant alignment work giving its throughput (measured in, for example, number of samples analyzed per hour) better-than-linear scaling with respect to the number of samples analyzed; and
