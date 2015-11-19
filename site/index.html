@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="./img/favicon.ico">
 
-	<title>Rail-RNA v0.1</title>
+	<title>Rail-RNA v0.2</title>
 
         <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -41,7 +41,7 @@
             </button>
 
             <!-- Main title -->
-            <a class="navbar-brand" href=".">Rail-RNA v0.1</a>
+            <a class="navbar-brand" href=".">Rail-RNA v0.2</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -70,6 +70,12 @@
             
                 <li >
                     <a href="deliverables/">Deliverables</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="dbgap/">dbGaP on EMR</a>
                 </li>
             
             
@@ -167,6 +173,9 @@
 </li>
 </ol>
 <p>You can suppress any output type depending on your analysis goals, substantially reducing output size across many samples as well as the time Rail-RNA takes to run from end to end; see <a href="deliverables/">Deliverables</a>. Indeed, since many RNA-seq analysis goals (e.g., differential expression) are achievable with just coverage information, it may not be necessary for you to ever work with a set of unwieldy BAM files.</p>
+</li>
+<li>
+<p>As of v0.2, Rail-RNA can analyze dbGaP-protected RNA-seq data in the cloud in a manner compliant with <a href="http://www.ncbi.nlm.nih.gov/projects/gap/pdf/dbgap_2b_security_procedures.pdf">NIH guidelines</a>. Setting an Amazon Web Services account up for analyzing protected data with Rail-RNA should less than an hour using the protocol described in <a href="dbgap/">dbGaP on EMR</a>.</p>
 </li>
 <li>
 <p>Rail-RNA is designed to scale well with respect to computer cluster size and input data volume. It uses the <a href="http://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf">MapReduce</a> programming model to achieve this: it divides the alignment problem up into a sequence of alternating parallelizable aggregation and computation steps, where each is performed by a different Python script operating on a different input stream. (We use <a href="http://pypy.org/">PyPy</a> to improve performance.) For a single sample on single machine, it's about as fast as TopHat 2 on 8 processing cores, but it's about twice as fast as TopHat 2 on 32 cores. Rail-RNA also</p>

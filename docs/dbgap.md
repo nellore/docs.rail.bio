@@ -18,11 +18,11 @@ These steps should be performed if the site administrator is new to AWS.
 5. Secure the account
     1. Log into the [AWS console](https://aws.amazon.com/console/) using the new account's email address and password.
     2. Open the **Identity and Access Management** page.
-    <div align="center"><img src="../assets/iammenu.png" alt="EMR steps complete" style="width: 300px; padding: 5px;"/></div>
+    <div align="center"><img src="../assets/iammenu.png" alt="Select IAM" style="width: 300px; padding: 5px;"/></div>
     3. Under **Security Status**, click **Activate MFA on your root account**, then click **Manage MFA**, and follow the instructions to enable multi-factor authentication. We use a virtual MFA device (smartphone) with Google Authenticator.
-     <div align="center"><img src="../assets/mfa.png" alt="EMR steps complete" style="width: 400px; padding: 5px;"/></div>
+     <div align="center"><img src="../assets/mfa.png" alt="Manage MFA" style="width: 400px; padding: 5px;"/></div>
     * Under **Apply an IAM password policy**, click **Manage Password Policy**.
-    <div align="center"><img src="../assets/managepasspolicy.png" alt="EMR steps complete" style="width: 450px; padding: 3px;"/></div>
+    <div align="center"><img src="../assets/managepasspolicy.png" alt="Manage Password Policy" style="width: 450px; padding: 3px;"/></div>
     Configure the password policy according to the requirements mentioned in the [NIH Security Best Practices for Controlled-Access Data Subject to the NIH Genomic Data Sharing (GDS) Policy](http://www.ncbi.nlm.nih.gov/projects/gap/pdf/dbgap_2b_security_procedures.pdf). This usually entails the following, but please note that your institution may impose more stringent requirements:
         * Requiring a minimum password length of 12
         * Requiring at least one uppercase letter
@@ -30,7 +30,7 @@ These steps should be performed if the site administrator is new to AWS.
         * Requiring at least one number
         * Requiring at least one non-alphanumeric character
         * Enable password expiration after 120 days
-    <div align="center"><img src="../assets/passpolicy.png" alt="EMR steps complete" style="width: 450px; padding: 5px;"/></div>
+    <div align="center"><img src="../assets/passpolicy.png" alt="Password policies" style="width: 450px; padding: 5px;"/></div>
     * Click **Apply password policy**.
 
 ### Set up a new IAM user (administrator & user)
@@ -40,9 +40,9 @@ During this process, it is best for the account administrator to sit with the us
 1. *Administrator:* create new IAM user.
     1. From the new user's computer, log into the [AWS Console](https://aws.amazon.com/console/) and select **Identity and Access Management**.
     2. Click **Users** on the left pane, then **Create New Users** on the right pane.
-    <div align="center"><img src="../assets/createnew.png" alt="EMR steps complete" style="width: 450px; padding: 5px;"/></div>
+    <div align="center"><img src="../assets/createnew.png" alt="Create New Users" style="width: 450px; padding: 5px;"/></div>
     3. Enter the new user's username. We call the new user **dbgapuser** in the screenshot. Check the **Generate an access key for each user** checkbox, and click **Create**.
-    <div align="center"><img src="../assets/genaccesskey.png" alt="EMR steps complete" style="width: 600px; padding: 5px;"/></div>
+    <div align="center"><img src="../assets/genaccesskey.png" alt="Generate access key" style="width: 600px; padding: 5px;"/></div>
     4. Click **Download Credentials**. These credentials (*credentials.csv*) include the AWS Access Key ID and AWS Secret Access Key. It is recommended that the file containing the credentials be made readable only by the user immediately. The credentials should never be shared, intentionally or inadvertently, with anyone else.
 
 2. *User:* register credentials with the AWS CLI by entering
@@ -51,14 +51,14 @@ During this process, it is best for the account administrator to sit with the us
 at a terminal prompt on the user's computer. Enter the AWS Access Key ID, AWS Secret Access Key, and a default region as prompted. We recommend using the `us-east-1` because its connection to dbGaP-protected data on the [Sequence Read Archive](http://www.ncbi.nlm.nih.gov/sra) (SRA) appears to be fastest. A default output format need not be specified. Now the new user can issue AWS API calls via the AWS CLI. *It is recommended that credentials file that was just downloaded is now deleted.*
 
 3. *Administrator:* Set user's password.
-    1. Return to the [AWS Console](https://aws.amazon.com/console/), again click *Identity and Access Management*, again click *Users* on the left sidebar, and select the new user. Under *User Actions*, click *Manage Password*.
-    <div align="center"><img src="../assets/managepass.png" alt="EMR steps complete" style="width: 600px; padding: 5px"/></div>
-    2. Select *Assign an auto-generated password*, check the *Require user to create a new password at next sign-in* box, and click *Apply*.
-    <div align="center"><img src="../assets/autogenpass.png" alt="EMR steps complete" style="width: 600px; padding: 5px"/></div>
+    1. Return to the [AWS Console](https://aws.amazon.com/console/), again click **Identity and Access Management**, again click **Users** on the left sidebar, and select the new user. Under **User Actions**, click **Manage Password**.
+    <div align="center"><img src="../assets/managepass.png" alt="Manage Password" style="width: 600px; padding: 5px"/></div>
+    2. Select **Assign an auto-generated password**, check the **Require user to create a new password at next sign-in** box, and click **Apply**.
+    <div align="center"><img src="../assets/autogenpass.png" alt="Password assignment" style="width: 600px; padding: 5px"/></div>
     3. Click **Download Credentials**. The new credentials file *credentials (2).csv* contains the username, the auto-generated password, and the URL for the account-specific login page.
 
 4. *User:* navigate to the login page URL from *credentials (2).csv*, log in, and change the password as prompted.
-<div align="center"><img src="../assets/oldnewpass.png" alt="EMR steps complete" style="width:400px; padding: 5px"/></div>
+<div align="center"><img src="../assets/oldnewpass.png" alt="Change password" style="width:400px; padding: 5px"/></div>
 
 <a id="cloudform"></a>
 ### Create a secure CloudFormation stack (administrator)
@@ -72,17 +72,17 @@ at a terminal prompt on the user's computer. Enter the AWS Access Key ID, AWS Se
 The user will find the CloudFormation template at `$RAILDOTBIO/cloudformation/dbgap.template` and can send it to the administrator, but it is recommended that the administrator grab the latest version of the template [here](https://raw.githubusercontent.com/nellore/rail/master/src/cloudformation/dbgap.template).
 
 1. Click **CloudFormation** in the AWS console, making sure the region in the upper-right corner of the screen is the same as the user's default region (typically `us-east-1`, i.e., N. Virginia).
-<div align="center"><img src="../assets/cloudformconsole.png" alt="EMR steps complete" style="width: 300px; padding: 5px"/></div>
+<div align="center"><img src="../assets/cloudformconsole.png" alt="Select CloudFormation" style="width: 300px; padding: 5px"/></div>
 2. Click **Create Stack**.
-<div align="center"><img src="../assets/createstack.png" alt="EMR steps complete" style="width: 700px; padding: 5px"/></div>
+<div align="center"><img src="../assets/createstack.png" alt="Create Stack" style="width: 700px; padding: 5px"/></div>
 3. Under **Choose a template**, opt to upload `dbgap.template` to Amazon S3, and click **Next**.
-<div align="center"><img src="../assets/choosetemplate.png" alt="EMR steps complete" style="width: 600px; padding: 5px"/></div>
+<div align="center"><img src="../assets/choosetemplate.png" alt="Choose template" style="width: 600px; padding: 5px"/></div>
 4. On the next screen:
     * Next to **Stack name**, write "dbgap".
     * Next to **Parameters**, let the user type the name of a secure bucket into which they will write all of Rail-RNA's output. The bucket name should not have been taken by any other S3 user.
-<div align="center"><img src="../assets/makeupbucket.png" alt="EMR steps complete" style="width: 600px; padding: 5px"/></div>
+<div align="center"><img src="../assets/makeupbucket.png" alt="Pick bucket name" style="width: 600px; padding: 5px"/></div>
 5. Click **Next** and **Next** again, then click **Create** and wait for the stack creation to complete. The status message "CREATE_COMPLETE" will soon appear next to "dbgap" on the list of stacks.
-<div align="center"><img src="../assets/createcomplete.png" alt="EMR steps complete" style="width: 600px; padding: 5px"/></div>
+<div align="center"><img src="../assets/createcomplete.png" alt="CREATE_COMPLETE" style="width: 600px; padding: 5px"/></div>
 
 ### Delegate Elastic MapReduce and CloudFormation authorites to the new IAM user (administrator)
 
@@ -109,11 +109,11 @@ The new IAM user still needs sufficient privileges to run Rail-RNA on Elastic Ma
             }
 
     3. Click **Create Policy**.
-    <div align="center"><img src="../assets/policydoc.png" alt="EMR steps complete" style="width: 700px; padding: 5px"/></div>
+    <div align="center"><img src="../assets/policydoc.png" alt="Create Policy" style="width: 700px; padding: 5px"/></div>
 3. Now click **Users** in the left pane, select the new IAM user, and click the **Permissions** tab.
-<div align="center"><img src="../assets/permissionstab.png" alt="EMR steps complete" style="width: 700px; padding: 5px"/></div>
+<div align="center"><img src="../assets/permissionstab.png" alt="Permissions" style="width: 700px; padding: 5px"/></div>
 4. Click **Attach Policy**, and select the `AWSCloudFormationReadOnlyAccess`, `AmazonElasticMapReduceFullAccess`, and `UseExistingEMRRoles` policies. Then click Attach Policy.
-<div align="center"><img src="../assets/afterpermissionstab.png" alt="EMR steps complete" style="width: 700px; padding: 5px"/></div>
+<div align="center"><img src="../assets/afterpermissionstab.png" alt="Attach Policy" style="width: 700px; padding: 5px"/></div>
 Different policies including only some of the permissions from these may be included, but note that the user must be able to:
         * launch Elastic MapReduce clusters into the VPC from the secure dbGaP CloudFormation stack created by the administrator above, and
         * read and write to the secure S3 bucket created by the administrator on behalf of the user.

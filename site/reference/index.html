@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>Reference - Rail-RNA v0.1</title>
+	<title>Reference - Rail-RNA v0.2</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
@@ -41,7 +41,7 @@
             </button>
 
             <!-- Main title -->
-            <a class="navbar-brand" href="..">Rail-RNA v0.1</a>
+            <a class="navbar-brand" href="..">Rail-RNA v0.2</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -74,6 +74,12 @@
             
             
             
+                <li >
+                    <a href="../dbgap/">dbGaP on EMR</a>
+                </li>
+            
+            
+            
                 <li class="active">
                     <a href="./">Reference</a>
                 </li>
@@ -84,7 +90,7 @@
             <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
                 <li >
-                    <a rel="next" href="../deliverables/">
+                    <a rel="next" href="../dbgap/">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
@@ -138,6 +144,14 @@
 
 <p>---while a line for a paired-end sample looks like this---</p>
 <pre><code>&lt;FASTQ/FASTA URL 1&gt;(tab)&lt;URL 1 MD5 checksum or 0&gt;(tab)&lt;FASTQ/FASTA URL 2&gt;(tab)&lt;URL 2 MD5 checksum or 0&gt;(tab)&lt;sample label&gt;
+</code></pre>
+
+<p>. For non-dbGaP-protected SRA samples, a line looks like this---</p>
+<pre><code>sra:&lt;SRA run accession number&gt;(tab)0(tab)&lt;sample label&gt;
+</code></pre>
+
+<p>--while for dbGaP-protected SRA samples, a line looks like this---</p>
+<pre><code>dbgap:&lt;SRA run accession number&gt;(tab)0(tab)&lt;sample label&gt;
 </code></pre>
 
 <p>.</p>
