@@ -117,10 +117,11 @@
             <li><a href="#creating-default-roles">Creating default roles</a></li>
         
     
-        <li class="main "><a href="#how-the-installer-works">How the installer works</a></li>
+        <li class="main "><a href="#for-hackers">For hackers</a></li>
         
-    
-        <li class="main "><a href="#rolling-your-own-installer">Rolling your own installer</a></li>
+            <li><a href="#how-the-installer-works">How the installer works</a></li>
+        
+            <li><a href="#rolling-your-own-installer">Rolling your own installer</a></li>
         
     
     </ul>
@@ -128,7 +129,7 @@
             <div class="col-md-9" role="main">
 
 <h2 id="installing-rail-rna">Installing Rail-RNA</h2>
-<p>Make sure you have a recent (&gt;= 2009) Mac OS or Linux box with at least 8 GB of RAM, and download the latest version of Rail-RNA <a href="https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.1.8c">here</a>. If for some reason you need an older version V, you can visit https://github.com/nellore/rail/tree/master/releases, click on the file <code>install-rail-rna-V</code>, and click the <code>Raw</code> button to download it.</p>
+<p>Make sure you have a recent (&gt;= 2009) Mac OS or Linux box with at least 8 GB of RAM, and download the latest version of Rail-RNA <a href="https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.1.9a">here</a>. If for some reason you need an older version V, you can visit https://github.com/nellore/rail/tree/master/releases, click on the file <code>install-rail-rna-V</code>, and click the <code>Raw</code> button to download it.</p>
 <p>The file you download will be in the format <code>install-rail-rna-V</code>, where V is the version you downloaded. In a Unix shell (which you open by running the <code>Terminal</code> app), navigate to the directory in which you downloaded the installer. This typically means entering <code>cd ~/Downloads</code>. Now enter <code>chmod +x install-rail-rna-V</code> to make the installer executable.</p>
 <h3 id="options">Options</h3>
 <p>Installation options may now be viewed by entering <code>./install-rail-rna-V</code>. They include</p>
@@ -200,24 +201,26 @@ Start using Rail by entering &quot;rail-rna&quot;.
 </code></pre>
 
 <p>, but it's possible you're managing a lab whose members are IAM users attached to your AWS account, and you've already given them permissions. In this case, you will need to make sure your lab members have the <code>iam:GetInstanceProfile</code>, <code>iam:GetRole</code>, and <code>iam:PassRole</code> permissions. We also recommend you give them the <code>iam:ListRoles</code> permission; otherwise, they won't be able clone clusters on Elastic MapReduce. This is sometimes useful if their job flows fail because their bid prices on the <a href="http://aws.amazon.com/ec2/purchasing-options/spot-instances/">spot market</a> were too low, and they want to restart job flows easily. With the appropriate permissions, lab members can install Rail-RNA and configure the AWS CLI as described above. This includes their running <code>aws emr create-default-roles</code>, which will retrieve the default roles you created for them. Learn more about working with IAM users <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">here</a>. This step, and if you find yourself having trouble, ask for help in our <a href="https://gitter.im/nellore/rail">Gitter</a>.</p>
-<h2 id="how-the-installer-works">How the installer works</h2>
+<h2 id="for-hackers">For hackers</h2>
+<h3 id="how-the-installer-works">How the installer works</h3>
 <p>The Rail-RNA installer is nothing but a ZIP archive. When it is executed by Python while it's still compressed, the installer is run. If you unpack the archive first and then execute the directory containing <code>__main__.py</code>, Rail-RNA is run, and it will complain if it can't find dependencies. If you're a Python developer who needs to write a custom installer because your software is difficult to package with something like <code>pip</code>, you might want to try this approach. A helpful starting point is <a href="https://blogs.gnome.org/jamesh/2012/05/21/python-zip-files/">this page</a>.</p>
-<h2 id="rolling-your-own-installer">Rolling your own installer</h2>
+<h3 id="rolling-your-own-installer">Rolling your own installer</h3>
 <p>We've made it easy for you to release your own custom version of Rail-RNA.</p>
 <ol>
 <li>
 <p>Clone the source at a shell prompt with</p>
 <pre><code>git clone https://www.github.com/nellore/rail.git
 </code></pre>
-<p>. We assume you cloned to <code>/home/testuser/rail</code> below</p>
+<p>. We assume you've cloned to <code>/home/testuser/rail</code> below.</p>
 </li>
 <li>
-<p>Edit <code>src/version.py</code>, which looks like this:
-        #!/usr/bin/env python
-        """
-        version.py
-        Part of Rail-RNA</p>
-<pre><code>Stores version number of Rail-RNA as a string.
+<p>Edit <code>src/version.py</code>, which looks like this:</p>
+<pre><code>!/usr/bin/env python
+"""
+version.py
+Part of Rail-RNA
+
+Stores version number of Rail-RNA as a string.
 """
 
 version_number = 'devel'
@@ -230,9 +233,10 @@ version_number = 'devel'
 .</p>
 </li>
 <li>
-<p>Once you're done hacking Rail, run
-        sh /home/testuser/rail/make_it_rail.sh
-A new installer <code>install-rail-rna-C</code> will appear in the <code>releases/</code> directory. Run it to install your modified version locally.</p>
+<p>Once you're done hacking Rail, run</p>
+<pre><code>sh /home/testuser/rail/make_it_rail.sh
+</code></pre>
+<p>A new installer <code>install-rail-rna-C</code> will appear in the <code>releases/</code> directory. Run it to install your modified version locally.</p>
 </li>
 </ol></div>
         </div>

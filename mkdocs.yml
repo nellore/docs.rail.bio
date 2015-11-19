@@ -4,5 +4,6 @@ pages:
 - Installation: installation.md
 - Tutorial: tutorial.md
 - Deliverables: deliverables.md
+- dbGaP_setup: dbgap_setup.md
 - Reference: reference.md
 theme: flatly
