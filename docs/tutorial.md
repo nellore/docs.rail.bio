@@ -106,7 +106,7 @@ ls
 You'll find four directories:
 ```
 alignments    cross_sample_results
-coverage_bigwigs  introns_and_indels
+coverage_bigwigs  junctions_and_indels
 ```
 See [Deliverables](deliverables.md) for information on how to interpret what's in these directories.
 
@@ -307,7 +307,7 @@ testcomputer:~ testuser$ aws s3 ls s3://this-is-the-bucket-name-you-make-up/huma
                            PRE alignments/
                            PRE coverage_bigwigs/
                            PRE cross_sample_results/
-                           PRE introns_and_indels/
+                           PRE junctions_and_indels/
 ```
 You can download all the results to your computer like so:
 ```

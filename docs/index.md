@@ -41,7 +41,7 @@ Rail-RNA is a spliced alignment program: it performs intron-aware alignment of R
 
     2. borrows strength across samples in the following ways.
 
-        * Rail-RNA filters out out likely false positive introns that appear in only a few samples and are covered by few reads across samples. (By default, introns that appear in <= 5% of samples and are covered by fewer than 5 reads in any one sample are filtered out.)
+        * Rail-RNA filters out out likely false positive junctions that appear in only a few samples and are covered by few reads across samples. (By default, junctions that appear in <= 5% of samples and are covered by fewer than 5 reads in any one sample are filtered out.)
 
         * Reads in all samples are automatically realigned to transcript fragments ("isofrags") that overlap exon-exon junctions initially found in a subset of samples. This means it's likelier that exon-exon junctions covered by a small number of reads in any given sample will be discovered.
 

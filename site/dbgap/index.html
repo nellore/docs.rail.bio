@@ -148,11 +148,11 @@
 <li>Secure the account<ol>
 <li>Log into the <a href="https://aws.amazon.com/console/">AWS console</a> using the new account's email address and password.</li>
 <li>Open the <strong>Identity and Access Management</strong> page.
-<div align="center"><img src="../assets/iammenu.png" alt="EMR steps complete" style="width: 300px; padding: 5px;"/></div></li>
+<div align="center"><img src="../assets/iammenu.png" alt="Select IAM" style="width: 300px; padding: 5px;"/></div></li>
 <li>Under <strong>Security Status</strong>, click <strong>Activate MFA on your root account</strong>, then click <strong>Manage MFA</strong>, and follow the instructions to enable multi-factor authentication. We use a virtual MFA device (smartphone) with Google Authenticator.
- <div align="center"><img src="../assets/mfa.png" alt="EMR steps complete" style="width: 400px; padding: 5px;"/></div></li>
+ <div align="center"><img src="../assets/mfa.png" alt="Manage MFA" style="width: 400px; padding: 5px;"/></div></li>
 <li>Under <strong>Apply an IAM password policy</strong>, click <strong>Manage Password Policy</strong>.
-<div align="center"><img src="../assets/managepasspolicy.png" alt="EMR steps complete" style="width: 450px; padding: 3px;"/></div>
+<div align="center"><img src="../assets/managepasspolicy.png" alt="Manage Password Policy" style="width: 450px; padding: 3px;"/></div>
 Configure the password policy according to the requirements mentioned in the <a href="http://www.ncbi.nlm.nih.gov/projects/gap/pdf/dbgap_2b_security_procedures.pdf">NIH Security Best Practices for Controlled-Access Data Subject to the NIH Genomic Data Sharing (GDS) Policy</a>. This usually entails the following, but please note that your institution may impose more stringent requirements:<ul>
 <li>Requiring a minimum password length of 12</li>
 <li>Requiring at least one uppercase letter</li>
@@ -160,7 +160,7 @@ Configure the password policy according to the requirements mentioned in the <a 
 <li>Requiring at least one number</li>
 <li>Requiring at least one non-alphanumeric character</li>
 <li>Enable password expiration after 120 days
-<div align="center"><img src="../assets/passpolicy.png" alt="EMR steps complete" style="width: 450px; padding: 5px;"/></div></li>
+<div align="center"><img src="../assets/passpolicy.png" alt="Password policies" style="width: 450px; padding: 5px;"/></div></li>
 </ul>
 </li>
 <li>Click <strong>Apply password policy</strong>.</li>
@@ -175,9 +175,9 @@ Configure the password policy according to the requirements mentioned in the <a 
 <ol>
 <li>From the new user's computer, log into the <a href="https://aws.amazon.com/console/">AWS Console</a> and select <strong>Identity and Access Management</strong>.</li>
 <li>Click <strong>Users</strong> on the left pane, then <strong>Create New Users</strong> on the right pane.
-<div align="center"><img src="../assets/createnew.png" alt="EMR steps complete" style="width: 450px; padding: 5px;"/></div></li>
+<div align="center"><img src="../assets/createnew.png" alt="Create New Users" style="width: 450px; padding: 5px;"/></div></li>
 <li>Enter the new user's username. We call the new user <strong>dbgapuser</strong> in the screenshot. Check the <strong>Generate an access key for each user</strong> checkbox, and click <strong>Create</strong>.
-<div align="center"><img src="../assets/genaccesskey.png" alt="EMR steps complete" style="width: 600px; padding: 5px;"/></div></li>
+<div align="center"><img src="../assets/genaccesskey.png" alt="Generate access key" style="width: 600px; padding: 5px;"/></div></li>
 <li>Click <strong>Download Credentials</strong>. These credentials (<em>credentials.csv</em>) include the AWS Access Key ID and AWS Secret Access Key. It is recommended that the file containing the credentials be made readable only by the user immediately. The credentials should never be shared, intentionally or inadvertently, with anyone else.</li>
 </ol>
 </li>
@@ -190,16 +190,16 @@ Configure the password policy according to the requirements mentioned in the <a 
 <li>
 <p><em>Administrator:</em> Set user's password.</p>
 <ol>
-<li>Return to the <a href="https://aws.amazon.com/console/">AWS Console</a>, again click <em>Identity and Access Management</em>, again click <em>Users</em> on the left sidebar, and select the new user. Under <em>User Actions</em>, click <em>Manage Password</em>.
-<div align="center"><img src="../assets/managepass.png" alt="EMR steps complete" style="width: 600px; padding: 5px"/></div></li>
-<li>Select <em>Assign an auto-generated password</em>, check the <em>Require user to create a new password at next sign-in</em> box, and click <em>Apply</em>.
-<div align="center"><img src="../assets/autogenpass.png" alt="EMR steps complete" style="width: 600px; padding: 5px"/></div></li>
+<li>Return to the <a href="https://aws.amazon.com/console/">AWS Console</a>, again click <strong>Identity and Access Management</strong>, again click <strong>Users</strong> on the left sidebar, and select the new user. Under <strong>User Actions</strong>, click <strong>Manage Password</strong>.
+<div align="center"><img src="../assets/managepass.png" alt="Manage Password" style="width: 600px; padding: 5px"/></div></li>
+<li>Select <strong>Assign an auto-generated password</strong>, check the <strong>Require user to create a new password at next sign-in</strong> box, and click <strong>Apply</strong>.
+<div align="center"><img src="../assets/autogenpass.png" alt="Password assignment" style="width: 600px; padding: 5px"/></div></li>
 <li>Click <strong>Download Credentials</strong>. The new credentials file <em>credentials (2).csv</em> contains the username, the auto-generated password, and the URL for the account-specific login page.</li>
 </ol>
 </li>
 <li>
 <p><em>User:</em> navigate to the login page URL from <em>credentials (2).csv</em>, log in, and change the password as prompted.
-<div align="center"><img src="../assets/oldnewpass.png" alt="EMR steps complete" style="width:400px; padding: 5px"/></div></p>
+<div align="center"><img src="../assets/oldnewpass.png" alt="Change password" style="width:400px; padding: 5px"/></div></p>
 </li>
 </ol>
 <p><a id="cloudform"></a></p>
@@ -212,19 +212,19 @@ Configure the password policy according to the requirements mentioned in the <a 
 <p>The user will find the CloudFormation template at <code>$RAILDOTBIO/cloudformation/dbgap.template</code> and can send it to the administrator, but it is recommended that the administrator grab the latest version of the template <a href="https://raw.githubusercontent.com/nellore/rail/master/src/cloudformation/dbgap.template">here</a>.</p>
 <ol>
 <li>Click <strong>CloudFormation</strong> in the AWS console, making sure the region in the upper-right corner of the screen is the same as the user's default region (typically <code>us-east-1</code>, i.e., N. Virginia).
-<div align="center"><img src="../assets/cloudformconsole.png" alt="EMR steps complete" style="width: 300px; padding: 5px"/></div></li>
+<div align="center"><img src="../assets/cloudformconsole.png" alt="Select CloudFormation" style="width: 300px; padding: 5px"/></div></li>
 <li>Click <strong>Create Stack</strong>.
-<div align="center"><img src="../assets/createstack.png" alt="EMR steps complete" style="width: 700px; padding: 5px"/></div></li>
+<div align="center"><img src="../assets/createstack.png" alt="Create Stack" style="width: 700px; padding: 5px"/></div></li>
 <li>Under <strong>Choose a template</strong>, opt to upload <code>dbgap.template</code> to Amazon S3, and click <strong>Next</strong>.
-<div align="center"><img src="../assets/choosetemplate.png" alt="EMR steps complete" style="width: 600px; padding: 5px"/></div></li>
+<div align="center"><img src="../assets/choosetemplate.png" alt="Choose template" style="width: 600px; padding: 5px"/></div></li>
 <li>On the next screen:<ul>
 <li>Next to <strong>Stack name</strong>, write "dbgap".</li>
 <li>Next to <strong>Parameters</strong>, let the user type the name of a secure bucket into which they will write all of Rail-RNA's output. The bucket name should not have been taken by any other S3 user.
-<div align="center"><img src="../assets/makeupbucket.png" alt="EMR steps complete" style="width: 600px; padding: 5px"/></div></li>
+<div align="center"><img src="../assets/makeupbucket.png" alt="Pick bucket name" style="width: 600px; padding: 5px"/></div></li>
 </ul>
 </li>
 <li>Click <strong>Next</strong> and <strong>Next</strong> again, then click <strong>Create</strong> and wait for the stack creation to complete. The status message "CREATE_COMPLETE" will soon appear next to "dbgap" on the list of stacks.
-<div align="center"><img src="../assets/createcomplete.png" alt="EMR steps complete" style="width: 600px; padding: 5px"/></div></li>
+<div align="center"><img src="../assets/createcomplete.png" alt="CREATE_COMPLETE" style="width: 600px; padding: 5px"/></div></li>
 </ol>
 <h3 id="delegate-elastic-mapreduce-and-cloudformation-authorites-to-the-new-iam-user-administrator">Delegate Elastic MapReduce and CloudFormation authorites to the new IAM user (administrator)</h3>
 <p>The new IAM user still needs sufficient privileges to run Rail-RNA on Elastic MapReduce.</p>
@@ -254,12 +254,12 @@ Configure the password policy according to the requirements mentioned in the <a 
 </li>
 <li>
 <p>Click <strong>Create Policy</strong>.
-<div align="center"><img src="../assets/policydoc.png" alt="EMR steps complete" style="width: 700px; padding: 5px"/></div></p>
+<div align="center"><img src="../assets/policydoc.png" alt="Create Policy" style="width: 700px; padding: 5px"/></div></p>
 </li>
 <li>Now click <strong>Users</strong> in the left pane, select the new IAM user, and click the <strong>Permissions</strong> tab.
-<div align="center"><img src="../assets/permissionstab.png" alt="EMR steps complete" style="width: 700px; padding: 5px"/></div></li>
+<div align="center"><img src="../assets/permissionstab.png" alt="Permissions" style="width: 700px; padding: 5px"/></div></li>
 <li>Click <strong>Attach Policy</strong>, and select the <code>AWSCloudFormationReadOnlyAccess</code>, <code>AmazonElasticMapReduceFullAccess</code>, and <code>UseExistingEMRRoles</code> policies. Then click Attach Policy.
-<div align="center"><img src="../assets/afterpermissionstab.png" alt="EMR steps complete" style="width: 700px; padding: 5px"/></div>
+<div align="center"><img src="../assets/afterpermissionstab.png" alt="Attach Policy" style="width: 700px; padding: 5px"/></div>
 Different policies including only some of the permissions from these may be included, but note that the user must be able to:<ul>
 <li>launch Elastic MapReduce clusters into the VPC from the secure dbGaP CloudFormation stack created by the administrator above, and</li>
 <li>read and write to the secure S3 bucket created by the administrator on behalf of the user.</li>
