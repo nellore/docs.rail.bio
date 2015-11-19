@@ -24,7 +24,7 @@ These are gzip-compressed cross-sample outputs. They appear in the `cross_sample
 
 ### `idx`: isofrag index
 
-This refers to the file `isofrags.tar.gz` that appears in the `cross_sample_results` subdirectory of the output directory. In general, it should be left gzipped; it can be used to align a new sample to the transcript fragments obtained from an old Rail-RNA run. Say you've aligned 500 samples from the same tissue type with Rail, and you think the list of introns you found is pretty comprehensive. Now say you just obtained another 10 samples from the same tissue type, and you want to align them. You can skip looking for novel junctions in those 10 samples by passing Rail-RNA's `go` or `align` job flow the path to this file as an argument of the `--isofrag-idx` command-line parameter.
+This refers to the file `isofrags.tar.gz` that appears in the `cross_sample_results` subdirectory of the output directory. In general, it should be left gzipped; it can be used to align a new sample to the transcript fragments obtained from an old Rail-RNA run. Say you've aligned 500 samples from the same tissue type with Rail, and you think the list of exon-exon junctions you found is pretty comprehensive. Now say you just obtained another 10 samples from the same tissue type, and you want to align them. You can skip looking for novel junctions in those 10 samples by passing Rail-RNA's `go` or `align` job flow the path to this file as an argument of the `--isofrag-idx` command-line parameter.
 
 ### `bw`: coverage vectors
 
@@ -34,9 +34,9 @@ These are coverage bigWigs, and they appear in the `coverage_bigwigs` subdirecto
 
 These are alignment BAMs and their corresponding indexes (BAIs) that appear in the `alignments` subdirectory of the output directory. By default, there's one BAM per sample per chromosome taking the form `alignments.<sample name>.<chr>.bam`. You can use the `--do-not-output-bam-by-chr` command-line parameter for `go` and `align` job flows to output one BAM per sample. In that case, the filename takes the form `alignments.<sample name>.bam`. Note that outputting BAMs by chromosome is in general faster because it increases parallelism.
 
-### `bed`: introns and indels
+### `bed`: junctions and indels
 
-These are BED files that mirror TopHat 2's output BEDs. They appear in the `introns_and_indels` subdirectory of the output directory. For each sample `<sample name>`, there are three BEDs: `junctions.<sample name>.bed`, `insertions.<sample name>.bed`, and `deletions.<sample name>.bed`. Quotes in the following statements are from the [TopHat 2 manual](https://ccb.jhu.edu/software/tophat/manual.shtml). Recall that BED always uses 0-based coordinates.
+These are BED files that mirror TopHat 2's output BEDs. They appear in the `junctions_and_indels` subdirectory of the output directory. For each sample `<sample name>`, there are three BEDs: `junctions.<sample name>.bed`, `insertions.<sample name>.bed`, and `deletions.<sample name>.bed`. Quotes in the following statements are from the [TopHat 2 manual](https://ccb.jhu.edu/software/tophat/manual.shtml). Recall that BED always uses 0-based coordinates.
   * `junctions.<sample name>.bed`: "Each junction consists of two connected BED blocks, where each block is as long as the maximal overhang of any read spanning the junction. The score is the number of alignments spanning the junction."
   * `deletions.<sample name>.bed`: "chromLeft refers to the first genomic base of the deletion."
   * `insertions.<sample name>.bed`: "chromLeft refers to the last genomic base before the insertion."
