@@ -1,8 +1,10 @@
 ## Securely analyze dbGaP-protected data in the cloud
 
-The [National Institutes of Health (NIH)](http://www.nih.gov) maintains security [requirements](https://gds.nih.gov/) and [recommmendations](http://www.ncbi.nlm.nih.gov/projects/gap/pdf/dbgap_2b_security_procedures.pdf) for analyzing controlled-access genomic data, including [dbGaP](http://www.ncbi.nlm.nih.gov/gap)-protected data. With some additional setup, Rail-RNA can analyze dbGaP-protected RNA-seq data on Amazon Elastic MapReduce in a way that complies with these policies. [Amazon Web Services](http://aws.amazon.com/) (AWS) has also released complementary documents on securing its resources, including [security best practices](https://aws.amazon.com/whitepapers/aws-security-best-practices/) and the whitepaper [Architecting for Genomic Data Security and Compliance in the Cloud](https://d0.awsstatic.com/whitepapers/compliance/AWS_dBGaP_Genomics_on_AWS_Best_Practices.pdf).
+The [National Institutes of Health (NIH)](http://www.nih.gov) maintains security [requirements](https://gds.nih.gov/) and [recommmendations](http://www.ncbi.nlm.nih.gov/projects/gap/pdf/dbgap_2b_security_procedures.pdf) for analyzing controlled-access genomic data, including [dbGaP](http://www.ncbi.nlm.nih.gov/gap)-protected data. With some setup beyond installation, Rail-RNA can analyze dbGaP-protected RNA-seq data on Amazon Elastic MapReduce in a way that complies with these policies. [Amazon Web Services](http://aws.amazon.com/) (AWS) has also released complementary documents on securing its resources, including some [security best practices](https://aws.amazon.com/whitepapers/aws-security-best-practices/) and the whitepaper [Architecting for Genomic Data Security and Compliance in the Cloud](https://d0.awsstatic.com/whitepapers/compliance/AWS_dBGaP_Genomics_on_AWS_Best_Practices.pdf).
 
-Rail-RNA ensures encryption of all data it handles at rest on the Elastic MapReduce cluster and on S3 as well as in transit between the two. Rail-RNA also ensures that the Elastic MapReduce cluster is sufficiently isolated from the internet by launching all job flows into a Virtual Private Cloud augmented by several security features. (See [this section](dbgap.md#cloudform) for more information.) The steps below set a new [AWS IAM](https://aws.amazon.com/iam/) user up for analyzing dbGaP-protected data. Both user and AWS site administrator should be available, and ideally, they are physically together to minimize passing of credentials. (For many investigators, they will be the same person.) The user should already have Rail-RNA [installed](installation.md) on their local machine, including the [AWS Command Line Interface (CLI)](https://aws.amazon.com/cli/).
+Rail-RNA ensures encryption of all data it handles at rest---on the Elastic MapReduce cluster and on S3---as well as in transit. Rail-RNA also ensures that the Elastic MapReduce cluster is sufficiently isolated from the internet by launching all job flows into a [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html) (VPC) augmented by several security features. (See [this section](dbgap.md#cloudform) for more information.) The steps below create a new [AWS IAM](https://aws.amazon.com/iam/) account especially for analyzing dbGaP-protected data. To perform these steps, both user and AWS site administrator should be available. (For many investigators, user and administrator will be the same person.) It is recommended that they are physically together to minimize passing of credentials. The user should already have Rail-RNA [installed](installation.md) on their local machine, including the [AWS Command Line Interface (CLI)](https://aws.amazon.com/cli/). The user should also have [requested access](https://dbgap.ncbi.nlm.nih.gov/aa/dbgap_request_process.pdf) to some dbGaP-protected sample on the [Sequence Read Archive](http://www.ncbi.nlm.nih.gov/sra) (SRA) and received a key file with an `ngq` extension.
+
+Analysis of data on [CGHub](https://cghub.ucsc.edu/) is currently unsupported, but we hope to add support in the near future.
 
 ### Set up an administrator account (administrator)
 
@@ -48,7 +50,7 @@ During this process, it is best for the account administrator to sit with the us
 2. *User:* register credentials with the AWS CLI by entering
         
         aws configure --profile dbgap
-at a terminal prompt on the user's computer. Enter the AWS Access Key ID, AWS Secret Access Key, and a default region as prompted. We recommend using the `us-east-1` because its connection to dbGaP-protected data on the [Sequence Read Archive](http://www.ncbi.nlm.nih.gov/sra) (SRA) appears to be fastest. A default output format need not be specified. Now the new user can issue AWS API calls via the AWS CLI. *It is recommended that credentials file that was just downloaded is now deleted.*
+at a terminal prompt on the user's computer. Enter the AWS Access Key ID, AWS Secret Access Key, and a default region as prompted. We recommend using the `us-east-1` because its connection to dbGaP-protected data on SRA appears to be fastest. A default output format need not be specified. Now the new user can issue AWS API calls via the AWS CLI. *It is recommended that credentials file that was just downloaded is now deleted.*
 
 3. *Administrator:* Set user's password.
     1. Return to the [AWS Console](https://aws.amazon.com/console/), again click **Identity and Access Management**, again click **Users** on the left sidebar, and select the new user. Under **User Actions**, click **Manage Password**.
@@ -64,10 +66,11 @@ at a terminal prompt on the user's computer. Enter the AWS Access Key ID, AWS Se
 ### Create a secure CloudFormation stack (administrator)
 
 [CloudFormation](https://aws.amazon.com/cloudformation/) facilitates creation and management of a group of related AWS resources. Rail-RNA is bundled with a CloudFormation template for creating a [Virtual Private Cloud](https://aws.amazon.com/vpc/) (VPC) with a [single public subnet](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html). A Rail-RNA job flow that analyzes dbGaP data is launched into this subnet. The VPC is supplemented by several security features, including
-    * a VPC endpoint for S3, which ensures that the connection between the Elastic MapReduce cluster and S3 is private.
-    * security groups that block all inbound traffic to the cluster from the internet except from the Elastic MapReduce webservice.
-    * the creation of a secure bucket on S3 into which Rail-RNA should write all its output when operating on dbGaP-protected data. The bucket has an attached policy barring uploads that do not have server-side encryption (AES256) turned on.
-    * turning on [CloudTrail](https://aws.amazon.com/cloudtrail/) logs recording AWS API calls. These are written to the secure bucket.
+
+* a VPC endpoint for S3, which ensures that the connection between the Elastic MapReduce cluster and S3 is private.
+* security groups that block all inbound traffic to the cluster from the internet except from the Elastic MapReduce webservice.
+* the creation of a secure bucket on S3 into which Rail-RNA should write all its output when operating on dbGaP-protected data. The bucket has an attached policy barring uploads that do not have server-side encryption (AES256) turned on.
+* [CloudTrail](https://aws.amazon.com/cloudtrail/) logs recording AWS API calls. These are written to the secure bucket.
 
 The user will find the CloudFormation template at `$RAILDOTBIO/cloudformation/dbgap.template` and can send it to the administrator, but it is recommended that the administrator grab the latest version of the template [here](https://raw.githubusercontent.com/nellore/rail/master/src/cloudformation/dbgap.template).
 
@@ -83,6 +86,8 @@ The user will find the CloudFormation template at `$RAILDOTBIO/cloudformation/db
 <div align="center"><img src="../assets/makeupbucket.png" alt="Pick bucket name" style="width: 600px; padding: 5px"/></div>
 5. Click **Next** and **Next** again, then click **Create** and wait for the stack creation to complete. The status message "CREATE_COMPLETE" will soon appear next to "dbgap" on the list of stacks.
 <div align="center"><img src="../assets/createcomplete.png" alt="CREATE_COMPLETE" style="width: 600px; padding: 5px"/></div>
+
+The best defense is a good offense, and you are encouraged to monitor traffic to clusters launched by the user. You may want to explore turning on [VPC flow logs](https://aws.amazon.com/blogs/aws/vpc-flow-logs-log-and-view-network-traffic-flows/) and [CloudWatch alarms](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.html) for suspicious activity.
 
 ### Delegate Elastic MapReduce and CloudFormation authorites to the new IAM user (administrator)
 

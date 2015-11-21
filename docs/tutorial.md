@@ -22,7 +22,7 @@ usage: rail-rna <job flow> <mode> <[args]>
                      elastic: run Rail-RNA on Amazon Elastic MapReduce.
                        Requires that the user sign up for Amazon Web Services
 
-∀ Rail-RNA v0.2 by Abhi Nellore (anellore@jhu.edu; nellore.github.io)
+∀ Rail-RNA v0.2.0 by Abhi Nellore (anellore@jhu.edu; nellore.github.io)
 
 Rail-RNA is a scalable MapReduce pipeline that can analyze many RNA-seq
 datasets at once. To view help for a given combination of <job flow> and
@@ -150,7 +150,7 @@ rail-rna go local -x /home/testuser/Downloads/Drosophila_melanogaster/UCSC/dm3/S
 ```
 ---and you'll ultimately obtain output like this:
 ```
-∀ Rail-RNA v0.2
+∀ Rail-RNA v0.2.0
 Started job flow on Saturday, Jul 18, 2015 at 07:36:29 PM EDT.
 
 ~.oOo.>
@@ -256,7 +256,7 @@ Loading...
 Checked all files listed in manifest file.
 Copied Rail-RNA and bootstraps to S3.
 
-∀ Rail-RNA v0.2
+∀ Rail-RNA v0.2.0
 Started job flow submission script on Saturday, Jul 18, 2015 at 08:50:34 PM EDT.
 
 ~.oOo.>

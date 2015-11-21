@@ -127,7 +127,7 @@
             <div class="col-md-9" role="main">
 
 <h2 id="choosing-deliverables">Choosing deliverables</h2>
-<p>There are several classes of outputs. Each is described in a different section below. You can toggle which outputs are written with the <code>-d/--deliverables</code> command-line parameter for <code>go</code> and <code>align</code> job flows. By default <code>--deliverables</code> is set to <code>tsv idx bam bw bed</code>, which is all the outputs described below. But for example, you might decide that you don't need the alignment BAMs. In this case, you can invoke <code>--deliverables tsv idx bw bed</code>. This will make Rail-RNA take less time to run and will also save you space---which is especially useful on S3, where storage is rented.</p>
+<p>There are several classes of outputs. Each is described in a different section below. You can toggle which outputs are written with the <code>-d/--deliverables</code> command-line parameter for <code>go</code> and <code>align</code> job flows. By default <code>--deliverables</code> is set to <code>tsv idx bw bed</code>, which is all the outputs described below besides the alignment BAMs. (Do you really need them? Suppressing the output saves a lot of space--which is especially useful on S3, where storage is rented.) If you do need BAM output, invoke <code>--deliverables tsv idx bw bed bam</code>.</p>
 <h3 id="tsv-cross-sample-tables"><code>tsv</code>: cross-sample tables</h3>
 <p>These are gzip-compressed cross-sample outputs. They appear in the <code>cross_sample_results</code> subdirectory of the output directory.</p>
 <ul>
