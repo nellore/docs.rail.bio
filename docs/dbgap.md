@@ -131,6 +131,24 @@ Different policies including only some of the permissions from these may be incl
         aws emr create-default-roles --profile dbgap
 to retrieve the default Elastic MapReduce roles created by the administrator.
 
+### Testing the configuration
+
+dbGaP support has kindly provided a dataset composed of public RNA-seq samples from [1000 Genomes](http://www.1000genomes.org/) exclusively for testing secure cloud-based pipelines. Its project accession number on SRA is [SRP041052](http://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP041052). The user may test their configuration on the lymphoblastoid cell line sample [SRR1219818](http://www.ncbi.nlm.nih.gov/sra/?term=SRR1219818) from that project by following these instructions.
+
+1. Download [the dbGaP repository key](ftp://ftp.ncbi.nlm.nih.gov/sra/examples/decrypt_examples/prj_phs710EA_test.ngc) for the test data. The key is referenced as `/path/to/prj_phs710EA_test.ngc` here.
+2. Run
+
+        rail-rna go local
+          -a hg38
+          -o s3://this-is-a-bucket-name-the-user-names-up/dbgaptest
+          -c 1
+          -m https://raw.githubusercontent.com/nellore/rail/master/ex/secure.manifest
+          --secure-stack-name dbgap
+          --profile dbgap
+          --dbgap-key /path/to/prj_phs710EA_test.ngc
+
+to submit a secure job flow into the public subnet of the VPC created above that preprocesses and aligns the test sample. Use the EMR interface to monitor the progress of the job flow, and check the bucket `s3://this-is-a-bucket-name-the-user-names-up/dbgaptest` for results after it's done.
+
 ### Analyze dbGaP-protected data
 
 The user may now submit Rail-RNA jobs that analyze dbGaP-protected data from their computer. A line in a manifest file (as described in the [tutorial](tutorial.md) and [reference](reference.md)) corresponding to a dbGaP-protected sample has the following format.
@@ -139,7 +157,14 @@ dbgap:<SRA run accession number>(tab)0(tab)<sample label>
 ```
 where a run accession number from SRA begins with `SRR`, `ERR`, or `DRR`. Every Rail-RNA command analyzing dbGaP data should include the command-line parameters `--secure-stack-name dbgap --profile dbgap --dbgap-key [the key file with the NGC extension you download]` and should write to the secure bucket created by the administrator. An example command follows.
 ```
-rail-rna go elastic -m dbgap.manifest -a hg38 -o s3://this-is-a-bucket-name-the-user-makes-up/dbgapout -c 1 --secure-stack-name dbgap --profile dbgap
+rail-rna go elastic
+  -m dbgap.manifest
+  -a hg38
+  -o s3://this-is-a-bucket-name-the-user-makes-up/dbgapout
+  -c 1
+  --secure-stack-name dbgap
+  --profile dbgap
+  --dbgap-key /path/to/some_dbgap_key.ngc
 ```
 Rail-RNA does not currently support analyzing TCGA data.
 
