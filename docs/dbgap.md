@@ -131,7 +131,7 @@ Different policies including only some of the permissions from these may be incl
         aws emr create-default-roles --profile dbgap
 to retrieve the default Elastic MapReduce roles created by the administrator.
 
-### Testing the configuration
+### Test the configuration (user)
 
 dbGaP support has kindly provided a dataset composed of public RNA-seq samples from [1000 Genomes](http://www.1000genomes.org/) exclusively for testing secure cloud-based pipelines. Its project accession number on SRA is [SRP041052](http://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP041052). The user may test their configuration on the lymphoblastoid cell line sample [SRR1219818](http://www.ncbi.nlm.nih.gov/sra/?term=SRR1219818) from that project by following these instructions.
 
@@ -155,7 +155,7 @@ The user may now submit Rail-RNA jobs that analyze dbGaP-protected data from the
 ```
 dbgap:<SRA run accession number>(tab)0(tab)<sample label>
 ```
-where a run accession number from SRA begins with `SRR`, `ERR`, or `DRR`. Every Rail-RNA command analyzing dbGaP data should include the command-line parameters `--secure-stack-name dbgap --profile dbgap --dbgap-key [the key file with the NGC extension you download]` and should write to the secure bucket created by the administrator. An example command follows.
+where a run accession number from SRA begins with `SRR`, `ERR`, or `DRR`. An example manifest file is the [test manifest file](https://raw.githubusercontent.com/nellore/rail/master/ex/secure.manifest) used in the previous section. Every Rail-RNA command analyzing dbGaP data should include the command-line parameters `--secure-stack-name dbgap --profile dbgap --dbgap-key [the key file with the NGC extension you download]` and should write to the secure bucket created by the administrator. An example command follows.
 ```
 rail-rna go elastic
   -m dbgap.manifest
