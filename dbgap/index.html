@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>dbGaP on EMR - Rail-RNA v0.2</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">Rail-RNA v0.2</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="..">Home</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../installation/">Installation</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../tutorial/">Tutorial</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../deliverables/">Deliverables</a>
+                </li>
+            
+            
+            
+                <li class="active">
+                    <a href="./">dbGaP on EMR</a>
+                </li>
+            
+            
+            
+                <li >
+                    <a href="../reference/">Reference</a>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../deliverables/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../reference/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#securely-analyze-dbgap-protected-data-in-the-cloud">Securely analyze dbGaP-protected data in the cloud</a></li>
+        
+            <li><a href="#set-up-an-administrator-account-administrator">Set up an administrator account (administrator)</a></li>
+        
+            <li><a href="#set-up-a-new-iam-user-administrator-user">Set up a new IAM user (administrator &amp; user)</a></li>
+        
+            <li><a href="#create-a-secure-cloudformation-stack-administrator">Create a secure CloudFormation stack (administrator)</a></li>
+        
+            <li><a href="#delegate-elastic-mapreduce-and-cloudformation-authorites-to-the-new-iam-user-administrator">Delegate Elastic MapReduce and CloudFormation authorites to the new IAM user (administrator)</a></li>
+        
+            <li><a href="#set-up-default-emr-roles-administrator-user">Set up default EMR roles (administrator &amp; user)</a></li>
+        
+            <li><a href="#test-the-configuration-user">Test the configuration (user)</a></li>
+        
+            <li><a href="#analyze-dbgap-protected-data">Analyze dbGaP-protected data</a></li>
+        
+            <li><a href="#helpful-notes-for-administrators">Helpful notes for administrators</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h2 id="securely-analyze-dbgap-protected-data-in-the-cloud">Securely analyze dbGaP-protected data in the cloud</h2>
+<p>testing The <a href="http://www.nih.gov">National Institutes of Health (NIH)</a> maintains security <a href="https://gds.nih.gov/">requirements</a> and <a href="http://www.ncbi.nlm.nih.gov/projects/gap/pdf/dbgap_2b_security_procedures.pdf">recommmendations</a> for analyzing controlled-access genomic data, including <a href="http://www.ncbi.nlm.nih.gov/gap">dbGaP</a>-protected data. With some setup beyond installation, Rail-RNA can analyze dbGaP-protected RNA-seq data on Amazon Elastic MapReduce in a way that complies with these policies. <a href="http://aws.amazon.com/">Amazon Web Services</a> (AWS) has also released complementary documents on securing its resources, including some <a href="https://aws.amazon.com/whitepapers/aws-security-best-practices/">security best practices</a> and the whitepaper <a href="https://d0.awsstatic.com/whitepapers/compliance/AWS_dBGaP_Genomics_on_AWS_Best_Practices.pdf">Architecting for Genomic Data Security and Compliance in the Cloud</a>.</p>
+<p>Rail-RNA ensures encryption of all data it handles at rest---on the Elastic MapReduce cluster and on S3---as well as in transit. Rail-RNA also ensures that the Elastic MapReduce cluster is sufficiently isolated from the internet by launching all job flows into a <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html">Virtual Private Cloud</a> (VPC) augmented by several security features. (See <a href="./#cloudform">this section</a> for more information.) The steps below create a new <a href="https://aws.amazon.com/iam/">AWS IAM</a> account especially for analyzing dbGaP-protected data. To perform these steps, both user and AWS site administrator should be available. (For many investigators, user and administrator will be the same person.) It is recommended that they are physically together to minimize passing of credentials. The user should already have Rail-RNA <a href="../installation/">installed</a> on their local machine, including the <a href="https://aws.amazon.com/cli/">AWS Command Line Interface (CLI)</a>. The user should also have <a href="https://dbgap.ncbi.nlm.nih.gov/aa/dbgap_request_process.pdf">requested access</a> to some dbGaP-protected sample on the <a href="http://www.ncbi.nlm.nih.gov/sra">Sequence Read Archive</a> (SRA) and received a key file with an <code>ngc</code> extension.</p>
+<p>Analysis of data on <a href="https://cghub.ucsc.edu/">CGHub</a> is currently unsupported, but we hope to add support in the near future.</p>
+<h3 id="set-up-an-administrator-account-administrator">Set up an administrator account (administrator)</h3>
+<p>These steps should be performed if the site administrator is new to AWS.</p>
+<ol>
+<li>Navigate to <a href="http://aws.amazon.com/free">http://aws.amazon.com/free</a> in your web browser.</li>
+<li>Click <strong>Create a free account</strong>.</li>
+<li>Check the <strong>I am a new user</strong> box and and continue to follow the instructions to create your new account. You'll enter, for example, contact and payment information. Note that the <strong>Basic</strong> level of service is sufficient for using Rail-RNA.</li>
+<li>Make a note of your account number.<ol>
+<li>Log into the [AWS console] using the new account's email address and password.</li>
+<li>Click on the arrow next to your user name in the gray banner at the top of the page.</li>
+<li>Select <strong>My Account</strong>, and the <strong>Account Id</strong> will be displayed at the top of the page.</li>
+</ol>
+</li>
+<li>Secure the account<ol>
+<li>Log into the <a href="https://aws.amazon.com/console/">AWS console</a> using the new account's email address and password.</li>
+<li>Open the <strong>Identity and Access Management</strong> page.
+<div align="center"><img src="../assets/iammenu.png" alt="Select IAM" style="width: 300px; padding: 5px;"/></div></li>
+<li>Under <strong>Security Status</strong>, click <strong>Activate MFA on your root account</strong>, then click <strong>Manage MFA</strong>, and follow the instructions to enable multi-factor authentication. We use a virtual MFA device (smartphone) with Google Authenticator.
+ <div align="center"><img src="../assets/mfa.png" alt="Manage MFA" style="width: 400px; padding: 5px;"/></div></li>
+<li>Under <strong>Apply an IAM password policy</strong>, click <strong>Manage Password Policy</strong>.
+<div align="center"><img src="../assets/managepasspolicy.png" alt="Manage Password Policy" style="width: 450px; padding: 3px;"/></div>
+Configure the password policy according to the requirements mentioned in the <a href="http://www.ncbi.nlm.nih.gov/projects/gap/pdf/dbgap_2b_security_procedures.pdf">NIH Security Best Practices for Controlled-Access Data Subject to the NIH Genomic Data Sharing (GDS) Policy</a>. This usually entails the following, but please note that your institution may impose more stringent requirements:<ul>
+<li>Requiring a minimum password length of 12</li>
+<li>Requiring at least one uppercase letter</li>
+<li>Requiring at least one lowercase letter</li>
+<li>Requiring at least one number</li>
+<li>Requiring at least one non-alphanumeric character</li>
+<li>Enable password expiration after 120 days
+<div align="center"><img src="../assets/passpolicy.png" alt="Password policies" style="width: 450px; padding: 5px;"/></div></li>
+</ul>
+</li>
+<li>Click <strong>Apply password policy</strong>.</li>
+</ol>
+</li>
+</ol>
+<h3 id="set-up-a-new-iam-user-administrator-user">Set up a new IAM user (administrator &amp; user)</h3>
+<p>During this process, it is best for the account administrator to sit with the user to minimize passing credentials. </p>
+<ol>
+<li>
+<p><em>Administrator:</em> create new IAM user.</p>
+<ol>
+<li>From the new user's computer, log into the <a href="https://aws.amazon.com/console/">AWS Console</a> and select <strong>Identity and Access Management</strong>.</li>
+<li>Click <strong>Users</strong> on the left pane, then <strong>Create New Users</strong> on the right pane.
+<div align="center"><img src="../assets/createnew.png" alt="Create New Users" style="width: 450px; padding: 5px;"/></div></li>
+<li>Enter the new user's username. We call the new user <strong>dbgapuser</strong> in the screenshot. Check the <strong>Generate an access key for each user</strong> checkbox, and click <strong>Create</strong>.
+<div align="center"><img src="../assets/genaccesskey.png" alt="Generate access key" style="width: 600px; padding: 5px;"/></div></li>
+<li>Click <strong>Download Credentials</strong>. These credentials (<em>credentials.csv</em>) include the AWS Access Key ID and AWS Secret Access Key. It is recommended that the file containing the credentials be made readable only by the user immediately. The credentials should never be shared, intentionally or inadvertently, with anyone else.</li>
+</ol>
+</li>
+<li>
+<p><em>User:</em> register credentials with the AWS CLI by entering</p>
+<pre><code>aws configure --profile dbgap
+</code></pre>
+<p>at a terminal prompt on the user's computer. Enter the AWS Access Key ID, AWS Secret Access Key, and a default region as prompted. We recommend using the <code>us-east-1</code> because its connection to dbGaP-protected data on SRA appears to be fastest. A default output format need not be specified. Now the new user can issue AWS API calls via the AWS CLI. <em>It is recommended that credentials file that was just downloaded is now deleted.</em></p>
+</li>
+<li>
+<p><em>Administrator:</em> Set user's password.</p>
+<ol>
+<li>Return to the <a href="https://aws.amazon.com/console/">AWS Console</a>, again click <strong>Identity and Access Management</strong>, again click <strong>Users</strong> on the left sidebar, and select the new user. Under <strong>User Actions</strong>, click <strong>Manage Password</strong>.
+<div align="center"><img src="../assets/managepass.png" alt="Manage Password" style="width: 600px; padding: 5px"/></div></li>
+<li>Select <strong>Assign an auto-generated password</strong>, check the <strong>Require user to create a new password at next sign-in</strong> box, and click <strong>Apply</strong>.
+<div align="center"><img src="../assets/autogenpass.png" alt="Password assignment" style="width: 600px; padding: 5px"/></div></li>
+<li>Click <strong>Download Credentials</strong>. The new credentials file <em>credentials (2).csv</em> contains the username, the auto-generated password, and the URL for the account-specific login page.</li>
+</ol>
+</li>
+<li>
+<p><em>User:</em> navigate to the login page URL from <em>credentials (2).csv</em>, log in, and change the password as prompted.
+<div align="center"><img src="../assets/oldnewpass.png" alt="Change password" style="width:400px; padding: 5px"/></div></p>
+</li>
+</ol>
+<p><a id="cloudform"></a></p>
+<h3 id="create-a-secure-cloudformation-stack-administrator">Create a secure CloudFormation stack (administrator)</h3>
+<p><a href="https://aws.amazon.com/cloudformation/">CloudFormation</a> facilitates creation and management of a group of related AWS resources. Rail-RNA is bundled with a CloudFormation template for creating a <a href="https://aws.amazon.com/vpc/">Virtual Private Cloud</a> (VPC) with a <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario1.html">single public subnet</a>. A Rail-RNA job flow that analyzes dbGaP data is launched into this subnet. The VPC is supplemented by several security features, including</p>
+<ul>
+<li>a VPC endpoint for S3, which ensures that the connection between the Elastic MapReduce cluster and S3 is private.</li>
+<li>security groups that block all inbound traffic to the cluster from the internet except from the Elastic MapReduce webservice.</li>
+<li>the creation of a secure bucket on S3 into which Rail-RNA should write all its output when operating on dbGaP-protected data. The bucket has an attached policy barring uploads that do not have server-side encryption (AES256) turned on.</li>
+<li><a href="https://aws.amazon.com/cloudtrail/">CloudTrail</a> logs recording AWS API calls. These are written to the secure bucket.</li>
+</ul>
+<p>The user will find the CloudFormation template at <code>$RAILDOTBIO/cloudformation/dbgap.template</code> and can send it to the administrator, but it is recommended that the administrator grab the latest version of the template <a href="https://raw.githubusercontent.com/nellore/rail/master/src/cloudformation/dbgap.template">here</a>. Implement it by following these steps. (If the administrator already has CloudTrail turned on, they may not work, causing a rollback. An administrator satisfied with their CloudTrail configuration may instead want to use <a href="https://raw.githubusercontent.com/nellore/rail/master/src/cloudformation/dbgap_minus_cloudtrail.template">this alternative CloudFormation template</a>, which creates the VPC but does not attempt to set up CloudTrail.)</p>
+<ol>
+<li>Click <strong>CloudFormation</strong> in the AWS console, making sure the region in the upper-right corner of the screen is the same as the user's default region (typically <code>us-east-1</code>, i.e., N. Virginia).
+<div align="center"><img src="../assets/cloudformconsole.png" alt="Select CloudFormation" style="width: 300px; padding: 5px"/></div></li>
+<li>Click <strong>Create Stack</strong>.
+<div align="center"><img src="../assets/createstack.png" alt="Create Stack" style="width: 700px; padding: 5px"/></div></li>
+<li>Under <strong>Choose a template</strong>, opt to upload <code>dbgap.template</code> to Amazon S3, and click <strong>Next</strong>.
+<div align="center"><img src="../assets/choosetemplate.png" alt="Choose template" style="width: 600px; padding: 5px"/></div></li>
+<li>On the next screen:<ul>
+<li>Next to <strong>Stack name</strong>, write "dbgap".</li>
+<li>Next to <strong>Parameters</strong>, let the user type the name of a secure bucket into which they will write all of Rail-RNA's output. The bucket name should not have been taken by any other S3 user.
+<div align="center"><img src="../assets/makeupbucket.png" alt="Pick bucket name" style="width: 600px; padding: 5px"/></div></li>
+</ul>
+</li>
+<li>Click <strong>Next</strong> and <strong>Next</strong> again, then click <strong>Create</strong> and wait for the stack creation to complete. The status message "CREATE_COMPLETE" will soon appear next to "dbgap" on the list of stacks.
+<div align="center"><img src="../assets/createcomplete.png" alt="CREATE_COMPLETE" style="width: 600px; padding: 5px"/></div></li>
+</ol>
+<p>The best defense is a good offense, and you are encouraged to monitor traffic to clusters launched by the user. You may want to explore turning on <a href="https://aws.amazon.com/blogs/aws/vpc-flow-logs-log-and-view-network-traffic-flows/">VPC flow logs</a> and <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.html">CloudWatch alarms</a> for suspicious activity.</p>
+<h3 id="delegate-elastic-mapreduce-and-cloudformation-authorites-to-the-new-iam-user-administrator">Delegate Elastic MapReduce and CloudFormation authorites to the new IAM user (administrator)</h3>
+<p>The new IAM user still needs sufficient privileges to run Rail-RNA on Elastic MapReduce.</p>
+<ol>
+<li>Return to the <a href="https://aws.amazon.com/console/">AWS Console</a>, again click <strong>Identity and Access Management</strong>, but now click <strong>Policies</strong> on the left sidebar.</li>
+<li>
+<p>Click <strong>Create Policy</strong>, then select <strong>Create Your Own Policy</strong>. (You may need to click <strong>Get Started</strong> first.)</p>
+<ol>
+<li>Under <strong>Policy Name</strong>, enter "UseExistingEMRRoles".</li>
+<li>
+<p>Under <strong>Policy Document</strong>, paste the following.</p>
+<pre><code>{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                 "iam:GetInstanceProfile",
+                 "iam:GetRole",
+                 "iam:PassRole"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+</code></pre>
+</li>
+<li>
+<p>Click <strong>Create Policy</strong>.
+<div align="center"><img src="../assets/policydoc.png" alt="Create Policy" style="width: 700px; padding: 5px"/></div></p>
+</li>
+<li>Now click <strong>Users</strong> in the left pane, select the new IAM user, and click the <strong>Permissions</strong> tab.
+<div align="center"><img src="../assets/permissionstab.png" alt="Permissions" style="width: 700px; padding: 5px"/></div></li>
+<li>Click <strong>Attach Policy</strong>, and select the <code>AWSCloudFormationReadOnlyAccess</code>, <code>AmazonElasticMapReduceFullAccess</code>, and <code>UseExistingEMRRoles</code> policies. Then click Attach Policy.
+<div align="center"><img src="../assets/afterpermissionstab.png" alt="Attach Policy" style="width: 700px; padding: 5px"/></div>
+Different policies including only some of the permissions from these may be included, but note that the user must be able to:<ul>
+<li>launch Elastic MapReduce clusters into the VPC from the secure dbGaP CloudFormation stack created by the administrator above, and</li>
+<li>read and write to the secure S3 bucket created by the administrator on behalf of the user.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="set-up-default-emr-roles-administrator-user">Set up default EMR roles (administrator &amp; user)</h3>
+<ol>
+<li><em>Administrator:</em> follow <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-iam-roles-creatingroles.html">these instructions</a> to create default roles for Elastic MapReduce.</li>
+<li><em>User:</em> run<pre><code>aws emr create-default-roles --profile dbgap
+</code></pre>
+<p>to retrieve the default Elastic MapReduce roles created by the administrator.</p>
+</li>
+</ol>
+<h3 id="test-the-configuration-user">Test the configuration (user)</h3>
+<p>dbGaP support has kindly provided a dataset composed of public RNA-seq samples from <a href="http://www.1000genomes.org/">1000 Genomes</a> exclusively for testing secure cloud-based pipelines. Its project accession number on SRA is <a href="http://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP041052">SRP041052</a>. The user may test their configuration on the lymphoblastoid cell line sample <a href="http://www.ncbi.nlm.nih.gov/sra/?term=SRR1219818">SRR1219818</a> from that project by following these instructions.</p>
+<ol>
+<li>Download <a href="ftp://ftp.ncbi.nlm.nih.gov/sra/examples/decrypt_examples/prj_phs710EA_test.ngc">the dbGaP repository key</a> for the test data. The key is referenced as <code>/path/to/prj_phs710EA_test.ngc</code> here.</li>
+<li>Run<pre><code>rail-rna go local
+  -a hg38
+  -o s3://this-is-a-bucket-name-the-user-names-up/dbgaptest
+  -c 1
+  -m https://raw.githubusercontent.com/nellore/rail/master/ex/secure.manifest
+  --secure-stack-name dbgap
+  --profile dbgap
+  --dbgap-key /path/to/prj_phs710EA_test.ngc
+</code></pre>
+</li>
+</ol>
+<p>to submit a secure job flow into the public subnet of the VPC created above that preprocesses and aligns the test sample. Use the EMR interface to monitor the progress of the job flow, and check the bucket <code>s3://this-is-a-bucket-name-the-user-names-up/dbgaptest</code> for results after it's done.</p>
+<h3 id="analyze-dbgap-protected-data">Analyze dbGaP-protected data</h3>
+<p>The user may now submit Rail-RNA jobs that analyze dbGaP-protected data from their computer. A line in a manifest file (as described in the <a href="../tutorial/">tutorial</a> and <a href="../reference/">reference</a>) corresponding to a dbGaP-protected sample has the following format.</p>
+<pre><code>dbgap:&lt;SRA run accession number&gt;(tab)0(tab)&lt;sample label&gt;
+</code></pre>
+
+<p>where a run accession number from SRA begins with <code>SRR</code>, <code>ERR</code>, or <code>DRR</code>. An example manifest file is the <a href="https://raw.githubusercontent.com/nellore/rail/master/ex/secure.manifest">test manifest file</a> used in the previous section. Every Rail-RNA command analyzing dbGaP data should include the command-line parameters <code>--secure-stack-name dbgap --profile dbgap --dbgap-key [the key file with the NGC extension you download]</code> and should write to the secure bucket created by the administrator. An example command follows.</p>
+<pre><code>rail-rna go elastic
+  -m dbgap.manifest
+  -a hg38
+  -o s3://this-is-a-bucket-name-the-user-makes-up/dbgapout
+  -c 1
+  --secure-stack-name dbgap
+  --profile dbgap
+  --dbgap-key /path/to/some_dbgap_key.ngc
+</code></pre>
+
+<p>Rail-RNA does not currently support analyzing TCGA data.</p>
+<h3 id="helpful-notes-for-administrators">Helpful notes for administrators</h3>
+<p>As for any new AWS account, you should consider how you would like to configure billing.  <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/consolidated-billing.html">Consolidated billing</a> can be convenient if you are managing multiple AWS accounts simultaneously.</p>
+<p>Further, you should consider raising your EC2 instance limits.  This is particularly important if you plan to analyze large datasets (more than 100 RNA-seq samples at a time).  To raise your limits, visit <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">this page</a>.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>
