@@ -121,7 +121,7 @@
         
             <li><a href="#set-up-default-emr-roles-administrator-user">Set up default EMR roles (administrator &amp; user)</a></li>
         
-            <li><a href="#testing-the-configuration">Testing the configuration</a></li>
+            <li><a href="#test-the-configuration-user">Test the configuration (user)</a></li>
         
             <li><a href="#analyze-dbgap-protected-data">Analyze dbGaP-protected data</a></li>
         
@@ -282,7 +282,7 @@ Different policies including only some of the permissions from these may be incl
 <p>to retrieve the default Elastic MapReduce roles created by the administrator.</p>
 </li>
 </ol>
-<h3 id="testing-the-configuration">Testing the configuration</h3>
+<h3 id="test-the-configuration-user">Test the configuration (user)</h3>
 <p>dbGaP support has kindly provided a dataset composed of public RNA-seq samples from <a href="http://www.1000genomes.org/">1000 Genomes</a> exclusively for testing secure cloud-based pipelines. Its project accession number on SRA is <a href="http://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP041052">SRP041052</a>. The user may test their configuration on the lymphoblastoid cell line sample <a href="http://www.ncbi.nlm.nih.gov/sra/?term=SRR1219818">SRR1219818</a> from that project by following these instructions.</p>
 <ol>
 <li>Download <a href="ftp://ftp.ncbi.nlm.nih.gov/sra/examples/decrypt_examples/prj_phs710EA_test.ngc">the dbGaP repository key</a> for the test data. The key is referenced as <code>/path/to/prj_phs710EA_test.ngc</code> here.</li>
@@ -303,7 +303,7 @@ Different policies including only some of the permissions from these may be incl
 <pre><code>dbgap:&lt;SRA run accession number&gt;(tab)0(tab)&lt;sample label&gt;
 </code></pre>
 
-<p>where a run accession number from SRA begins with <code>SRR</code>, <code>ERR</code>, or <code>DRR</code>. Every Rail-RNA command analyzing dbGaP data should include the command-line parameters <code>--secure-stack-name dbgap --profile dbgap --dbgap-key [the key file with the NGC extension you download]</code> and should write to the secure bucket created by the administrator. An example command follows.</p>
+<p>where a run accession number from SRA begins with <code>SRR</code>, <code>ERR</code>, or <code>DRR</code>. An example manifest file is the <a href="https://raw.githubusercontent.com/nellore/rail/master/ex/secure.manifest">test manifest file</a> used in the previous section. Every Rail-RNA command analyzing dbGaP data should include the command-line parameters <code>--secure-stack-name dbgap --profile dbgap --dbgap-key [the key file with the NGC extension you download]</code> and should write to the secure bucket created by the administrator. An example command follows.</p>
 <pre><code>rail-rna go elastic
   -m dbgap.manifest
   -a hg38
