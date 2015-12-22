@@ -255,7 +255,7 @@ rail-rna align local -i dmel_prepped -m https://raw.githubusercontent.com/nellor
 </code></pre>
 
 <p>The <code>rail-rna prep local</code> command above is executed on a single thread (with <code>-p 1</code>) to ensure that only one download is performed at a time, which would be useful if our downloads were throttled. In the <code>rail-rna align local</code> command, the parameter <code>-f/--force</code> tells Rail to overwrite any existing outputs. You should end up with exactly the same output you obtained when you ran the <code>rail-rna go local</code> command.</p>
-<p>Now you'll run an example that will break Rail. Navigate to the URL https://raw.githubusercontent.com/nellore/rail/master/ex/bad.manifest . The manifest will look like this:</p>
+<p>Now you'll run an example that will break Rail. Navigate to <a href="https://raw.githubusercontent.com/nellore/rail/master/ex/bad.manifest">this URL</a>, a manifest file that should look like this:</p>
 <pre><code>http://verve.webfactional.com/bad.fastq       0        bad-1-1
 </code></pre>
 
@@ -274,7 +274,7 @@ ATGGCATCAGTCAAGTCAAGATTACTAGTAGCCATACAAGATACATCGTTTAACGATTGTGGCACATACGTCACCA
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 </code></pre>
 
-<p>There's one sequence labeled "badrecord" and another labeled "goodrecord". "badrecord" is bad because its read sequence isn't the same length as its quality sequence. Without being told otherwise, Rail-RNA chokes on bad records, but it's good to see how it chokes to learn how to diagnose problems. Run Rail-RNA on the bad manifest like so---</p>
+<p>There's one sequence labeled "badrecord" and another labeled "goodrecord". "badrecord" is bad because its read sequence isn't the same length as its quality sequence. Without being told otherwise, Rail-RNA chokes on bad records, but it's good to see how it chokes to learn how to diagnose problems. Run Rail-RNA on the bad manifest file like so---</p>
 <pre><code>cd /home/testuser/railtests
 rail-rna go local -x /home/testuser/Downloads/Drosophila_melanogaster/UCSC/dm3/Sequence/BowtieIndex/genome /home/testuser/Downloads/Drosophila_melanogaster/UCSC/dm3/Sequence/Bowtie2Index/genome -m https://raw.githubusercontent.com/nellore/rail/master/ex/bad.manifest -o ./bad
 </code></pre>
