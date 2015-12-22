@@ -1,143 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        
-        
-        <link rel="shortcut icon" href="../img/favicon.ico">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reference - Rail-RNA v0.2</title>
+  
 
-	<title>Reference - Rail-RNA v0.2</title>
+  <link rel="shortcut icon" href="../img/favicon.ico">
 
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/highlight.css">
-        <link href="../css/base.css" rel="stylesheet">
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
 
-        
-    </head>
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Reference";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
 
-    <body>
+  
+</head>
 
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+<body class="wy-body-for-nav" role="document">
 
-        <!-- Collapsed navigation -->
-        <div class="navbar-header">
-            <!-- Expander button -->
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+  <div class="wy-grid-for-nav">
 
-            <!-- Main title -->
-            <a class="navbar-brand" href="..">Rail-RNA v0.2</a>
-        </div>
-
-        <!-- Expanded navigation -->
-        <div class="navbar-collapse collapse">
-            <!-- Main navigation -->
-            <ul class="nav navbar-nav">
-            
-            
-                <li >
-                    <a href="..">Home</a>
-                </li>
-            
-            
-            
-                <li >
-                    <a href="../installation/">Installation</a>
-                </li>
-            
-            
-            
-                <li >
-                    <a href="../tutorial/">Tutorial</a>
-                </li>
-            
-            
-            
-                <li >
-                    <a href="../deliverables/">Deliverables</a>
-                </li>
-            
-            
-            
-                <li >
-                    <a href="../dbgap/">dbGaP on EMR</a>
-                </li>
-            
-            
-            
-                <li class="active">
-                    <a href="./">Reference</a>
-                </li>
-            
-            
-            </ul>
-
-            <!-- Search, Navigation and Repo links -->
-            <ul class="nav navbar-nav navbar-right">
-                <li >
-                    <a rel="next" href="../dbgap/">
-                        <i class="fa fa-arrow-left"></i> Previous
-                    </a>
-                </li>
-                <li class="disabled">
-                    <a rel="prev" >
-                        Next <i class="fa fa-arrow-right"></i>
-                    </a>
-                </li>
-                
-            </ul>
-        </div>
-    </div>
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Rail-RNA v0.2</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
 </div>
+      </div>
 
-        <div class="container">
-            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
-    <ul class="nav bs-sidenav">
-    
-        <li class="main active"><a href="#command-line-usage">Command-line usage</a></li>
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
         
-            <li><a href="#required-args">Required args</a></li>
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../installation/">Installation</a>
         
-            <li><a href="#general-options">General options</a></li>
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../tutorial/">Tutorial</a>
         
-            <li><a href="#algorithm-options">Algorithm options</a></li>
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../deliverables/">Deliverables</a>
         
-            <li><a href="#output-options">Output options</a></li>
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../dbgap/">dbGaP on EMR</a>
         
-            <li><a href="#elastic-mapreduce-options">Elastic MapReduce options</a></li>
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Reference</a>
         
-    
-    </ul>
-</div></div>
-            <div class="col-md-9" role="main">
+            <ul>
+            
+                <li class="toctree-l3"><a href="#command-line-usage">Command-line usage</a></li>
+                
+                    <li><a class="toctree-l4" href="#required-args">Required args</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-m-manifest-file">-m/--manifest &lt;file&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-x-bowtie-idx-idxidx-idx">-x/--bowtie-idx/ &lt;idx,idx | idx&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-c-core-instance-count-int">-c/--core-instance-count &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-a-assembly-choice-tgz">-a/--assembly &lt;choice | tgz&gt;</a></li>
+                
+                    <li><a class="toctree-l4" href="#general-options">General options</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-h-help">-h/--help</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-v-version">-v/--version</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-j-json">-j/--json</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-profile-str">--profile &lt;str&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-f-force">-f/--force</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-verbose">--verbose</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-do-not-bin-quals">--do-not-bin-quals</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-short-read-names">--short-read-names</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-skip-bad-records">--skip-bad-records</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-do-not-check-manifest">--do-not-check-manifest</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-log-dir">--log &lt;dir&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-intermediate-s3_dirhdfs_dir">--intermediate &lt;s3_dir/hdfs_dir&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-p-num-processes-int">-p/--num-processes &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-scratch-dir">--scratch &lt;dir&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-keep-intermediates">--keep-intermediates</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-g-gzip-intermediates">-g/--gzip-intermediates</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-gzip-level-int">--gzip-level &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-r-sort-memory-cap-dec">-r/--sort-memory-cap &lt;dec&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-nucleotides-per-input-int">--nucleotides-per-input &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-do-not-gzip-input">--do-not-gzip-input</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-max-task-attempts-int">--max-task-attempts &lt;int&gt;</a></li>
+                
+                    <li><a class="toctree-l4" href="#algorithm-options">Algorithm options</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-bowtie2-args-str">--bowtie2-args &lt;str&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-k-int">-k &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-isofrag-idx-fx-file">--isofrag-idx/-fx &lt;file&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-partition-length-int">--partition-length &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-max-readlet-size-int">--max-readlet-size &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-min-readlet-size-int">--min-readlet-size &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-readlet-interval-int">--readlet-interval &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-readlet-config-size-int">--readlet-config-size &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-max-intron-size-int">--max-intron-size &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-min-intron-size-int">--min-intron-size &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-min-exon-size-int">---min-exon-size &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-search-filter-choiceint">--search-filter &lt;choice/int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-junction-criteria-decint">--junction-criteria &lt;dec,int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-normalize-percentile-dec">--normalize-percentile &lt;dec&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-do-not-drop-polya-tails">--do-not-drop-polyA-tails</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-tie-margin-int">--tie-margin &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-library-size-int">--library-size &lt;int&gt;</a></li>
+                
+                    <li><a class="toctree-l4" href="#output-options">Output options</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-o-output-dir">-o/--output &lt;dir&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-d-deliverables-choice">-d/--deliverables &lt;choice,...&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-drop-deletions">--drop-deletions</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-do-not-output-bam-by-chr">--do-not-output-bam-by-chr</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-do-not-output-ave-bw-by-chr">--do-not-output-ave-bw-by-chr</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-indel-criteria-decint">--indel-criteria &lt;dec,int&gt;</a></li>
+                
+                    <li><a class="toctree-l4" href="#elastic-mapreduce-options">Elastic MapReduce options</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-intermediate-lifetime-int">--intermediate-lifetime &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-name-str">--name &lt;str&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-log-uri-s3_dir">--log-uri &lt;s3_dir&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-ami-version-str">--ami-version &lt;str&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-visible-to-all-users">--visible-to-all-users</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-action-on-failure-choice">--action-on-failure &lt;choice&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-master-instance-count-int">--master-instance-count &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-task-instance-count-int">--task-instance-count &lt;int&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-master-instance-bid-price-dec">--master-instance-bid-price &lt;dec&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-core-instance-bid-price-dec">--core-instance-bid-price &lt;dec&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-task-instance-bid-price-dec">--task-instance-bid-price &lt;dec&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-master-instance-type-choice">--master-instance-type &lt;choice&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-core-instance-type-choice">--core-instance-type &lt;choice&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-task-instance-type-choice">--task-instance-type &lt;choice&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-ec2-key-name-str">--ec2-key-name &lt;str&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-keep-alive">--keep-alive</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-termination-protected">--termination-protected</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-region-choice">--region &lt;choice&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-service-role-str">--service-role &lt;str&gt;</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#-instance-profile-str">--instance-profile &lt;str&gt;</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
 
-<h2 id="command-line-usage">Command-line usage</h2>
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Rail-RNA v0.2</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Reference</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="command-line-usage">Command-line usage</h2>
 <p>Rail-RNA is invoked by entering</p>
 <pre><code>rail-rna &lt;job flow&gt; &lt;mode&gt; &lt;[args]&gt;
 </code></pre>
 
-<p>. <code>&lt;job flow&gt;</code> can be <code>prep</code>, <code>align</code>, or <code>go</code>; <code>go</code> executes the <code>prep</code> and <code>align</code> job flows in succession; <code>mode</code> can be <code>local</code>, <code>parallel</code>, or <code>elastic</code>. To get help for a given combination of job flow and mode, enter</p>
+<p>. <code>&lt;job flow&gt;</code> can be <code>prep</code>, <code>align</code>, or <code>go</code>; <code>go</code> executes the <code>prep</code> and <code>align</code> job flows in succession; <code>&lt;mode&gt;</code> can be <code>local</code>, <code>parallel</code>, or <code>elastic</code>. To get help for a given combination of job flow and mode, enter</p>
 <pre><code>rail-rna &lt;job flow&gt; &lt;mode&gt; -h
 </code></pre>
 
 <p>. Command-line arguments (args) are described in detail below.</p>
 <h3 id="required-args">Required args</h3>
-<h4 id="-m-manifest-file"><code>-m/--manifest &lt;file&gt;</code></h4>
+<h1 id="-m-manifest-file"><code>-m/--manifest &lt;file&gt;</code></h1>
 <p>This is the path to a Rail-RNA manifest file. Its format is described in <a href="../tutorial#local-and-parallel-modes-drosophila-examples">Tutorial</a>. Each line corresponds to a different RNA-seq sample. A line for a single-end sample looks like this---</p>
 <pre><code>&lt;FASTQ/FASTA URL&gt;(tab)&lt;URL MD5 checksum or 0&gt;(tab)&lt;sample label&gt;
 </code></pre>
@@ -155,7 +373,8 @@
 </code></pre>
 
 <p>.</p>
-<h4 id="-x-bowtie-idx-idxidx-idx-local-and-parallel-modes-only"><code>-x/--bowtie-idx/ &lt;idx,idx | idx&gt;</code> (<code>local</code> and <code>parallel</code> modes only)</h4>
+<h1 id="-x-bowtie-idx-idxidx-idx"><code>-x/--bowtie-idx/ &lt;idx,idx | idx&gt;</code></h1>
+<p>(<code>local</code> and <code>parallel</code> modes only)</p>
 <p>Rail-RNA needs the paths to both a Bowtie 1 index and a Bowtie 2 index of exactly the same reference FASTA. Only the basename path(s) should be specified. There are six Bowtie index files; their extensions are <code>.1.ebwt</code>, <code>.2.ebwt</code>, <code>.3.ebwt</code>, <code>.4.ebwt</code>, <code>.rev.1.ebwt</code>, and <code>.rev.2.ebwt</code>. Similarly, there are six Bowtie 2 index files; their extensions are <code>.1.bt2</code>, <code>.2.bt2</code>, <code>.3.bt2</code>, <code>.4.bt2</code>, <code>.rev.1.bt2</code>, <code>.rev.2.bt2</code>. If the Bowtie 1 and Bowtie 2 index files are in the same directory and have the same basename, only the path to this basename need be specified, like so:</p>
 <pre><code>-x &lt;path to common Bowtie index basename&gt;
 </code></pre>
@@ -165,9 +384,11 @@
 </code></pre>
 
 <p>. Rail-RNA is forgiving of your specifing Bowtie indexes in the reverse order.</p>
-<h4 id="-c-core-instance-count-int-elastic-mode-only"><code>-c/--core-instance-count &lt;int&gt;</code> (<code>elastic</code> mode only)</h4>
+<h1 id="-c-core-instance-count-int"><code>-c/--core-instance-count &lt;int&gt;</code></h1>
+<p>(<code>elastic</code> mode only)</p>
 <p>This is the number of core instances Rail-RNA should reserve to execute the requested job flow (one of <code>prep</code>, <code>align</code>, or <code>go</code>). The instance type is by default the same as the <code>--master-instance-type</code>. Rail-RNA uses an Elastic MapReduce cluster with one master instance and <code>&lt;int&gt;</code> core instances.</p>
-<h4 id="-a-assembly-choice-tgz-elastic-mode-only"><code>-a/--assembly &lt;choice | tgz&gt;</code> (<code>elastic</code> mode only)</h4>
+<h1 id="-a-assembly-choice-tgz"><code>-a/--assembly &lt;choice | tgz&gt;</code></h1>
+<p>(<code>elastic</code> mode only)</p>
 <p>This is the assembly to which Rail-RNA should align the data specified in <code>--manifest/-m</code>. Right now, only <code>hg19</code> is supported natively, but you can <a href="http://bowtie-bio.sourceforge.net/manual.shtml">build Bowtie indexes</a> of an assembly, compress them into a <code>tar.gz</code>, upload the archive to S3, and then specify its full path <code>&lt;tgz&gt;</code>. The basename of both Bowtie indexes should be <code>genome</code>. In more detail, the archive should have the following contents.</p>
 <pre><code>index/genome.1.bt2
 index/genome.2.bt2
@@ -189,76 +410,90 @@ index/genome.rev.2.ebwt
 <p>.</p>
 <h3 id="general-options">General options</h3>
 <p>These are parameters that apply generally to Rail-RNA job flows.</p>
-<h4 id="-h-help"><code>-h/--help</code></h4>
+<h1 id="-h-help"><code>-h/--help</code></h1>
 <p>This is the go-to command-line parameter for figuring out how to use Rail-RNA without whatever you're reading now.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-v-version"><code>-v/--version</code></h4>
+<h1 id="-v-version"><code>-v/--version</code></h1>
 <p>When you <a href="../index.md/#getting-help">ask for help</a> from us, we'll want to know the version of Rail-RNA you've been using. Include the output of</p>
 <pre><code>rail-rna -v
 </code></pre>
 
 <p>in your support request.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-j-json"><code>-j/--json</code></h4>
+<h1 id="-j-json"><code>-j/--json</code></h1>
 <p>Rail-RNA job flows are encoded as JSON objects. A job flow's JSON is interpreted and executed by <a href="https://github.com/nellore/rail/blob/master/src/dooplicity/emr_simulator.py">Dooplicity's EMR simulator</a> in <code>local</code> and <code>parallel</code> modes and Amazon Elastic MapReduce via <a href="https://github.com/nellore/rail/blob/master/src/dooplicity/emr_runner.py">Dooplicity's EMR runner</a> in <code>elastic</code> mode. You can view and hack the JSON file to, say, continue a failed job flow. If you'd like to view the job flow JSON constructed by Rail-RNA without executing it, use the <code>-j/--json</code> command-line parameter.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-profile-str"><code>--profile &lt;str&gt;</code></h4>
+<h1 id="-profile-str"><code>--profile &lt;str&gt;</code></h1>
 <p>This is the <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-files">AWS CLI profile</a> from which Rail-RNA should pull your credentials when communicating with Amazon Web Services. It's typically relevant only in <code>elastic</code> mode.</p>
 <p>Default: credentials are pulled from the environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY, but if those aren't present, the credentials are instead pulled from the default AWS CLI profile.</p>
-<h4 id="-f-force"><code>-f/--force</code></h4>
+<h1 id="-f-force"><code>-f/--force</code></h1>
 <p>By default, Rail-RNA warns you in all modes if there are existing output files present at the destination specified by <code>-o/--output</code>. Invoking <code>-f/--force</code> overwrites all output directories if they exist. This also includes all files in subdirectories of the log directory in <code>local</code> and <code>parallel</code> modes, and all files in the intermediate directory in <code>elastic</code> mode.</p>
 <p>Unless you'll need to debug job flows, you won't miss any of these files, so feel free to force.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-verbose"><code>--verbose</code></h4>
+<h1 id="-verbose"><code>--verbose</code></h1>
 <p>If you're having trouble with a job flow in Rail, it may help to invoke <code>--verbose</code> to write more details to task logs. <a href="../tutorial/#local-and-parallel-modes-drosophila-examples">Tutorial</a> covers an example in local mode that reviews one such log.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-do-not-bin-quals-prep-and-go-job-flows-only"><code>--do-not-bin-quals</code> (<code>prep</code> and <code>go</code> job flows only)</h4>
+<h1 id="-do-not-bin-quals"><code>--do-not-bin-quals</code></h1>
+<p>(<code>prep</code> and <code>go</code> job flows only)</p>
 <p>By default, Rail-RNA places a Phred quality score from the quality sequence for each input record of a FASTQ file into one of five bins. The formula for binning mirrors <a href="http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#bowtie2-options-mp">Bowtie 2's default formula</a> and thus does not compromise alignment quality. Binning quality scores does save space and speed up job flows, however, especially in <code>elastic</code> mode, where Rail-RNA always compresses intermediate data.</p>
 <p>This option leaves quality sequences intact.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-short-read-names-prep-and-go-job-flows-only"><code>--short-read-names</code> (<code>prep</code> and <code>go</code> job flows only)</h4>
+<h1 id="-short-read-names"><code>--short-read-names</code></h1>
+<p>(<code>prep</code> and <code>go</code> job flows only)</p>
 <p>SAM/BAM file outputs are sometimes considerably larger simply because read names are large. This option kills read names in favor of short yet still unique identifiers.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-skip-bad-records-prep-and-go-job-flows-only"><code>--skip-bad-records</code> (<code>prep</code> and <code>go</code> job flows only)</h4>
+<h1 id="-skip-bad-records"><code>--skip-bad-records</code></h1>
+<p>(<code>prep</code> and <code>go</code> job flows only)</p>
 <p>By default, if an input record from a FASTA/FASTQ file is invalid, Rail-RNA's preprocessing step chokes, as <a href="../tutorial/#local-and-parallel-modes-drosophila-examples">reviewed in Tutorial</a>. Use this parameter to instead be robust to bad records in input files and skip them. Bad records typically occur when an input file was somehow truncated or otherwise corrupted.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-do-not-check-manifest-prep-and-go-job-flows-only"><code>--do-not-check-manifest</code> (<code>prep</code> and <code>go</code> job flows only)</h4>
+<h1 id="-do-not-check-manifest"><code>--do-not-check-manifest</code></h1>
+<p>(<code>prep</code> and <code>go</code> job flows only)</p>
 <p>Rail-RNA's default behavior is to check for the existence of each input file in the manifest file before starting a job flow. This can be time-consuming for a set of input files on a remote host. If you know the files are accessible, <code>--do-not-check-manifest</code> turns the default behavior off.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-log-dir-local-and-parallel-modes-only"><code>--log &lt;dir&gt;</code> (<code>local</code> and <code>parallel</code> modes only)</h4>
+<h1 id="-log-dir"><code>--log &lt;dir&gt;</code></h1>
+<p>(<code>local</code> and <code>parallel</code> modes only)</p>
 <p><code>&lt;dir&gt;</code> is used both for aggregating intermediate files between steps of job flows and for storing log files for diagnosing problems.</p>
 <p>Default: "rail-rna_logs" in the current working directory</p>
-<h4 id="-intermediate-s3_dirhdfs_dir-elastic-mode-only"><code>--intermediate &lt;s3_dir/hdfs_dir&gt;</code> (<code>elastic</code> mode only)</h4>
+<h1 id="-intermediate-s3_dirhdfs_dir"><code>--intermediate &lt;s3_dir/hdfs_dir&gt;</code></h1>
+<p>(<code>elastic</code> mode only)</p>
 <p>This is a directory in an S3 bucket or on the temporary HDFS of an Elastic MapReduce cluster where intermediate data across all workers is aggregated. If using S3, <code>&lt;s3_dir&gt;</code> should begin with <code>s3://some-bucket</code>. If using HDFS, <code>&lt;hdfs_dir&gt;</code> should begin with <code>hdfs:///</code>. Use S3 and set <code>--intermediate-lifetime</code> to -1 to keep intermediates.</p>
 <p>Default: argument of <code>-o/--output</code> with the string ".intermediate" tacked on</p>
-<h4 id="-p-num-processes-int-local-mode-only"><code>-p/--num-processes &lt;int&gt;</code> (<code>local</code> mode only)</h4>
+<h1 id="-p-num-processes-int"><code>-p/--num-processes &lt;int&gt;</code></h1>
+<p>(<code>local</code> mode only)</p>
 <p>Rail-RNA runs your job flow on up to <code>&lt;int&gt;</code> processes simultaneously.</p>
 <p>Default: if you have more than one processing core available, Rail-RNA runs on as many as you have less one so it's not a resource hog. If you have only one processing core, Rail-RNA runs on it.</p>
-<h4 id="-scratch-dir-local-and-parallel-modes-only"><code>--scratch &lt;dir&gt;</code> (<code>local</code> and <code>parallel</code> modes only)</h4>
+<h1 id="-scratch-dir"><code>--scratch &lt;dir&gt;</code></h1>
+<p>(<code>local</code> and <code>parallel</code> modes only)</p>
 <p>This is a directory used for storing temporary files accumulated when aggregating intermediate data. In <code>parallel</code> mode, this should always be in some node-local directory like <code>/tmp</code>.</p>
 <p>Default: securely created temporary directory created by Python's <code>tempfile.mkdtemp()</code></p>
-<h4 id="-keep-intermediates-local-and-parallel-modes-only"><code>--keep-intermediates</code> (<code>local</code> and <code>parallel</code> modes only)</h4>
+<h1 id="-keep-intermediates"><code>--keep-intermediates</code></h1>
+<p>(<code>local</code> and <code>parallel</code> modes only)</p>
 <p>Rail-RNA's default behavior is to delete aggregated intermediate data as soon as the job flow it's running no longer needs them. Keeping them around after a job flow is complete using <code>--keep-intermediates</code> is sometimes useful for diagnosing problems, however.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-g-gzip-intermediates-local-and-parallel-modes-only"><code>-g/--gzip-intermediates</code> (<code>local</code> and <code>parallel</code> modes only)</h4>
+<h1 id="-g-gzip-intermediates"><code>-g/--gzip-intermediates</code></h1>
+<p>(<code>local</code> and <code>parallel</code> modes only)</p>
 <p>Rail-RNA has a small memory footprint but a large storage footprint. When space is tight, the storage footprint can be minimized in <code>local</code> and <code>parallel</code> modes by compressing intermediates with the <code>-g/--gzip-intermediates</code> command-line parameter. This will slow down the job flow a bit.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-gzip-level-int-local-and-parallel-modes-only"><code>--gzip-level &lt;int&gt;</code> (<code>local</code> and <code>parallel</code> modes only)</h4>
+<h1 id="-gzip-level-int"><code>--gzip-level &lt;int&gt;</code></h1>
+<p>(<code>local</code> and <code>parallel</code> modes only)</p>
 <p>This is the level of gzip compression to use for intermediate data if it's being compressed. The extremes are 1, meaning no compression, and 9, meaning high compression. Values closer to 9 increase the time a given job flow takes significantly.</p>
 <p>Default: 3</p>
-<h4 id="-r-sort-memory-cap-dec-local-and-parallel-modes-only"><code>-r/--sort-memory-cap &lt;dec&gt;</code> (<code>local</code> and <code>parallel</code> modes only)</h4>
+<h1 id="-r-sort-memory-cap-dec"><code>-r/--sort-memory-cap &lt;dec&gt;</code></h1>
+<p>(<code>local</code> and <code>parallel</code> modes only)</p>
 <p>Rail-RNA uses <a href="http://www.gnu.org/software/coreutils/coreutils.html">GNU Coreutils</a> <code>sort</code> when aggregating intermediate data. <code>&lt;dec&gt;</code> is the maximum amount of memory (in bytes) used by <code>sort</code> per process</p>
 <p>Default: 307200</p>
-<h4 id="-nucleotides-per-input-int-local-and-parallel-modes-only"><code>--nucleotides-per-input &lt;int&gt;</code> (<code>local</code> and <code>parallel</code> modes only)</h4>
+<h1 id="-nucleotides-per-input-int"><code>--nucleotides-per-input &lt;int&gt;</code></h1>
+<p>(<code>local</code> and <code>parallel</code> modes only)</p>
 <p>After the <code>prep</code> job flow downloads a sample's FASTA/FASTQs from a remote server, it assigns reads to alignment tasks. Each task may be executed by a different worker. <code>&lt;int&gt;</code> is the maximum number of nucleotides from input reads to assign to any single task. Smaller values of <code>&lt;int&gt;</code> increase parallelism in the following alignment step. This command-line parameter does not apply to input data stored locally, which Rail-RNA attempts to distribute evenly among workers.</p>
 <p>Default: 100000000</p>
-<h4 id="-do-not-gzip-input-local-and-parallel-modes-only"><code>--do-not-gzip-input</code> (<code>local</code> and <code>parallel</code> modes only)</h4>
+<h1 id="-do-not-gzip-input"><code>--do-not-gzip-input</code></h1>
+<p>(<code>local</code> and <code>parallel</code> modes only)</p>
 <p>By default, Rail-RNA gzips preprocessed input data, which is <em>not</em> considered intermediate data. Turning this option on leaves preprocessed input reads uncompressed.</p>
-<h4 id="-max-task-attempts-int"><code>--max-task-attempts &lt;int&gt;</code></h4>
+<h1 id="-max-task-attempts-int"><code>--max-task-attempts &lt;int&gt;</code></h1>
 <p>Sometimes, a worker attempting a task will fail for miscellaneous reasons. For example, the node on which the worker is operating may transiently run out of space. Hadoop clusters are resilient to failures like this because they automatically reattempt tasks. Rail-RNA can reattempt tasks in <code>local</code> and <code>parallel</code> modes, too, when it's not using Hadoop. <code>--max-task-attempts</code> applies in all modes: a task is reattempted up to <code>&lt;int&gt;</code> times by different workers in the cluster, if possible, before failing a job flow. On Elastic MapReduce, which uses Hadoop, <code>&lt;int&gt;</code> specifies the config parameters <code>mapreduce.map.maxattempts</code> and <code>mapreduce.reduce.maxattempts</code>.</p>
 <h3 id="algorithm-options">Algorithm options</h3>
 <p>These are parameters that tweak Rail-RNA's algorithms.</p>
-<h4 id="-bowtie2-args-str"><code>--bowtie2-args &lt;str&gt;</code></h4>
+<h1 id="-bowtie2-args-str"><code>--bowtie2-args &lt;str&gt;</code></h1>
 <p>These are arguments to pass to Bowtie 2, and they should be enclosed in
 double-quotes. A couple arguments are always ignored, however.</p>
 <ol>
@@ -266,51 +501,51 @@ double-quotes. A couple arguments are always ignored, however.</p>
 <li>Rail-RNA bins quality scores in a particular way, and <code>--mp</code> arguments won't be passed to Bowtie 2.</li>
 </ol>
 <p>Default: empty</p>
-<h4 id="-k-int"><code>-k &lt;int&gt;</code></h4>
+<h1 id="-k-int"><code>-k &lt;int&gt;</code></h1>
 <p>Tells Rail-RNA to look for up to <code>&lt;int&gt;</code> alignments per read per step. This takes precedence over any <code>-k</code> value specified in --bowtie2-args.</p>
 <p>Default: no value; Rail-RNA looks for the best alignment.</p>
-<h4 id="-isofrag-idx-fx-file"><code>--isofrag-idx/-fx &lt;file&gt;</code></h4>
-<p>This is a <code>tar.gz file</code> containing the transcript fragment (isofrag) index from previous Rail-RNA run. It is used in lieu of searching for introns.You'll find an <code>isofrags.tar.gz</code> file with the isofrag index in the <code>cross_sample_outputs/</code> directory of a Rail-RNA run where <code>idx</code> wasone of the <a href="../deliverables/">deliverables</a>, which is the default behavior.</p>
-<p>Default: none; search for introns.</p>
-<h4 id="-partition-length-int"><code>--partition-length &lt;int&gt;</code></h4>
+<h1 id="-isofrag-idx-fx-file"><code>--isofrag-idx/-fx &lt;file&gt;</code></h1>
+<p>This is a <code>tar.gz file</code> containing the transcript fragment (isofrag) index from previous Rail-RNA run. It is used in lieu of searching for exon-exon junctions. You'll find an <code>isofrags.tar.gz</code> file with the isofrag index in the <code>cross_sample_outputs/</code> directory of a Rail-RNA run where <code>idx</code> wasone of the <a href="../deliverables/">deliverables</a>, which is the default behavior.</p>
+<p>Default: none; search for junctions.</p>
+<h1 id="-partition-length-int"><code>--partition-length &lt;int&gt;</code></h1>
 <p>To compute genome coverage by reads, Rail-RNA partitions the genome into bins of length <code>&lt;int&gt;</code> bases. Each bin is assigned to a different task to be executed by a different worker. The exon differentials described in our <a href="http://biorxiv.org/content/early/2015/05/07/019067">paper</a> are summed within each bin to arrive at base-level coverage.</p>
 <p>Partition lengths that are too large decrease parallelism and contribute to load imbalance, but partition lengths that are too small (tens or hundreds of bases) make for larger intermediate data. It's probably not necessary to change the default value.</p>
 <p>Default: 5000</p>
-<h4 id="-max-readlet-size-int"><code>--max-readlet-size &lt;int&gt;</code></h4>
-<p>Rail-RNA divides reads into short overlapping segments called readlets and subsequently aligns them to the genome to infer the presence of introns. For a complete description of the readletizing scheme Rail uses, see <a href="http://biorxiv.org/content/early/2015/05/07/019067">our paper</a>. A readlet's size does not exceed <code>&lt;int&gt;</code> bases.</p>
+<h1 id="-max-readlet-size-int"><code>--max-readlet-size &lt;int&gt;</code></h1>
+<p>Rail-RNA divides reads into short overlapping segments called readlets and subsequently aligns them to the genome to infer the presence of exon-exon junctions. For a complete description of the readletizing scheme Rail uses, see <a href="http://biorxiv.org/content/early/2015/05/07/019067">our paper</a>. A readlet's size does not exceed <code>&lt;int&gt;</code> bases.</p>
 <p>For human-size genomes, values between 22 and 27 work well, with smaller values improving sensitivity but decreasing specificity.</p>
 <p>Default: 25</p>
-<h4 id="-min-readlet-size-int"><code>--min-readlet-size &lt;int&gt;</code></h4>
-<p>See <code>--max-readlet-size</code> for a description of readlets. Keep <code>&lt;int&gt;</code> above 10 to avoid making too many false positive intron calls.</p>
+<h1 id="-min-readlet-size-int"><code>--min-readlet-size &lt;int&gt;</code></h1>
+<p>See <code>--max-readlet-size</code> for a description of readlets. Keep <code>&lt;int&gt;</code> above 10 to avoid making too many false positive exon-exon junction calls.</p>
 <p>Default: 15</p>
-<h4 id="-readlet-interval-int"><code>--readlet-interval &lt;int&gt;</code></h4>
-<p>See <code>--max-readlet-size</code> for a description of readlets. Here, <code>&lt;int&gt;</code> is the number of bases between the start positions of consecutive overlapping readlets. Increasing this value decreases sensitivity to novel introns. However, we haven't found that decreasing <code>--readlet-interval</code> below 4 increaes sensitivity much.</p>
+<h1 id="-readlet-interval-int"><code>--readlet-interval &lt;int&gt;</code></h1>
+<p>See <code>--max-readlet-size</code> for a description of readlets. Here, <code>&lt;int&gt;</code> is the number of bases between the start positions of consecutive overlapping readlets. Increasing this value decreases sensitivity to novel exon-exon junctions. However, we haven't found that decreasing <code>--readlet-interval</code> below 4 increaes sensitivity much.</p>
 <p>Default: 4</p>
-<h4 id="-readlet-config-size-int"><code>--readlet-config-size &lt;int&gt;</code></h4>
-<p>After finding introns in samples, Rail-RNA constructs a directed acyclic graph (DAG) whose nodes represent introns (or if you prefer, exon-exon junctions). Each edge has weight equal to the number of exonic bases between the intron nodes it connects. Rail-RNA traverses the DAG to find all possible combinations of exon-exon junctions spanned by <code>&lt;int&gt;</code> exonic bases. It later aligns reads to transcript fragments spanning these combinations of exon-exon junctions.</p>
+<h1 id="-readlet-config-size-int"><code>--readlet-config-size &lt;int&gt;</code></h1>
+<p>After finding exon-exon junctions in samples, Rail-RNA constructs a directed acyclic graph (DAG) whose nodes represent introns. Each edge has weight equal to the number of exonic bases between the intron nodes it connects. Rail-RNA traverses the DAG to find all possible combinations of exon-exon junctions spanned by <code>&lt;int&gt;</code> exonic bases. It later aligns reads to transcript fragments spanning these combinations of exon-exon junctions.</p>
 <p>We find a <code>--readlet-config-size</code> above 30 to be sufficient to resolve alignments spanning exon-exon junctions for human-size genomes.</p>
 <p>Default: 35</p>
-<h4 id="-max-intron-size-int"><code>--max-intron-size &lt;int&gt;</code></h4>
-<p>This parameter has Rail filter out introns that span more than <code>&lt;int&gt;</code> bases. It significantly reduces false positive intron calls . There are only a handful of introns that exceed 500,000 bases in the human genome, which explains the default.</p>
+<h1 id="-max-intron-size-int"><code>--max-intron-size &lt;int&gt;</code></h1>
+<p>This parameter has Rail filter out introns that span more than <code>&lt;int&gt;</code> bases. It significantly reduces false positive exon-exon junction calls. There are only a handful of introns that exceed 500,000 bases in the human genome, which explains the default.</p>
 <p>Default: 500000</p>
-<h4 id="-min-intron-size-int"><code>--min-intron-size &lt;int&gt;</code></h4>
+<h1 id="-min-intron-size-int"><code>--min-intron-size &lt;int&gt;</code></h1>
 <p>This parameter has Rail filter out introns spanning fewer than <code>&lt;int&gt;</code> bases. Making this too small might have Rail mistake insertions for introns.</p>
 <p>Default: 10</p>
-<h4 id="-min-exon-size-int"><code>---min-exon-size &lt;int&gt;</code></h4>
+<h1 id="-min-exon-size-int"><code>---min-exon-size &lt;int&gt;</code></h1>
 <p>This sets various parameters across Rail-RNA that enforce its sensitivity to exons spanning only at least <code>&lt;int&gt;</code> bases. Most conspicuously:</p>
 <ol>
-<li>When searching for introns with readlet alignments, Rail-RNA will look for small exons that span at least <code>&lt;int&gt;</code> bases. Making <code>&lt;int&gt;</code> smaller increases false positive intron calls.</li>
-<li>When traversing the DAG described under <code>--readlet-config-size</code>, Rail-RNA will eliminate intron combinations spanning exons below <code>&lt;int&gt;</code>.</li>
+<li>When searching for exon-exon junctions with readlet alignments, Rail-RNA will look for small exons that span at least <code>&lt;int&gt;</code> bases. Making <code>&lt;int&gt;</code> smaller increases false positive junction calls.</li>
+<li>When traversing the DAG described under <code>--readlet-config-size</code>, Rail-RNA will eliminate junction combinations spanning exons below <code>&lt;int&gt;</code>.</li>
 </ol>
 <p>Default: 9</p>
-<h4 id="-search-filter-choiceint"><code>--search-filter &lt;choice/int&gt;</code></h4>
-<p>Rail-RNA aligns all read sequences to the genome first with Bowtie 2 in <code>--local</code> mode, which can soft-clip base sequences at read ends. Ordinarily, all read sequences with soft-clipped bases are divided into readlets and later searched for introns---but instead, the read sequences searched for introns may be chosen based on how many if its bases are soft-clipped in its primary alignment instead. If <code>&lt;choice/int&gt;</code> is an integer <code>&lt;int&gt;</code>, a read sequence is only searched for introns if &gt;= <code>&lt;int&gt;</code> of its bases are soft-clipped. <code>&lt;choice/int&gt;</code> can also be <code>&lt;choice&gt;</code> from {<code>strict</code>, <code>mild</code>, <code>none</code>}. If <code>&lt;choice&gt;</code> is <code>strict</code>, <code>&lt;int&gt;</code> is set equal to <code>--min-exon-size</code>; if <code>&lt;choice&gt;</code> is <code>mild</code>, <code>&lt;int&gt;</code> is 2/3 * <code>--min-exon-size</code>; and if <code>&lt;choice&gt;</code> is <code>none</code>, <code>&lt;int&gt;</code> is 1.</p>
+<h1 id="-search-filter-choiceint"><code>--search-filter &lt;choice/int&gt;</code></h1>
+<p>Rail-RNA aligns all read sequences to the genome first with Bowtie 2 in <code>--local</code> mode, which can soft-clip base sequences at read ends. Ordinarily, all read sequences with soft-clipped bases are divided into readlets and later searched for exon-exon junctions---but instead, the read sequences searched for junctions may be chosen based on how many if its bases are soft-clipped in its primary alignment instead. If <code>&lt;choice/int&gt;</code> is an integer <code>&lt;int&gt;</code>, a read sequence is only searched for junctions if &gt;= <code>&lt;int&gt;</code> of its bases are soft-clipped. <code>&lt;choice/int&gt;</code> can also be <code>&lt;choice&gt;</code> from {<code>strict</code>, <code>mild</code>, <code>none</code>}. If <code>&lt;choice&gt;</code> is <code>strict</code>, <code>&lt;int&gt;</code> is set equal to <code>--min-exon-size</code>; if <code>&lt;choice&gt;</code> is <code>mild</code>, <code>&lt;int&gt;</code> is 2/3 * <code>--min-exon-size</code>; and if <code>&lt;choice&gt;</code> is <code>none</code>, <code>&lt;int&gt;</code> is 1.</p>
 <p>Default: none; i.e., 1</p>
-<h4 id="-intron-criteria-decint"><code>--intron-criteria &lt;dec,int&gt;</code></h4>
-<p>When Rail-RNA analyzes more than one RNA-seq sample, it accumulates a master list of introns across samples. This master list is used to construct transcript fragments to which reads are realigned. However, when hundreds of samples are analyzed, the master list typically blows up: true positive intron calls tend to be shared by many samples, while false positive intron calls tend to be unique to small numbers of samples. As the number of samples analyzed increases, so does the master list of introns, and false positive calls make up a larger and larger fraction of the master list. False positive calls may be due to low-quality reads or repetitive/small exonic segments on either side of an intron that make it difficult to resolve the intron's proper start and end positions in the genome.</p>
-<p>The <code>--intron-criteria</code> parameter <code>&lt;dec,int&gt;</code> filters out introns that are not either present in at least a fraction <code>&lt;dec&gt;</code> of samples or detected in at least <code>&lt;int&gt;</code> reads of one sample. This way, only introns that are detected from a small number of reads in any one sample or from a small number of samples are eliminated, and the quality of realigned reads is improved without significantly compromising sensitivity. (See <a href="http://biorxiv.org/content/early/2015/05/07/019067">our paper</a> for an elaboration of this phenomenon.) For example, specifying <code>--intron-criteria 0.02,7</code> or <code>--intron-criteria 0.02 7</code> filters out introns that are found in fewer that 2% of samples and are detected in fewer in 7 reads in any one sample before realignment.</p>
+<h1 id="-junction-criteria-decint"><code>--junction-criteria &lt;dec,int&gt;</code></h1>
+<p>When Rail-RNA analyzes more than one RNA-seq sample, it accumulates a master list of exon-exon junctions across samples. This master list is used to construct transcript fragments to which reads are realigned. However, when hundreds of samples are analyzed, the master list typically blows up: true positive junction calls tend to be shared by many samples, while false positive junction calls tend to be unique to small numbers of samples. As the number of samples analyzed increases, so does the master list of junctions, and false positive calls make up a larger and larger fraction of the master list. False positive calls may be due to low-quality reads or repetitive/small exonic segments on either side of an intron that make it difficult to resolve the intron's proper start and end positions in the genome.</p>
+<p>The <code>--junction-criteria</code> parameter <code>&lt;dec,int&gt;</code> filters out junctions that are not either present in at least a fraction <code>&lt;dec&gt;</code> of samples or detected in at least <code>&lt;int&gt;</code> reads of one sample. This way, only junctions that are detected from a small number of reads in any one sample or from a small number of samples are eliminated, and the quality of realigned reads is improved without significantly compromising sensitivity. (See <a href="http://biorxiv.org/content/early/2015/05/07/019067">our paper</a> for an elaboration of this phenomenon.) For example, specifying <code>--junction-criteria 0.02,7</code> or <code>--junction-criteria 0.02 7</code> filters out junctions that are found in fewer that 2% of samples and are detected in fewer in 7 reads in any one sample before realignment.</p>
 <p>Default: 0.05,5</p>
-<h4 id="-normalize-percentile-dec"><code>--normalize-percentile &lt;dec&gt;</code></h4>
+<h1 id="-normalize-percentile-dec"><code>--normalize-percentile &lt;dec&gt;</code></h1>
 <p>Normalization factors for coverage of the genome by primary alignments and by uniquely aligning reads are output by Rail-RNA if the <code>tsv</code> deliverable is requested; see the <a href="../deliverables/#tsv-cross-sample-matrices">appropriate section of Deliverables</a>. The normalization factor of a given sample can be obtained by</p>
 <ol>
 <li>Counting the number n of bases that are covered by at least k reads, where k &gt;= 1.</li>
@@ -320,106 +555,134 @@ double-quotes. A couple arguments are always ignored, however.</p>
 </ol>
 <p>When <code>&lt;dec&gt;</code> is 0.75, this is <a href="http://bib.oxfordjournals.org/content/early/2012/09/15/bib.bbs046.long">upper-quartile normalization</a>.</p>
 <p>Default: 0.75</p>
-<h4 id="-do-not-drop-polya-tails"><code>--do-not-drop-polyA-tails</code></h4>
+<h1 id="-do-not-drop-polya-tails"><code>--do-not-drop-polyA-tails</code></h1>
 <p>By default Rail-RNA, does not map reads for which all bases to the left or right of a segment spanning <code>--min-exon-size</code> bases </p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-tie-margin-int"><code>--tie-margin &lt;int&gt;</code></h4>
+<h1 id="-tie-margin-int"><code>--tie-margin &lt;int&gt;</code></h1>
 <p>Ordinarily, two alignments of a read are considered to have "tied" alignment scores if and only if the scores are exactly equal, and <code>&lt;int&gt;</code> is 0. However, for the purpose of identifying uniquely aligning reads and resolving primary alignments based on coverage, toggling this parameter permits a score difference of <code>&lt;int&gt;</code> per 100 bases among alignments whose scores are considered ties. For example, 150
 and 144 are tied alignment scores for a 100-bp read when --tie-margin is 6, and if a read has alignments with both scores, it is not considered uniquely aligned.</p>
 <p>Default: 0</p>
-<h4 id="-library-size-int"><code>--library-size &lt;int&gt;</code></h4>
+<h1 id="-library-size-int"><code>--library-size &lt;int&gt;</code></h1>
 <p>As described in <a href="../deliverables/#bw-coverage-vectors">Deliverables</a>, in the <code>cross_sample_outputs</code> directory, <code>[mean|median].&lt;chr&gt;.bw</code> encodes the [mean|median] coverage at each base across samples on chromosome <code>&lt;chr&gt;</code> by primary alignments, and <code>[mean|median].&lt;chr&gt;.bw</code> encodes the [mean|median] coverage at each base on chromosome <code>&lt;chr&gt;</code> by uniquely aligning reads. To normalize each sample's contribution to a given [mean|median], the number of reads covering a given base of the genome is multiplied by <code>&lt;int&gt;</code>*1,000,000 and divided by the number of mapped reads in the sample. So <code>&lt;int&gt;</code> is a standard library size in millions of reads that permits easier interpretation of the mean and median coverage bigWigs.</p>
 <p>Default: 40</p>
 <h3 id="output-options">Output options</h3>
-<h4 id="-o-output-dir"><code>-o/--output &lt;dir&gt;</code></h4>
+<h1 id="-o-output-dir"><code>-o/--output &lt;dir&gt;</code></h1>
 <p>Rail-RNA will write its output to the directory <code>&lt;dir&gt;</code>. In <code>local</code> mode, <code>&lt;dir&gt;</code> can be on either the local filesystem or on S3. In <code>parallel</code> mode, <code>&lt;dir&gt;</code> can be on S3 or at some path accessible to all nodes in your IPython cluster. In <code>elastic</code> mode, <code>&lt;dir&gt;</code> must be on S3.</p>
 <p>Default: <code>./rail-rna_out</code> in <code>local</code> and <code>parallel</code> modes; a required parameter in <code>elastic</code> mode</p>
-<h4 id="-d-deliverables-choice"><code>-d/--deliverables &lt;choice,...&gt;</code></h4>
+<h1 id="-d-deliverables-choice"><code>-d/--deliverables &lt;choice,...&gt;</code></h1>
 <p>This command-line option permits suppressing some outputs of the full Rail-RNA pipeline. Check out <a href="../deliverables/">Deliverables</a> to learn more.</p>
-<h4 id="-drop-deletions"><code>--drop-deletions</code></h4>
+<h1 id="-drop-deletions"><code>--drop-deletions</code></h1>
 <p>By default, Rail-RNA counts bases deleted from the reference in a read alignment as covered by the read when computing the coverage vectors stored in bigWigs. Turning this option adjusts Rail-RNA's behavior so such deleted bases do not contribute to the coverage vectors.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-do-not-output-bam-by-chr"><code>--do-not-output-bam-by-chr</code></h4>
+<h1 id="-do-not-output-bam-by-chr"><code>--do-not-output-bam-by-chr</code></h1>
 <p>By default, Rail-RNA outputs alignment BAMs by chromosome/sample to increase parallelism in a terminal output step. You can output BAMs by sample alone with this option.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-do-not-output-ave-bw-by-chr"><code>--do-not-output-ave-bw-by-chr</code></h4>
+<h1 id="-do-not-output-ave-bw-by-chr"><code>--do-not-output-ave-bw-by-chr</code></h1>
 <p>Obtaining a bigWig storing average (mean or median) coverage across many samples can involve much more computation than obtaining a bigWig storing coverage for a single sample. Moreover, an average coverage bigWigs can take up considerably more space than a single-sample bigWig. To mitigate the resulting load balance issues, Rail-RNA outputs average coverage bigWigs chromosome by chromosome, by default. You can output each average coverage bigWig for the entire genome instead with this option.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-indel-criteria-decint"><code>--indel-criteria &lt;dec,int&gt;</code></h4>
-<p>Accumulating indels across hundreds of samples bloats the <code>insertions.tsv.gz</code> and <code>deletions.tsv.gz</code> files with many false positives for which there is little evidence. The <code>--indel-criteria</code> parameter <code>&lt;dec,int&gt;</code> does not write indels to these cross-sample output files unless they are either present in at least a fraction <code>&lt;dec&gt;</code> of samples or detected in at least <code>&lt;int&gt;</code> reads of one sample. <code>--indel-criteria</code>'s usage is similar to that of <code>--intron-criteria</code>.</p>
+<h1 id="-indel-criteria-decint"><code>--indel-criteria &lt;dec,int&gt;</code></h1>
+<p>Accumulating indels across hundreds of samples bloats the <code>insertions.tsv.gz</code> and <code>deletions.tsv.gz</code> files with many false positives for which there is little evidence. The <code>--indel-criteria</code> parameter <code>&lt;dec,int&gt;</code> does not write indels to these cross-sample output files unless they are either present in at least a fraction <code>&lt;dec&gt;</code> of samples or detected in at least <code>&lt;int&gt;</code> reads of one sample. <code>--indel-criteria</code>'s usage is similar to that of <code>--junction-criteria</code>.</p>
 <p>Default: <code>0.05,5</code></p>
 <h3 id="elastic-mapreduce-options">Elastic MapReduce options</h3>
 <p>These are arguments that pertain to working with Amazon Web Services in Rail-RNA's <code>elastic</code> mode.</p>
-<h4 id="-intermediate-lifetime-int"><code>--intermediate-lifetime &lt;int&gt;</code></h4>
+<h1 id="-intermediate-lifetime-int"><code>--intermediate-lifetime &lt;int&gt;</code></h1>
 <p>It costs money to keep files around on Simple Storage Service (S3). To help save you money, Rail-RNA schedules any directory in which it stores intermediate data on S3 for deletion after <code>&lt;int&gt;</code> days. If <code>&lt;int&gt;</code> is set to <code>-1</code>, no such scheduling is done, and intermediate data is kept for indefinitely long.</p>
 <p>Check <code>Lifecycle</code> under a given bucket's properties in the <a href="https://console.aws.amazon.com/s3/home">S3 console</a> to view and adjust the rules Rail-RNA has made to delete intermediate data.</p>
 <p>Default: 4</p>
-<h4 id="-name-str"><code>--name &lt;str&gt;</code></h4>
+<h1 id="-name-str"><code>--name &lt;str&gt;</code></h1>
 <p>It can be useful to assign a distinctive name <code>&lt;str&gt;</code> to an Elastic MapReduce job flow if you're working with many in the <a href="https://console.aws.amazon.com/elasticmapreduce">console</a>.</p>
 <p>Default: <code>Rail-RNA Job Flow</code></p>
-<h4 id="-log-uri-s3_dir"><code>--log-uri &lt;s3_dir&gt;</code></h4>
+<h1 id="-log-uri-s3_dir"><code>--log-uri &lt;s3_dir&gt;</code></h1>
 <p>This is the directory on S3 to which Elastic MapReduce will ultimately copy Hadoop logs.</p>
 <p>Default: argument of <code>-o/--output</code> with the string ".logs" tacked on</p>
-<h4 id="-ami-version-str"><code>--ami-version &lt;str&gt;</code></h4>
+<h1 id="-ami-version-str"><code>--ami-version &lt;str&gt;</code></h1>
 <p>This is the version of the Amazon Machine Image to load onto each node of the Elastic MapReduce cluster. Changing <code>&lt;str&gt;</code> is not recommended</p>
 <p>Default: <code>3.8.0</code></p>
-<h4 id="-visible-to-all-users"><code>--visible-to-all-users</code></h4>
+<h1 id="-visible-to-all-users"><code>--visible-to-all-users</code></h1>
 <p>This makes the Elastic MapReduce cluster accessible to all IAM users associated with the main Amazon Web Services account.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-action-on-failure-choice"><code>--action-on-failure &lt;choice&gt;</code></h4>
+<h1 id="-action-on-failure-choice"><code>--action-on-failure &lt;choice&gt;</code></h1>
 <p>This is the action Elastic MapReduce should take if the job flow it's running fails on a given step. <code>&lt;choice&gt;</code> is one of {<code>TERMINATE_JOB_FLOW</code>, <code>CANCEL_AND_WAIT</code>, <code>CONTINUE</code>, <code>TERMINATE_CLUSTER</code>}.</p>
 <p>Default: <code>TERMINATE_JOB_FLOW</code></p>
-<h4 id="-master-instance-count-int"><code>--master-instance-count &lt;int&gt;</code></h4>
+<h1 id="-master-instance-count-int"><code>--master-instance-count &lt;int&gt;</code></h1>
 <p>This is the number of master instances to include in your Elastic MapReduce cluster. It's only useful to include more than one in case a master instance dies; in general, <code>&lt;int&gt;</code> shouldn't be changed.</p>
 <p>Default: 1</p>
-<h4 id="-task-instance-count-int"><code>--task-instance-count &lt;int&gt;</code></h4>
+<h1 id="-task-instance-count-int"><code>--task-instance-count &lt;int&gt;</code></h1>
 <p>Task instances are nodes in an Elastic MapReduce cluster that do not store data. Your job flow will continue even if they're lost, which can happen if nodes go down or--more likely--they're <a href="http://aws.amazon.com/ec2/purchasing-options/spot-instances/">spot instances</a> whose maximum bid price no longer exceeds the market prices. You should consider using task instances only if you'll be bidding for them on the spot market at the rate <code>--task-instance-bid-price</code>.</p>
 <p>Default: 0</p>
-<h4 id="-master-instance-bid-price-dec"><code>--master-instance-bid-price &lt;dec&gt;</code></h4>
+<h1 id="-master-instance-bid-price-dec"><code>--master-instance-bid-price &lt;dec&gt;</code></h1>
 <p>If you'd like to use the <a href="http://aws.amazon.com/ec2/purchasing-options/spot-instances/">spot market</a> to potentially save money on your job flow, you can set the bid price (in dollars/hour) for the master instance group here. Invoke this command-line parameter only if master instances should be spot.</p>
 <p>Default: none; use on-demand master instances</p>
-<h4 id="-core-instance-bid-price-dec"><code>--core-instance-bid-price &lt;dec&gt;</code></h4>
+<h1 id="-core-instance-bid-price-dec"><code>--core-instance-bid-price &lt;dec&gt;</code></h1>
 <p>If you'd like to use the <a href="http://aws.amazon.com/ec2/purchasing-options/spot-instances/">spot market</a> to potentially save money on your job flow, you can set the bid price (in dollars/hour) for the core instance group here. Invoke this command-line parameter only if core instances should be spot.</p>
 <p>Default: none; use on-demand core instances</p>
-<h4 id="-task-instance-bid-price-dec"><code>--task-instance-bid-price &lt;dec&gt;</code></h4>
+<h1 id="-task-instance-bid-price-dec"><code>--task-instance-bid-price &lt;dec&gt;</code></h1>
 <p>If you'd like to use the <a href="http://aws.amazon.com/ec2/purchasing-options/spot-instances/">spot market</a> to potentially save money on your job flow, you can set the bid price (in dollars/hour) for the task instance group here (if you have any task instances). Invoke this command-line parameter only if you are using task instances. Indeed, there is typically no point to task instances unless they're spot instances: you may as well use on-demand core instances and be afforded extra space.</p>
-<h4 id="-master-instance-type-choice"><code>--master-instance-type &lt;choice&gt;</code></h4>
+<h1 id="-master-instance-type-choice"><code>--master-instance-type &lt;choice&gt;</code></h1>
 <p>This is the <a href="http://aws.amazon.com/ec2/instance-types/">instance type</a> of the master instance group of your Elastic MapReduce cluster.</p>
 <p>Default: <code>c3.2xlarge</code></p>
-<h4 id="-core-instance-type-choice"><code>--core-instance-type &lt;choice&gt;</code></h4>
+<h1 id="-core-instance-type-choice"><code>--core-instance-type &lt;choice&gt;</code></h1>
 <p>This is the <a href="http://aws.amazon.com/ec2/instance-types/">instance type</a> of the core instance group of your Elastic MapReduce cluster.</p>
 <p>Default: argument of <code>--master-instance-type</code></p>
-<h4 id="-task-instance-type-choice"><code>--task-instance-type &lt;choice&gt;</code></h4>
+<h1 id="-task-instance-type-choice"><code>--task-instance-type &lt;choice&gt;</code></h1>
 <p>This is the <a href="http://aws.amazon.com/ec2/instance-types/">instance type</a> of the core instance group of your Elastic MapReduce cluster.</p>
 <p>Default: argument of <code>--master-instance-type</code> if there are any task instances</p>
-<h4 id="-ec2-key-name-str"><code>--ec2-key-name &lt;str&gt;</code></h4>
+<h1 id="-ec2-key-name-str"><code>--ec2-key-name &lt;str&gt;</code></h1>
 <p>You can specify an Elastic Compute Cloud (EC2) key pair name <code>&lt;str&gt;</code> for SSHing to the master instance of your Elastic MapReduce cluster while your job flow is running.</p>
 <p>Default: unspecified, which means you can't SSH to the master instance of your cluster</p>
-<h4 id="-keep-alive"><code>--keep-alive</code></h4>
+<h1 id="-keep-alive"><code>--keep-alive</code></h1>
 <p>This option keeps an Elastic Mapreduce cluster alive when all its assigned steps are complete. Use <code>--keep-alive</code> in conjunction with <code>--termination-protected</code> and <code>--ec2-key-name</code> to be able to SSH to an Elastic MapReduce cluster and diagnose problems. However, you should make sure to terminate the cluster manually when you're finished.</p>
 <p>Boolean parameter; has no argument.</p>
-<h4 id="-termination-protected"><code>--termination-protected</code></h4>
+<h1 id="-termination-protected"><code>--termination-protected</code></h1>
 <p>This option protects an Elastic MapReduce cluster from termination in case of step failure. Use <code>--termination-protected</code> in conjunction with <code>--keep-alive</code> and <code>--ec2-key-name</code> to be able to SSH an Elastic MapReduce cluster and diagnose problems. However, you should make sure to terminate the cluster manually when you're finished.</p>
-<h4 id="-region-choice"><code>--region &lt;choice&gt;</code></h4>
+<h1 id="-region-choice"><code>--region &lt;choice&gt;</code></h1>
 <p>This specifies the region in which your job flow will be run. Valid regions are given <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-region.html">here</a>.</p>
 <p>Default: the region from your <code>--profile</code>, but if that's unavailable, <code>us-east-1</code> (US Standard)</p>
-<h4 id="-service-role-str"><code>--service-role &lt;str&gt;</code></h4>
+<h1 id="-service-role-str"><code>--service-role &lt;str&gt;</code></h1>
 <p>You should have set up your IAM service role by entering <code>aws emr create-default-roles</code> after installing the AWS CLI. If for some reason related to permissioning you need to use a different IAM service role, specify its name as <code>&lt;str&gt;</code>.</p>
 <p>Default: taken from <code>--profile</code> if available; otherwise, attempts <code>EMR_DefaultRole</code></p>
-<h4 id="-instance-profile-str"><code>--instance-profile &lt;str&gt;</code></h4>
+<h1 id="-instance-profile-str"><code>--instance-profile &lt;str&gt;</code></h1>
 <p>You should have set up your IAM EC2 instance profile by entering <code>aws emr create-default-roles</code> after installing the AWS CLI. If for some reason related to permissioning you need to use a different IAM EC2 instance profile, specify its name as <code>&lt;str&gt;</code>.</p>
-<p>Default: taken from <code>--profile</code> if available; otherwise, attempts <code>EMR_EC2_DefaultRole</code></p></div>
+<p>Default: taken from <code>--profile</code> if available; otherwise, attempts <code>EMR_EC2_DefaultRole</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../dbgap/" class="btn btn-neutral" title="dbGaP on EMR"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
         </div>
+      </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-            <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
-        </footer>
+    </section>
 
-        <script src="../js/jquery-1.10.2.min.js"></script>
-        <script src="../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../js/highlight.pack.js"></script>
-        <script src="../js/base.js"></script>
-    </body>
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../dbgap/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
 </html>
