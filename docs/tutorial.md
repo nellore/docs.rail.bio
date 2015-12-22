@@ -224,7 +224,7 @@ What happens is pretty unimpressive: Rail runs like it does in local mode. But I
 
 You should have performed [these](installation.md#setting-up-amazon-elastic-mapreduce) steps to set up the AWS CLI and Elastic MapReduce before attempting the example.
 
-Visit https://raw.githubusercontent.com/nellore/rail/master/ex/hg19_example.manifest in your browser. Listed are two single-end human samples with just 20,000 reads each. They were generated with expression profiles of two [GEUVADIS](http://www.geuvadis.org) lymphoblastoid cell line samples in a way we describe in our [paper](http://biorxiv.org/content/early/2015/05/07/019067), but because there are so few reads, you probably couldn't tell which GEUVADIS samples we used if you didn't have the sample labels in the manifest file.
+Check out [this manifest file](https://raw.githubusercontent.com/nellore/rail/master/ex/hg19_example.manifest) in your browser. Listed are two single-end human samples with just 20,000 reads each. They were generated with expression profiles of two [GEUVADIS](http://www.geuvadis.org) lymphoblastoid cell line samples in a way we describe in our [paper](http://biorxiv.org/content/early/2015/05/07/019067), but because there are so few reads, you probably couldn't tell which GEUVADIS samples we used if you didn't have the sample labels in the manifest file.
 
 Let's use Elastic MapReduce to both preprocess and align these data. Since you'll be storing the results on Amazon's [Simple Storage Service](http://aws.amazon.com/s3/) (S3), you should first read up on [working with buckets](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html). The short story is that on S3, a bucket is something like a directory in a filesystem, except
 
