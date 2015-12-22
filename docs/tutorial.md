@@ -124,7 +124,7 @@ rail-rna align local -i dmel_prepped -m https://raw.githubusercontent.com/nellor
 ```
 The `rail-rna prep local` command above is executed on a single thread (with `-p 1`) to ensure that only one download is performed at a time, which would be useful if our downloads were throttled. In the `rail-rna align local` command, the parameter `-f/--force` tells Rail to overwrite any existing outputs. You should end up with exactly the same output you obtained when you ran the `rail-rna go local` command.
 
-Now you'll run an example that will break Rail. Navigate to the URL https://raw.githubusercontent.com/nellore/rail/master/ex/bad.manifest . The manifest will look like this:
+Now you'll run an example that will break Rail. Navigate to [this URL](https://raw.githubusercontent.com/nellore/rail/master/ex/bad.manifest), a manifest file that should look like this:
 ```
 http://verve.webfactional.com/bad.fastq       0        bad-1-1
 ```
@@ -143,7 +143,7 @@ ATGGCATCAGTCAAGTCAAGATTACTAGTAGCCATACAAGATACATCGTTTAACGATTGTGGCACATACGTCACCA
 +
 IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 ```
-There's one sequence labeled "badrecord" and another labeled "goodrecord". "badrecord" is bad because its read sequence isn't the same length as its quality sequence. Without being told otherwise, Rail-RNA chokes on bad records, but it's good to see how it chokes to learn how to diagnose problems. Run Rail-RNA on the bad manifest like so---
+There's one sequence labeled "badrecord" and another labeled "goodrecord". "badrecord" is bad because its read sequence isn't the same length as its quality sequence. Without being told otherwise, Rail-RNA chokes on bad records, but it's good to see how it chokes to learn how to diagnose problems. Run Rail-RNA on the bad manifest file like so---
 ```
 cd /home/testuser/railtests
 rail-rna go local -x /home/testuser/Downloads/Drosophila_melanogaster/UCSC/dm3/Sequence/BowtieIndex/genome /home/testuser/Downloads/Drosophila_melanogaster/UCSC/dm3/Sequence/Bowtie2Index/genome -m https://raw.githubusercontent.com/nellore/rail/master/ex/bad.manifest -o ./bad
