@@ -74,7 +74,7 @@ in the shell. This could take a while, but once it's done, the Bowtie 1 index ba
 
 **Warning:** You may think you already have Bowtie 1 and 2 indexes for a given genome assembly---perhaps dm3---but the contigs in one may not be exactly the same as the contigs in the other. When working with any reference in Rail-RNA, it is important to ensure that the Bowtie 1 and 2 indexes are built from the same FASTA. Check the [Bowtie 1 documentation](http://bowtie-bio.sourceforge.net/manual.shtml) and [Bowtie 2 documentation](http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml) for information on how to build Bowtie indexes from reference FASTAs.
 
-Now open your browser, and navigate to the URL https://raw.githubusercontent.com/nellore/rail/master/ex/dm3_example.manifest . You'll see the following text.
+Now open your browser, and navigate to [this URL](https://raw.githubusercontent.com/nellore/rail/master/ex/dm3_example.manifest). You'll see the following text.
 ```
 http://verve.webfactional.com/dm3_example_1_left.fastq       0       http://verve.webfactional.com/dm3_example_1_right.fastq        0       dm3_example-1-1
 http://verve.webfactional.com/dm3_example_2_left.fastq       0       http://verve.webfactional.com/dm3_example_2_right.fastq        0       dm3_example-2-1
