@@ -6,9 +6,9 @@ Make sure you have a recent (>= 2009) OS X or Linux box with at least 8 GB of RA
 curl http://verve.webfactional.com/rail -o $INSTALLER; python2 $INSTALLER -m || true;
 rm -f $INSTALLER)
 ```
-at a Bash prompt. Otherwise, download the latest version of Rail-RNA [here](https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.1.9a). If for some reason you need an older version `V`, you can visit [the `releases` subdirectory](https://github.com/nellore/rail/tree/master/releases) of the repo, click on the file `install-rail-rna-V`, and click the `Raw` button to download it.
+in a Unix shell (which you open by running the `Terminal` app). Otherwise, download the latest version of Rail-RNA [here](https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.1.9a). If for some reason you need an older version `V`, you can visit [the `releases` subdirectory](https://github.com/nellore/rail/tree/master/releases) of the repo, click on the file `install-rail-rna-V`, and click the `Raw` button to download it.
 
-The file you download will be in the format `install-rail-rna-V`, where `V` is the version you downloaded. In a Unix shell (which you open by running the `Terminal` app), navigate to the directory in which you downloaded the installer. This typically means entering `cd ~/Downloads`. Now enter `chmod +x install-rail-rna-V` to make the installer executable.
+The file you download will be in the format `install-rail-rna-V`. In a Unix shell, navigate to the directory in which you downloaded the installer. This typically means entering `cd ~/Downloads`. Now enter `chmod +x install-rail-rna-V` to make the installer executable.
 
 ### Options
 

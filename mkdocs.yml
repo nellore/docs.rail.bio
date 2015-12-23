@@ -6,4 +6,4 @@ pages:
 - Deliverables: deliverables.md
 - dbGaP on EMR: dbgap.md
 - Reference: reference.md
-theme: flatly
+theme: readthedocs
