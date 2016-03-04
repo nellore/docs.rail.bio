@@ -14,7 +14,7 @@ These steps should be performed if the site administrator is new to AWS.
 2. Click **Create a free account**.
 3. Check the **I am a new user** box and and continue to follow the instructions to create your new account. You'll enter, for example, contact and payment information. Note that the **Basic** level of service is sufficient for using Rail-RNA.
 4. Make a note of your account number.
-    1. Log into the [AWS console] using the new account's email address and password.
+    1. Log into the [AWS console](https://aws.amazon.com/console/) using the new account's email address and password.
     2. Click on the arrow next to your user name in the gray banner at the top of the page.
     3. Select **My Account**, and the **Account Id** will be displayed at the top of the page.
 5. Secure the account
@@ -50,7 +50,7 @@ During this process, it is best for the account administrator to sit with the us
 2. *User:* register credentials with the AWS CLI by entering
         
         aws configure --profile dbgap
-at a terminal prompt on the user's computer. Enter the AWS Access Key ID, AWS Secret Access Key, and a default region as prompted. We recommend using the `us-east-1` because its connection to dbGaP-protected data on SRA appears to be fastest. A default output format need not be specified. Now the new user can issue AWS API calls via the AWS CLI. *It is recommended that credentials file that was just downloaded is now deleted.*
+at a terminal prompt on the user's computer. Enter the AWS Access Key ID, AWS Secret Access Key, and a default region as prompted. We recommend using `us-east-1` because its connection to dbGaP-protected data on SRA appears to be fastest. A default output format need not be specified. Now the new user can issue AWS API calls via the AWS CLI. *It is recommended that credentials file that was just downloaded is now deleted.*
 
 3. *Administrator:* Set user's password.
     1. Return to the [AWS Console](https://aws.amazon.com/console/), again click **Identity and Access Management**, again click **Users** on the left sidebar, and select the new user. Under **User Actions**, click **Manage Password**.
@@ -119,9 +119,7 @@ The new IAM user still needs sufficient privileges to run Rail-RNA on Elastic Ma
 <div align="center"><img src="../assets/permissionstab.png" alt="Permissions" style="width: 700px; padding: 5px"/></div>
 4. Click **Attach Policy**, and select the `AWSCloudFormationReadOnlyAccess`, `AmazonElasticMapReduceFullAccess`, and `UseExistingEMRRoles` policies. Then click Attach Policy.
 <div align="center"><img src="../assets/afterpermissionstab.png" alt="Attach Policy" style="width: 700px; padding: 5px"/></div>
-Different policies including only some of the permissions from these may be included, but note that the user must be able to:
-        * launch Elastic MapReduce clusters into the VPC from the secure dbGaP CloudFormation stack created by the administrator above, and
-        * read and write to the secure S3 bucket created by the administrator on behalf of the user.
+Different policies including only some of the permissions from these may be included, but note that the user must be able to (1) launch Elastic MapReduce clusters into the VPC from the secure dbGaP CloudFormation stack created by the administrator above, and (2) read and write to the secure S3 bucket created by the administrator on behalf of the user.
 
 ### Set up default EMR roles (administrator & user)
 
@@ -138,9 +136,9 @@ dbGaP support has kindly provided a dataset composed of public RNA-seq samples f
 1. Download [the dbGaP repository key](ftp://ftp.ncbi.nlm.nih.gov/sra/examples/decrypt_examples/prj_phs710EA_test.ngc) for the test data. The key is referenced as `/path/to/prj_phs710EA_test.ngc` here.
 2. Run
 
-        rail-rna go local
+        rail-rna go elastic
           -a hg38
-          -o s3://this-is-a-bucket-name-the-user-names-up/dbgaptest
+          -o s3://this-is-a-bucket-name-the-user-makes-up/dbgaptest
           -c 1
           -m https://raw.githubusercontent.com/nellore/rail/master/ex/secure.manifest
           --secure-stack-name dbgap
