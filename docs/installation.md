@@ -67,7 +67,7 @@ If you've just installed the AWS CLI along with Rail-RNA, you must configure it.
 
 ### A note on security
 
-<span style="color: red; font-size: 250%">Don't put your credentials in a place where anyone else can find them, especially online. Hackers will [steal them](http://readwrite.com/2014/04/15/amazon-web-services-hack-bitcoin-miners-github) and for example mine cryptocurrency on your dollar.</span> If you accidentally put your credentials in a GitHub repo, [scrub it](https://help.github.com/articles/remove-sensitive-data/) and [get new AWS keys](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) immediately.
+<span style="color: red; font-size: 200%">Don't put your credentials in a place where anyone else can find them, especially online. Hackers will [steal them](http://readwrite.com/2014/04/15/amazon-web-services-hack-bitcoin-miners-github) and for example mine cryptocurrency on your dollar. If you accidentally put your credentials in a GitHub repo, [scrub it](https://help.github.com/articles/remove-sensitive-data/) and [get new AWS keys](http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) immediately.</span>
 
 ### Configuring the AWS CLI
 

@@ -3,31 +3,28 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>dbGaP on EMR - Rail-RNA v0.2</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>dbGaP on EMR - Rail-RNA v0.2</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
-
   
   <script>
     // Current page data
     var mkdocs_page_name = "dbGaP on EMR";
+    var mkdocs_page_input_path = "dbgap.md";
+    var mkdocs_page_url = "/dbgap/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -47,72 +44,64 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../installation/">Installation</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../tutorial/">Tutorial</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../tutorial/">Tutorial</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../deliverables/">Deliverables</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../deliverables/">Deliverables</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">dbGaP on EMR</a>
-        
-            <ul>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">dbGaP on EMR</a>
+    <ul class="subnav">
             
-                <li class="toctree-l3"><a href="#securely-analyze-dbgap-protected-data-in-the-cloud">Securely analyze dbGaP-protected data in the cloud</a></li>
-                
-                    <li><a class="toctree-l4" href="#set-up-an-administrator-account-administrator">Set up an administrator account (administrator)</a></li>
-                
-                    <li><a class="toctree-l4" href="#set-up-a-new-iam-user-administrator-user">Set up a new IAM user (administrator &amp; user)</a></li>
-                
-                    <li><a class="toctree-l4" href="#create-a-secure-cloudformation-stack-administrator">Create a secure CloudFormation stack (administrator)</a></li>
-                
-                    <li><a class="toctree-l4" href="#delegate-elastic-mapreduce-and-cloudformation-authorites-to-the-new-iam-user-administrator">Delegate Elastic MapReduce and CloudFormation authorites to the new IAM user (administrator)</a></li>
-                
-                    <li><a class="toctree-l4" href="#set-up-default-emr-roles-administrator-user">Set up default EMR roles (administrator &amp; user)</a></li>
-                
-                    <li><a class="toctree-l4" href="#test-the-configuration-user">Test the configuration (user)</a></li>
-                
-                    <li><a class="toctree-l4" href="#analyze-dbgap-protected-data">Analyze dbGaP-protected data</a></li>
-                
-                    <li><a class="toctree-l4" href="#helpful-notes-for-administrators">Helpful notes for administrators</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l2"><a href="#securely-analyze-dbgap-protected-data-in-the-cloud">Securely analyze dbGaP-protected data in the cloud</a></li>
+    
+        <ul>
         
-    </li>
-<li>
+            <li><a class="toctree-l3" href="#set-up-an-administrator-account-administrator">Set up an administrator account (administrator)</a></li>
+        
+            <li><a class="toctree-l3" href="#set-up-a-new-iam-user-administrator-user">Set up a new IAM user (administrator &amp; user)</a></li>
+        
+            <li><a class="toctree-l3" href="#create-a-secure-cloudformation-stack-administrator">Create a secure CloudFormation stack (administrator)</a></li>
+        
+            <li><a class="toctree-l3" href="#delegate-elastic-mapreduce-and-cloudformation-authorites-to-the-new-iam-user-administrator">Delegate Elastic MapReduce and CloudFormation authorites to the new IAM user (administrator)</a></li>
+        
+            <li><a class="toctree-l3" href="#set-up-default-emr-roles-administrator-user">Set up default EMR roles (administrator &amp; user)</a></li>
+        
+            <li><a class="toctree-l3" href="#test-the-configuration-user">Test the configuration (user)</a></li>
+        
+            <li><a class="toctree-l3" href="#analyze-dbgap-protected-data">Analyze dbGaP-protected data</a></li>
+        
+            <li><a class="toctree-l3" href="#helpful-notes-for-administrators">Helpful notes for administrators</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../reference/">Reference</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../reference/">Reference</a>
+	    </li>
           
         </ul>
       </div>
@@ -157,7 +146,7 @@
 <li>Click <strong>Create a free account</strong>.</li>
 <li>Check the <strong>I am a new user</strong> box and and continue to follow the instructions to create your new account. You'll enter, for example, contact and payment information. Note that the <strong>Basic</strong> level of service is sufficient for using Rail-RNA.</li>
 <li>Make a note of your account number.<ol>
-<li>Log into the [AWS console] using the new account's email address and password.</li>
+<li>Log into the <a href="https://aws.amazon.com/console/">AWS console</a> using the new account's email address and password.</li>
 <li>Click on the arrow next to your user name in the gray banner at the top of the page.</li>
 <li>Select <strong>My Account</strong>, and the <strong>Account Id</strong> will be displayed at the top of the page.</li>
 </ol>
@@ -202,7 +191,7 @@ Configure the password policy according to the requirements mentioned in the <a 
 <p><em>User:</em> register credentials with the AWS CLI by entering</p>
 <pre><code>aws configure --profile dbgap
 </code></pre>
-<p>at a terminal prompt on the user's computer. Enter the AWS Access Key ID, AWS Secret Access Key, and a default region as prompted. We recommend using the <code>us-east-1</code> because its connection to dbGaP-protected data on SRA appears to be fastest. A default output format need not be specified. Now the new user can issue AWS API calls via the AWS CLI. <em>It is recommended that credentials file that was just downloaded is now deleted.</em></p>
+<p>at a terminal prompt on the user's computer. Enter the AWS Access Key ID, AWS Secret Access Key, and a default region as prompted. We recommend using <code>us-east-1</code> because its connection to dbGaP-protected data on SRA appears to be fastest. A default output format need not be specified. Now the new user can issue AWS API calls via the AWS CLI. <em>It is recommended that credentials file that was just downloaded is now deleted.</em></p>
 </li>
 <li>
 <p><em>Administrator:</em> Set user's password.</p>
@@ -280,11 +269,7 @@ Configure the password policy according to the requirements mentioned in the <a 
 <div align="center"><img src="../assets/permissionstab.png" alt="Permissions" style="width: 700px; padding: 5px"/></div></li>
 <li>Click <strong>Attach Policy</strong>, and select the <code>AWSCloudFormationReadOnlyAccess</code>, <code>AmazonElasticMapReduceFullAccess</code>, and <code>UseExistingEMRRoles</code> policies. Then click Attach Policy.
 <div align="center"><img src="../assets/afterpermissionstab.png" alt="Attach Policy" style="width: 700px; padding: 5px"/></div>
-Different policies including only some of the permissions from these may be included, but note that the user must be able to:<ul>
-<li>launch Elastic MapReduce clusters into the VPC from the secure dbGaP CloudFormation stack created by the administrator above, and</li>
-<li>read and write to the secure S3 bucket created by the administrator on behalf of the user.</li>
-</ul>
-</li>
+Different policies including only some of the permissions from these may be included, but note that the user must be able to (1) launch Elastic MapReduce clusters into the VPC from the secure dbGaP CloudFormation stack created by the administrator above, and (2) read and write to the secure S3 bucket created by the administrator on behalf of the user.</li>
 </ol>
 </li>
 </ol>
@@ -300,9 +285,9 @@ Different policies including only some of the permissions from these may be incl
 <p>dbGaP support has kindly provided a dataset composed of public RNA-seq samples from <a href="http://www.1000genomes.org/">1000 Genomes</a> exclusively for testing secure cloud-based pipelines. Its project accession number on SRA is <a href="http://trace.ncbi.nlm.nih.gov/Traces/sra/?study=SRP041052">SRP041052</a>. The user may test their configuration on the lymphoblastoid cell line sample <a href="http://www.ncbi.nlm.nih.gov/sra/?term=SRR1219818">SRR1219818</a> from that project by following these instructions.</p>
 <ol>
 <li>Download <a href="ftp://ftp.ncbi.nlm.nih.gov/sra/examples/decrypt_examples/prj_phs710EA_test.ngc">the dbGaP repository key</a> for the test data. The key is referenced as <code>/path/to/prj_phs710EA_test.ngc</code> here.</li>
-<li>Run<pre><code>rail-rna go local
+<li>Run<pre><code>rail-rna go elastic
   -a hg38
-  -o s3://this-is-a-bucket-name-the-user-names-up/dbgaptest
+  -o s3://this-is-a-bucket-name-the-user-makes-up/dbgaptest
   -c 1
   -m https://raw.githubusercontent.com/nellore/rail/master/ex/secure.manifest
   --secure-stack-name dbgap
@@ -339,7 +324,7 @@ Different policies including only some of the permissions from these may be incl
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../reference/" class="btn btn-neutral float-right" title="Reference"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../reference/" class="btn btn-neutral float-right" title="Reference">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../deliverables/" class="btn btn-neutral" title="Deliverables"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -361,10 +346,10 @@ Different policies including only some of the permissions from these may be incl
       </div>
 
     </section>
-
+    
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -375,6 +360,7 @@ Different policies including only some of the permissions from these may be incl
       
     </span>
 </div>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>
