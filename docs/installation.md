@@ -1,12 +1,12 @@
 ## Installing Rail-RNA
 
-Make sure you have a recent (>= 2009) OS X or Linux box with at least 8 GB of RAM. For a no-fuss install, enter
+Make sure you have a recent (>= 2009) OS X or Linux box with at least 8 GB of RAM and Python 2.7.x. For a no-fuss install, enter
 ```
 (INSTALLER=/var/tmp/$(cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f0-9' | head -c 32);
 curl http://verve.webfactional.com/rail -o $INSTALLER; python $INSTALLER -m || true;
 rm -f $INSTALLER)
 ```
-in a Unix shell (which you open by running the `Terminal` app). This works only if `python` points to a Python 2.7 executable---Rail requires Python 2.7---and you may have to replace `python` in the command above with a path to one. Otherwise, download the latest version of Rail-RNA [here](https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.2.4b). If for some reason you need an older version `V`, you can visit [the `releases` subdirectory](https://github.com/nellore/rail/tree/master/releases) of the repo, click on the file `install_rail-rna-V`, and click the `Raw` button to download it.
+in a Unix shell (which you open by running the `Terminal` app). This works only if `python` points to a Python 2.7 executable, and you may have to replace `python` in the command above with a path to one. Otherwise, download the latest version of Rail-RNA [here](https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.2.4b). If for some reason you need an older version `V`, you can visit [the `releases` subdirectory](https://github.com/nellore/rail/tree/master/releases) of the repo, click on the file `install_rail-rna-V`, and click the `Raw` button to download it.
 
 The file you download will be in the format `install_rail-rna-V`. In a Unix shell, navigate to the directory in which you downloaded the installer. This typically means entering `cd ~/Downloads`. Now enter `chmod +x install_rail-rna-V` to make the installer executable.
 
@@ -63,7 +63,7 @@ If you plan to use Rail-RNA in its `elastic` mode, on Amazon Elastic MapReduce, 
 
 First off, you need an account with Amazon Web Services (AWS). Sign up [here](http://aws.amazon.com/). If you're new to AWS, we highly recommend following [this](https://github.com/griffithlab/rnaseq_tutorial/wiki/Intro-to-AWS-Cloud-Computing) tutorial by the [Griffith Lab](http://genome.wustl.edu/people/groups/detail/griffith-lab/) at [Wash U](http://wustl.edu/) to get a feel for its use. But if you just want to set up an account, you need only read sections 4-6 contained there.
 
-If you've just installed the AWS CLI along with Rail-RNA, you must configure it. Obtain your AWS Access Key ID and Secret Access Key by following the instructions [here](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html).
+If you've just installed the AWS CLI along with Rail-RNA, you must configure it. Obtain your AWS Access Key ID and Secret Access Key by following the instructions [here](http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html).
 
 ### A note on security
 
