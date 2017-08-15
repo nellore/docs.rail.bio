@@ -3,16 +3,16 @@
 Make sure you have a recent (>= 2009) OS X or Linux box with at least 8 GB of RAM. For a no-fuss install, enter
 ```
 (INSTALLER=/var/tmp/$(cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f0-9' | head -c 32);
-curl http://verve.webfactional.com/rail -o $INSTALLER; python2 $INSTALLER -m || true;
+curl http://verve.webfactional.com/rail -o $INSTALLER; python $INSTALLER -m || true;
 rm -f $INSTALLER)
 ```
-in a Unix shell (which you open by running the `Terminal` app). Otherwise, download the latest version of Rail-RNA [here](https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.1.9a). If for some reason you need an older version `V`, you can visit [the `releases` subdirectory](https://github.com/nellore/rail/tree/master/releases) of the repo, click on the file `install-rail-rna-V`, and click the `Raw` button to download it.
+in a Unix shell (which you open by running the `Terminal` app). Otherwise, download the latest version of Rail-RNA [here](https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.1.9a). If for some reason you need an older version `V`, you can visit [the `releases` subdirectory](https://github.com/nellore/rail/tree/master/releases) of the repo, click on the file `install_rail-rna-V`, and click the `Raw` button to download it.
 
-The file you download will be in the format `install-rail-rna-V`. In a Unix shell, navigate to the directory in which you downloaded the installer. This typically means entering `cd ~/Downloads`. Now enter `chmod +x install-rail-rna-V` to make the installer executable.
+The file you download will be in the format `install_rail-rna-V`. In a Unix shell, navigate to the directory in which you downloaded the installer. This typically means entering `cd ~/Downloads`. Now enter `chmod +x install_rail-rna-V` to make the installer executable.
 
 ### Options
 
-Installation options may now be viewed by entering `./install-rail-rna-V`. They include
+Installation options may now be viewed by entering `./install_rail-rna-V`. They include
 
 * `-i/--install-dir <dir>`: This is the directory in which Rail-RNA should be installed. The default is "/usr/local/raildotbio" if you install for all users, and "~/raildotbio" if you install for just the current user.
 
@@ -28,11 +28,11 @@ Installation options may now be viewed by entering `./install-rail-rna-V`. They 
 
 You can install Rail-RNA for all users or just for the current user. If you have root access and would like to install for all users, enter
 ```
-sudo ./install-rail-rna-V
+sudo ./install_rail-rna-V
 ```
 , enter your password, and proceed. To install for just you, enter
 ```
-./install-rail-rna-V
+./install_rail-rna-V
 ```
 Follow the prompts. Rail-RNA has several dependencies: [Bowtie 1](http://bowtie-bio.sourceforge.net/), [Bowtie 2](http://bowtie-bio.sourceforge.net/bowtie2/), [SAMTools](https://samtools.github.io/), and [bedGraphToBigWig](http://hgdownload.cse.ucsc.edu/admin/exe/) are the critical ones, and they are installed especially for Rail in `~/raildotbio` (single-user install) or `/usr/local/raildotbio` (all-user install) by default. (`-d` may be used to specify a different destination directory, as described above). You may have some of the critical dependencies already, but the installer will copy specific versions to the destination directory anyway to ensure reproducibility of results across installations of a given version of Rail-RNA. Don't worry: nothing happens to your original configuration, and the default versions of the dependencies you already have remain default---that is, unless you invoke the `-s` parameter described above. Optional dependencies are the [AWS CLI](http://aws.amazon.com/cli/), which you'll need to Rail-RNA on Amazon Elastic MapReduce, and [IPython Parallel](http://ipython.org/ipython-doc/dev/parallel/), which you'll need to run Rail-RNA over a conventional computer cluster. The installer will check to see if the optional dependencies are already present. If they're not, it will ask you if you want to install them.
 
@@ -75,7 +75,7 @@ Now enter
 ```
 aws configure
 ```
-at the shell prompt. You will be prompted to enter your Access Key ID, your Secret Access Key, and your default region. `us-east-1` is the standard region for US customers, and it spans data centers on the East and West Coasts. However, if you or your input data live elsewhere, you may want to default to one of the other regions listed [here](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html). For example, we find that Rail is fastest at downloading and preprocessing data hosted by the [European Nucleotide Archive](http://www.ebi.ac.uk/ena) in the `eu-west-1` region, which is in Ireland.
+at the shell prompt. You will be prompted to enter your Access Key ID, your Secret Access Key, a default region name, and a default output format. `us-east-1` is the standard region for US customers, and it spans data centers on the East and West Coasts. However, if you or your input data live elsewhere, you may want to default to one of the other regions listed [here](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html). For example, we find that Rail is fastest at downloading and preprocessing data hosted by the [European Nucleotide Archive](http://www.ebi.ac.uk/ena) in the `eu-west-1` region, which is in Ireland. Finally, hitting enter to accept the default output format is fine.
 
 ### Creating default roles
 
@@ -120,4 +120,4 @@ Change "devel" to some version number that diverges from the Rail-RNA versioning
 4. Once you're done hacking Rail, run
 
         sh /home/testuser/rail/make_it_rail.sh
-A new installer `install-rail-rna-C` will appear in the `releases/` directory. Run it to install your modified version locally.
+A new installer `install_rail-rna-C` will appear in the `releases/` directory. Run it to install your modified version locally.
