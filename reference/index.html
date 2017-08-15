@@ -3,31 +3,28 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Reference - Rail-RNA v0.2</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>Reference - Rail-RNA v0.2</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
-
   
   <script>
     // Current page data
     var mkdocs_page_name = "Reference";
+    var mkdocs_page_input_path = "reference.md";
+    var mkdocs_page_url = "/reference/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -47,270 +44,278 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../installation/">Installation</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../installation/">Installation</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../tutorial/">Tutorial</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../tutorial/">Tutorial</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../deliverables/">Deliverables</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../deliverables/">Deliverables</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../dbgap/">dbGaP on EMR</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../dbgap/">dbGaP on EMR</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Reference</a>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Reference</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#command-line-usage">Command-line usage</a></li>
+    
+        <ul>
         
-            <ul>
-            
-                <li class="toctree-l3"><a href="#command-line-usage">Command-line usage</a></li>
-                
-                    <li><a class="toctree-l4" href="#required-args">Required args</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-m-manifest-file">-m/--manifest &lt;file&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-x-bowtie-idx-idxidx-idx">-x/--bowtie-idx/ &lt;idx,idx | idx&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-c-core-instance-count-int">-c/--core-instance-count &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-a-assembly-choice-tgz">-a/--assembly &lt;choice | tgz&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#general-options">General options</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-h-help">-h/--help</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-v-version">-v/--version</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-j-json">-j/--json</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-profile-str">--profile &lt;str&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-f-force">-f/--force</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-verbose">--verbose</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-do-not-bin-quals">--do-not-bin-quals</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-short-read-names">--short-read-names</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-skip-bad-records">--skip-bad-records</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-do-not-check-manifest">--do-not-check-manifest</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-log-dir">--log &lt;dir&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-intermediate-s3_dirhdfs_dir">--intermediate &lt;s3_dir/hdfs_dir&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-p-num-processes-int">-p/--num-processes &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-scratch-dir">--scratch &lt;dir&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-keep-intermediates">--keep-intermediates</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-g-gzip-intermediates">-g/--gzip-intermediates</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-gzip-level-int">--gzip-level &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-r-sort-memory-cap-dec">-r/--sort-memory-cap &lt;dec&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-nucleotides-per-input-int">--nucleotides-per-input &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-do-not-gzip-input">--do-not-gzip-input</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-max-task-attempts-int">--max-task-attempts &lt;int&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#algorithm-options">Algorithm options</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-bowtie2-args-str">--bowtie2-args &lt;str&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-k-int">-k &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-isofrag-idx-fx-file">--isofrag-idx/-fx &lt;file&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-partition-length-int">--partition-length &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-max-readlet-size-int">--max-readlet-size &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-min-readlet-size-int">--min-readlet-size &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-readlet-interval-int">--readlet-interval &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-readlet-config-size-int">--readlet-config-size &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-max-intron-size-int">--max-intron-size &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-min-intron-size-int">--min-intron-size &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-min-exon-size-int">---min-exon-size &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-search-filter-choiceint">--search-filter &lt;choice/int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-junction-criteria-decint">--junction-criteria &lt;dec,int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-normalize-percentile-dec">--normalize-percentile &lt;dec&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-do-not-drop-polya-tails">--do-not-drop-polyA-tails</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-tie-margin-int">--tie-margin &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-library-size-int">--library-size &lt;int&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#output-options">Output options</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-o-output-dir">-o/--output &lt;dir&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-d-deliverables-choice">-d/--deliverables &lt;choice,...&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-drop-deletions">--drop-deletions</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-do-not-output-bam-by-chr">--do-not-output-bam-by-chr</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-do-not-output-ave-bw-by-chr">--do-not-output-ave-bw-by-chr</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-indel-criteria-decint">--indel-criteria &lt;dec,int&gt;</a></li>
-                
-                    <li><a class="toctree-l4" href="#elastic-mapreduce-options">Elastic MapReduce options</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-intermediate-lifetime-int">--intermediate-lifetime &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-name-str">--name &lt;str&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-log-uri-s3_dir">--log-uri &lt;s3_dir&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-ami-version-str">--ami-version &lt;str&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-visible-to-all-users">--visible-to-all-users</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-action-on-failure-choice">--action-on-failure &lt;choice&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-master-instance-count-int">--master-instance-count &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-task-instance-count-int">--task-instance-count &lt;int&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-master-instance-bid-price-dec">--master-instance-bid-price &lt;dec&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-core-instance-bid-price-dec">--core-instance-bid-price &lt;dec&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-task-instance-bid-price-dec">--task-instance-bid-price &lt;dec&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-master-instance-type-choice">--master-instance-type &lt;choice&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-core-instance-type-choice">--core-instance-type &lt;choice&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-task-instance-type-choice">--task-instance-type &lt;choice&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-ec2-key-name-str">--ec2-key-name &lt;str&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-keep-alive">--keep-alive</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-termination-protected">--termination-protected</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-region-choice">--region &lt;choice&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-service-role-str">--service-role &lt;str&gt;</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#-instance-profile-str">--instance-profile &lt;str&gt;</a></li>
-                
-            
-            </ul>
+            <li><a class="toctree-l3" href="#required-args">Required args</a></li>
         
-    </li>
-<li>
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#-m-manifest-file">-m/--manifest &lt;file&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-x-bowtie-idx-idxidx-idx">-x/--bowtie-idx/ &lt;idx,idx | idx&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-c-core-instance-count-int">-c/--core-instance-count &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-a-assembly-choice-tgz">-a/--assembly &lt;choice | tgz&gt;</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#general-options">General options</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#-h-help">-h/--help</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-v-version">-v/--version</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-j-json">-j/--json</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-profile-str">--profile &lt;str&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-f-force">-f/--force</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-verbose">--verbose</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-do-not-bin-quals">--do-not-bin-quals</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-short-read-names">--short-read-names</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-skip-bad-records">--skip-bad-records</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-do-not-check-manifest">--do-not-check-manifest</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-log-dir">--log &lt;dir&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-intermediate-s3_dirhdfs_dir">--intermediate &lt;s3_dir/hdfs_dir&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-p-num-processes-int">-p/--num-processes &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-scratch-dir">--scratch &lt;dir&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-keep-intermediates">--keep-intermediates</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-g-gzip-intermediates">-g/--gzip-intermediates</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-gzip-level-int">--gzip-level &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-r-sort-memory-cap-dec">-r/--sort-memory-cap &lt;dec&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-nucleotides-per-input-int">--nucleotides-per-input &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-do-not-gzip-input">--do-not-gzip-input</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-max-task-attempts-int">--max-task-attempts &lt;int&gt;</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#algorithm-options">Algorithm options</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#-bowtie2-args-str">--bowtie2-args &lt;str&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-k-int">-k &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-isofrag-idx-fx-file">--isofrag-idx/-fx &lt;file&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-partition-length-int">--partition-length &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-max-readlet-size-int">--max-readlet-size &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-min-readlet-size-int">--min-readlet-size &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-readlet-interval-int">--readlet-interval &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-readlet-config-size-int">--readlet-config-size &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-max-intron-size-int">--max-intron-size &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-min-intron-size-int">--min-intron-size &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-min-exon-size-int">---min-exon-size &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-search-filter-choiceint">--search-filter &lt;choice/int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-junction-criteria-decint">--junction-criteria &lt;dec,int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-normalize-percentile-dec">--normalize-percentile &lt;dec&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-do-not-drop-polya-tails">--do-not-drop-polyA-tails</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-tie-margin-int">--tie-margin &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-library-size-int">--library-size &lt;int&gt;</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#output-options">Output options</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#-o-output-dir">-o/--output &lt;dir&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-d-deliverables-choice">-d/--deliverables &lt;choice,...&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-drop-deletions">--drop-deletions</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-do-not-output-bam-by-chr">--do-not-output-bam-by-chr</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-do-not-output-ave-bw-by-chr">--do-not-output-ave-bw-by-chr</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-indel-criteria-decint">--indel-criteria &lt;dec,int&gt;</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#elastic-mapreduce-options">Elastic MapReduce options</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#-intermediate-lifetime-int">--intermediate-lifetime &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-name-str">--name &lt;str&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-log-uri-s3_dir">--log-uri &lt;s3_dir&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-ami-version-str">--ami-version &lt;str&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-visible-to-all-users">--visible-to-all-users</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-action-on-failure-choice">--action-on-failure &lt;choice&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-master-instance-count-int">--master-instance-count &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-task-instance-count-int">--task-instance-count &lt;int&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-master-instance-bid-price-dec">--master-instance-bid-price &lt;dec&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-core-instance-bid-price-dec">--core-instance-bid-price &lt;dec&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-task-instance-bid-price-dec">--task-instance-bid-price &lt;dec&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-master-instance-type-choice">--master-instance-type &lt;choice&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-core-instance-type-choice">--core-instance-type &lt;choice&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-task-instance-type-choice">--task-instance-type &lt;choice&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-ec2-key-name-str">--ec2-key-name &lt;str&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-keep-alive">--keep-alive</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-termination-protected">--termination-protected</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-region-choice">--region &lt;choice&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-service-role-str">--service-role &lt;str&gt;</a></li>
+    
+
+    <li class="toctree-l2"><a href="#-instance-profile-str">--instance-profile &lt;str&gt;</a></li>
+    
+
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -671,10 +676,10 @@ and 144 are tied alignment scores for a 100-bp read when --tie-margin is 6, and 
       </div>
 
     </section>
-
+    
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -683,6 +688,7 @@ and 144 are tied alignment scores for a 100-bp read when --tie-margin is 6, and 
       
     </span>
 </div>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>

@@ -3,31 +3,28 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation - Rail-RNA v0.2</title>
   
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
+  <title>Installation - Rail-RNA v0.2</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
-
   
   <script>
     // Current page data
     var mkdocs_page_name = "Installation";
+    var mkdocs_page_input_path = "installation.md";
+    var mkdocs_page_url = "/installation/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
   <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
   
 </head>
 
@@ -47,74 +44,74 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Installation</a>
-        
-            <ul>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Installation</a>
+    <ul class="subnav">
             
-                <li class="toctree-l3"><a href="#installing-rail-rna">Installing Rail-RNA</a></li>
-                
-                    <li><a class="toctree-l4" href="#options">Options</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#setting-up-amazon-elastic-mapreduce">Setting up Amazon Elastic MapReduce</a></li>
-                
-                    <li><a class="toctree-l4" href="#a-note-on-security">A note on security</a></li>
-                
-                    <li><a class="toctree-l4" href="#configuring-the-aws-cli">Configuring the AWS CLI</a></li>
-                
-                    <li><a class="toctree-l4" href="#creating-default-roles">Creating default roles</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#for-hackers">For hackers</a></li>
-                
-                    <li><a class="toctree-l4" href="#how-the-installer-works">How the installer works</a></li>
-                
-                    <li><a class="toctree-l4" href="#rolling-your-own-installer">Rolling your own installer</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l2"><a href="#installing-rail-rna">Installing Rail-RNA</a></li>
+    
+        <ul>
         
-    </li>
-<li>
+            <li><a class="toctree-l3" href="#options">Options</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#setting-up-amazon-elastic-mapreduce">Setting up Amazon Elastic MapReduce</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#a-note-on-security">A note on security</a></li>
+        
+            <li><a class="toctree-l3" href="#configuring-the-aws-cli">Configuring the AWS CLI</a></li>
+        
+            <li><a class="toctree-l3" href="#creating-default-roles">Creating default roles</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#for-hackers">For hackers</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#how-the-installer-works">How the installer works</a></li>
+        
+            <li><a class="toctree-l3" href="#rolling-your-own-installer">Rolling your own installer</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../tutorial/">Tutorial</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../tutorial/">Tutorial</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../deliverables/">Deliverables</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../deliverables/">Deliverables</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../dbgap/">dbGaP on EMR</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../dbgap/">dbGaP on EMR</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../reference/">Reference</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../reference/">Reference</a>
+	    </li>
           
         </ul>
       </div>
@@ -149,16 +146,16 @@
             <div class="section">
               
                 <h2 id="installing-rail-rna">Installing Rail-RNA</h2>
-<p>Make sure you have a recent (&gt;= 2009) OS X or Linux box with at least 8 GB of RAM. For a no-fuss install, enter</p>
+<p>Make sure you have a recent (&gt;= 2009) OS X or Linux box with at least 8 GB of RAM and Python 2.7.x. For a no-fuss install, enter</p>
 <pre><code>(INSTALLER=/var/tmp/$(cat /dev/urandom | env LC_CTYPE=C tr -cd 'a-f0-9' | head -c 32);
-curl http://verve.webfactional.com/rail -o $INSTALLER; python2 $INSTALLER -m || true;
+curl http://verve.webfactional.com/rail -o $INSTALLER; python $INSTALLER -m || true;
 rm -f $INSTALLER)
 </code></pre>
 
-<p>in a Unix shell (which you open by running the <code>Terminal</code> app). Otherwise, download the latest version of Rail-RNA <a href="https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.1.9a">here</a>. If for some reason you need an older version <code>V</code>, you can visit <a href="https://github.com/nellore/rail/tree/master/releases">the <code>releases</code> subdirectory</a> of the repo, click on the file <code>install-rail-rna-V</code>, and click the <code>Raw</code> button to download it.</p>
-<p>The file you download will be in the format <code>install-rail-rna-V</code>. In a Unix shell, navigate to the directory in which you downloaded the installer. This typically means entering <code>cd ~/Downloads</code>. Now enter <code>chmod +x install-rail-rna-V</code> to make the installer executable.</p>
+<p>in a Unix shell (which you open by running the <code>Terminal</code> app). This works only if <code>python</code> points to a Python 2.7 executable, and you may have to replace <code>python</code> in the command above with a path to one. Otherwise, download the latest version of Rail-RNA <a href="https://github.com/nellore/rail/raw/master/releases/install_rail-rna-0.2.4b">here</a>. If for some reason you need an older version <code>V</code>, you can visit <a href="https://github.com/nellore/rail/tree/master/releases">the <code>releases</code> subdirectory</a> of the repo, click on the file <code>install_rail-rna-V</code>, and click the <code>Raw</code> button to download it.</p>
+<p>The file you download will be in the format <code>install_rail-rna-V</code>. In a Unix shell, navigate to the directory in which you downloaded the installer. This typically means entering <code>cd ~/Downloads</code>. Now enter <code>chmod +x install_rail-rna-V</code> to make the installer executable.</p>
 <h3 id="options">Options</h3>
-<p>Installation options may now be viewed by entering <code>./install-rail-rna-V</code>. They include</p>
+<p>Installation options may now be viewed by entering <code>./install_rail-rna-V</code>. They include</p>
 <ul>
 <li>
 <p><code>-i/--install-dir &lt;dir&gt;</code>: This is the directory in which Rail-RNA should be installed. The default is "/usr/local/raildotbio" if you install for all users, and "~/raildotbio" if you install for just the current user.</p>
@@ -180,11 +177,11 @@ rm -f $INSTALLER)
 </li>
 </ul>
 <p>You can install Rail-RNA for all users or just for the current user. If you have root access and would like to install for all users, enter</p>
-<pre><code>sudo ./install-rail-rna-V
+<pre><code>sudo ./install_rail-rna-V
 </code></pre>
 
 <p>, enter your password, and proceed. To install for just you, enter</p>
-<pre><code>./install-rail-rna-V
+<pre><code>./install_rail-rna-V
 </code></pre>
 
 <p>Follow the prompts. Rail-RNA has several dependencies: <a href="http://bowtie-bio.sourceforge.net/">Bowtie 1</a>, <a href="http://bowtie-bio.sourceforge.net/bowtie2/">Bowtie 2</a>, <a href="https://samtools.github.io/">SAMTools</a>, and <a href="http://hgdownload.cse.ucsc.edu/admin/exe/">bedGraphToBigWig</a> are the critical ones, and they are installed especially for Rail in <code>~/raildotbio</code> (single-user install) or <code>/usr/local/raildotbio</code> (all-user install) by default. (<code>-d</code> may be used to specify a different destination directory, as described above). You may have some of the critical dependencies already, but the installer will copy specific versions to the destination directory anyway to ensure reproducibility of results across installations of a given version of Rail-RNA. Don't worry: nothing happens to your original configuration, and the default versions of the dependencies you already have remain default---that is, unless you invoke the <code>-s</code> parameter described above. Optional dependencies are the <a href="http://aws.amazon.com/cli/">AWS CLI</a>, which you'll need to Rail-RNA on Amazon Elastic MapReduce, and <a href="http://ipython.org/ipython-doc/dev/parallel/">IPython Parallel</a>, which you'll need to run Rail-RNA over a conventional computer cluster. The installer will check to see if the optional dependencies are already present. If they're not, it will ask you if you want to install them.</p>
@@ -212,15 +209,15 @@ Start using Rail by entering &quot;rail-rna&quot;.
 <p>If you plan to use Rail-RNA in its <code>elastic</code> mode, on Amazon Elastic MapReduce, you must additionally perform the steps in the following section.</p>
 <h2 id="setting-up-amazon-elastic-mapreduce">Setting up Amazon Elastic MapReduce</h2>
 <p>First off, you need an account with Amazon Web Services (AWS). Sign up <a href="http://aws.amazon.com/">here</a>. If you're new to AWS, we highly recommend following <a href="https://github.com/griffithlab/rnaseq_tutorial/wiki/Intro-to-AWS-Cloud-Computing">this</a> tutorial by the <a href="http://genome.wustl.edu/people/groups/detail/griffith-lab/">Griffith Lab</a> at <a href="http://wustl.edu/">Wash U</a> to get a feel for its use. But if you just want to set up an account, you need only read sections 4-6 contained there.</p>
-<p>If you've just installed the AWS CLI along with Rail-RNA, you must configure it. Obtain your AWS Access Key ID and Secret Access Key by following the instructions <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html">here</a>.</p>
+<p>If you've just installed the AWS CLI along with Rail-RNA, you must configure it. Obtain your AWS Access Key ID and Secret Access Key by following the instructions <a href="http://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html">here</a>.</p>
 <h3 id="a-note-on-security">A note on security</h3>
-<p><em>Don't put your credentials in a place where anyone else can find them, especially online. Hackers will <a href="http://readwrite.com/2014/04/15/amazon-web-services-hack-bitcoin-miners-github">steal them</a> and mine cryptocurrency on your dollar.</em> If you accidentally put your credentials in a GitHub repo, <a href="https://help.github.com/articles/remove-sensitive-data/">scrub it</a> and <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">get new AWS keys</a> immediately.</p>
+<p><span style="color: red; font-size: 250%">Don't put your credentials in a place where anyone else can find them, especially online. Hackers will <a href="http://readwrite.com/2014/04/15/amazon-web-services-hack-bitcoin-miners-github">steal them</a> and for example mine cryptocurrency on your dollar.</span> If you accidentally put your credentials in a GitHub repo, <a href="https://help.github.com/articles/remove-sensitive-data/">scrub it</a> and <a href="http://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html">get new AWS keys</a> immediately.</p>
 <h3 id="configuring-the-aws-cli">Configuring the AWS CLI</h3>
 <p>Now enter</p>
 <pre><code>aws configure
 </code></pre>
 
-<p>at the shell prompt. You will be prompted to enter your Access Key ID, your Secret Access Key, and your default region. <code>us-east-1</code> is the standard region for US customers, and it spans data centers on the East and West Coasts. However, if you or your input data live elsewhere, you may want to default to one of the other regions listed <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">here</a>. For example, we find that Rail is fastest at downloading and preprocessing data hosted by the <a href="http://www.ebi.ac.uk/ena">European Nucleotide Archive</a> in the <code>eu-west-1</code> region, which is in Ireland.</p>
+<p>at the shell prompt. You will be prompted to enter your Access Key ID, your Secret Access Key, a default region name, and a default output format. <code>us-east-1</code> is the standard region for US customers, and it spans data centers on the East and West Coasts. However, if you or your input data live elsewhere, you may want to default to one of the other regions listed <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">here</a>. For example, we find that Rail is fastest at downloading and preprocessing data hosted by the <a href="http://www.ebi.ac.uk/ena">European Nucleotide Archive</a> in the <code>eu-west-1</code> region, which is in Ireland. Finally, hitting enter to accept the default output format is fine.</p>
 <h3 id="creating-default-roles">Creating default roles</h3>
 <p>You must also set up <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html">IAM</a> roles for use with Elastic MapReduce. A discussion of IAM roles for Elastic MapReduce is available <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-iam-roles.html">here</a>. IAM is the way AWS securely gives users and services permission to access resources. The default set of permissions tends to work fine; if they don't for you, then you probably know enough about IAM to set up roles for Elastic MapReduce yourself. The typical way to get setting up roles over with is by entering</p>
 <pre><code>aws emr create-default-roles
@@ -262,7 +259,7 @@ version_number = 'devel'
 <p>Once you're done hacking Rail, run</p>
 <pre><code>sh /home/testuser/rail/make_it_rail.sh
 </code></pre>
-<p>A new installer <code>install-rail-rna-C</code> will appear in the <code>releases/</code> directory. Run it to install your modified version locally.</p>
+<p>A new installer <code>install_rail-rna-C</code> will appear in the <code>releases/</code> directory. Run it to install your modified version locally.</p>
 </li>
 </ol>
               
@@ -272,7 +269,7 @@ version_number = 'devel'
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../tutorial/" class="btn btn-neutral float-right" title="Tutorial"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../tutorial/" class="btn btn-neutral float-right" title="Tutorial">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -294,10 +291,10 @@ version_number = 'devel'
       </div>
 
     </section>
-
+    
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -308,6 +305,7 @@ version_number = 'devel'
       
     </span>
 </div>
+    <script src="../js/theme.js"></script>
 
 </body>
 </html>
